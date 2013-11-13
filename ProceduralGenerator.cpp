@@ -5,6 +5,6 @@
 //  Created by Greggory Scherer on 11/12/13.
 //  Copyright (c) 2013 Greggory Scherer. All rights reserved.
 
-//  Example class to demonstrate.
+//  If you did your pull correctly, you should see this comment.
 
 #include "ProceduralGenerator.h"
