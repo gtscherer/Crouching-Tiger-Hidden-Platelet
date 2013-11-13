@@ -1,0 +1,449 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		20DEC9E118330E0500DC3AE5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20DEC9E018330E0500DC3AE5 /* UIKit.framework */; };
+		20DEC9E318330E0500DC3AE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20DEC9E218330E0500DC3AE5 /* Foundation.framework */; };
+		20DEC9E518330E0500DC3AE5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20DEC9E418330E0500DC3AE5 /* CoreGraphics.framework */; };
+		20DEC9EB18330E0500DC3AE5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 20DEC9E918330E0500DC3AE5 /* InfoPlist.strings */; };
+		20DEC9ED18330E0500DC3AE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DEC9EC18330E0500DC3AE5 /* main.m */; };
+		20DEC9F118330E0500DC3AE5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DEC9F018330E0500DC3AE5 /* AppDelegate.m */; };
+		20DEC9F318330E0500DC3AE5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 20DEC9F218330E0500DC3AE5 /* Default.png */; };
+		20DEC9F518330E0500DC3AE5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20DEC9F418330E0500DC3AE5 /* Default@2x.png */; };
+		20DEC9F718330E0500DC3AE5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20DEC9F618330E0500DC3AE5 /* Default-568h@2x.png */; };
+		20DEC9FF18330E0500DC3AE5 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20DEC9FE18330E0500DC3AE5 /* SenTestingKit.framework */; };
+		20DECA0018330E0500DC3AE5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20DEC9E018330E0500DC3AE5 /* UIKit.framework */; };
+		20DECA0118330E0500DC3AE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20DEC9E218330E0500DC3AE5 /* Foundation.framework */; };
+		20DECA0918330E0500DC3AE5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 20DECA0718330E0500DC3AE5 /* InfoPlist.strings */; };
+		20DECA0C18330E0500DC3AE5 /* Crouching_Tiger_Hidden_PlateletTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DECA0B18330E0500DC3AE5 /* Crouching_Tiger_Hidden_PlateletTests.m */; };
+		20DECA1718330EAB00DC3AE5 /* ProceduralGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20DECA1518330EAB00DC3AE5 /* ProceduralGenerator.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		20DECA0218330E0500DC3AE5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 20DEC9D318330E0400DC3AE5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 20DEC9DB18330E0500DC3AE5;
+			remoteInfo = "Crouching-Tiger-Hidden-Platelet";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		20DEC9DC18330E0500DC3AE5 /* Crouching-Tiger-Hidden-Platelet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crouching-Tiger-Hidden-Platelet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		20DEC9E018330E0500DC3AE5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		20DEC9E218330E0500DC3AE5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		20DEC9E418330E0500DC3AE5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		20DEC9E818330E0500DC3AE5 /* Crouching-Tiger-Hidden-Platelet-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Crouching-Tiger-Hidden-Platelet-Info.plist"; sourceTree = "<group>"; };
+		20DEC9EA18330E0500DC3AE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		20DEC9EC18330E0500DC3AE5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		20DEC9EE18330E0500DC3AE5 /* Crouching-Tiger-Hidden-Platelet-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Crouching-Tiger-Hidden-Platelet-Prefix.pch"; sourceTree = "<group>"; };
+		20DEC9EF18330E0500DC3AE5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		20DEC9F018330E0500DC3AE5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		20DEC9F218330E0500DC3AE5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		20DEC9F418330E0500DC3AE5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		20DEC9F618330E0500DC3AE5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		20DEC9FD18330E0500DC3AE5 /* Crouching-Tiger-Hidden-PlateletTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Crouching-Tiger-Hidden-PlateletTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		20DEC9FE18330E0500DC3AE5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		20DECA0618330E0500DC3AE5 /* Crouching-Tiger-Hidden-PlateletTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Crouching-Tiger-Hidden-PlateletTests-Info.plist"; sourceTree = "<group>"; };
+		20DECA0818330E0500DC3AE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		20DECA0A18330E0500DC3AE5 /* Crouching_Tiger_Hidden_PlateletTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Crouching_Tiger_Hidden_PlateletTests.h; sourceTree = "<group>"; };
+		20DECA0B18330E0500DC3AE5 /* Crouching_Tiger_Hidden_PlateletTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Crouching_Tiger_Hidden_PlateletTests.m; sourceTree = "<group>"; };
+		20DECA1518330EAB00DC3AE5 /* ProceduralGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProceduralGenerator.cpp; sourceTree = "<group>"; };
+		20DECA1618330EAB00DC3AE5 /* ProceduralGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProceduralGenerator.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		20DEC9D918330E0500DC3AE5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20DEC9E118330E0500DC3AE5 /* UIKit.framework in Frameworks */,
+				20DEC9E318330E0500DC3AE5 /* Foundation.framework in Frameworks */,
+				20DEC9E518330E0500DC3AE5 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20DEC9F918330E0500DC3AE5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20DEC9FF18330E0500DC3AE5 /* SenTestingKit.framework in Frameworks */,
+				20DECA0018330E0500DC3AE5 /* UIKit.framework in Frameworks */,
+				20DECA0118330E0500DC3AE5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		20DEC9D118330E0400DC3AE5 = {
+			isa = PBXGroup;
+			children = (
+				20DECA1518330EAB00DC3AE5 /* ProceduralGenerator.cpp */,
+				20DECA1618330EAB00DC3AE5 /* ProceduralGenerator.h */,
+				20DEC9E618330E0500DC3AE5 /* Crouching-Tiger-Hidden-Platelet */,
+				20DECA0418330E0500DC3AE5 /* Crouching-Tiger-Hidden-PlateletTests */,
+				20DEC9DF18330E0500DC3AE5 /* Frameworks */,
+				20DEC9DD18330E0500DC3AE5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		20DEC9DD18330E0500DC3AE5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				20DEC9DC18330E0500DC3AE5 /* Crouching-Tiger-Hidden-Platelet.app */,
+				20DEC9FD18330E0500DC3AE5 /* Crouching-Tiger-Hidden-PlateletTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		20DEC9DF18330E0500DC3AE5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				20DEC9E018330E0500DC3AE5 /* UIKit.framework */,
+				20DEC9E218330E0500DC3AE5 /* Foundation.framework */,
+				20DEC9E418330E0500DC3AE5 /* CoreGraphics.framework */,
+				20DEC9FE18330E0500DC3AE5 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		20DEC9E618330E0500DC3AE5 /* Crouching-Tiger-Hidden-Platelet */ = {
+			isa = PBXGroup;
+			children = (
+				20DEC9EF18330E0500DC3AE5 /* AppDelegate.h */,
+				20DEC9F018330E0500DC3AE5 /* AppDelegate.m */,
+				20DEC9E718330E0500DC3AE5 /* Supporting Files */,
+			);
+			path = "Crouching-Tiger-Hidden-Platelet";
+			sourceTree = "<group>";
+		};
+		20DEC9E718330E0500DC3AE5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				20DEC9E818330E0500DC3AE5 /* Crouching-Tiger-Hidden-Platelet-Info.plist */,
+				20DEC9E918330E0500DC3AE5 /* InfoPlist.strings */,
+				20DEC9EC18330E0500DC3AE5 /* main.m */,
+				20DEC9EE18330E0500DC3AE5 /* Crouching-Tiger-Hidden-Platelet-Prefix.pch */,
+				20DEC9F218330E0500DC3AE5 /* Default.png */,
+				20DEC9F418330E0500DC3AE5 /* Default@2x.png */,
+				20DEC9F618330E0500DC3AE5 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		20DECA0418330E0500DC3AE5 /* Crouching-Tiger-Hidden-PlateletTests */ = {
+			isa = PBXGroup;
+			children = (
+				20DECA0A18330E0500DC3AE5 /* Crouching_Tiger_Hidden_PlateletTests.h */,
+				20DECA0B18330E0500DC3AE5 /* Crouching_Tiger_Hidden_PlateletTests.m */,
+				20DECA0518330E0500DC3AE5 /* Supporting Files */,
+			);
+			path = "Crouching-Tiger-Hidden-PlateletTests";
+			sourceTree = "<group>";
+		};
+		20DECA0518330E0500DC3AE5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				20DECA0618330E0500DC3AE5 /* Crouching-Tiger-Hidden-PlateletTests-Info.plist */,
+				20DECA0718330E0500DC3AE5 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		20DEC9DB18330E0500DC3AE5 /* Crouching-Tiger-Hidden-Platelet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 20DECA0F18330E0500DC3AE5 /* Build configuration list for PBXNativeTarget "Crouching-Tiger-Hidden-Platelet" */;
+			buildPhases = (
+				20DEC9D818330E0500DC3AE5 /* Sources */,
+				20DEC9D918330E0500DC3AE5 /* Frameworks */,
+				20DEC9DA18330E0500DC3AE5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Crouching-Tiger-Hidden-Platelet";
+			productName = "Crouching-Tiger-Hidden-Platelet";
+			productReference = 20DEC9DC18330E0500DC3AE5 /* Crouching-Tiger-Hidden-Platelet.app */;
+			productType = "com.apple.product-type.application";
+		};
+		20DEC9FC18330E0500DC3AE5 /* Crouching-Tiger-Hidden-PlateletTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 20DECA1218330E0500DC3AE5 /* Build configuration list for PBXNativeTarget "Crouching-Tiger-Hidden-PlateletTests" */;
+			buildPhases = (
+				20DEC9F818330E0500DC3AE5 /* Sources */,
+				20DEC9F918330E0500DC3AE5 /* Frameworks */,
+				20DEC9FA18330E0500DC3AE5 /* Resources */,
+				20DEC9FB18330E0500DC3AE5 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				20DECA0318330E0500DC3AE5 /* PBXTargetDependency */,
+			);
+			name = "Crouching-Tiger-Hidden-PlateletTests";
+			productName = "Crouching-Tiger-Hidden-PlateletTests";
+			productReference = 20DEC9FD18330E0500DC3AE5 /* Crouching-Tiger-Hidden-PlateletTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		20DEC9D318330E0400DC3AE5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Greggory Scherer";
+			};
+			buildConfigurationList = 20DEC9D618330E0400DC3AE5 /* Build configuration list for PBXProject "Crouching-Tiger-Hidden-Platelet" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 20DEC9D118330E0400DC3AE5;
+			productRefGroup = 20DEC9DD18330E0500DC3AE5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				20DEC9DB18330E0500DC3AE5 /* Crouching-Tiger-Hidden-Platelet */,
+				20DEC9FC18330E0500DC3AE5 /* Crouching-Tiger-Hidden-PlateletTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		20DEC9DA18330E0500DC3AE5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20DEC9EB18330E0500DC3AE5 /* InfoPlist.strings in Resources */,
+				20DEC9F318330E0500DC3AE5 /* Default.png in Resources */,
+				20DEC9F518330E0500DC3AE5 /* Default@2x.png in Resources */,
+				20DEC9F718330E0500DC3AE5 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20DEC9FA18330E0500DC3AE5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20DECA0918330E0500DC3AE5 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		20DEC9FB18330E0500DC3AE5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		20DEC9D818330E0500DC3AE5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20DEC9ED18330E0500DC3AE5 /* main.m in Sources */,
+				20DEC9F118330E0500DC3AE5 /* AppDelegate.m in Sources */,
+				20DECA1718330EAB00DC3AE5 /* ProceduralGenerator.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20DEC9F818330E0500DC3AE5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20DECA0C18330E0500DC3AE5 /* Crouching_Tiger_Hidden_PlateletTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		20DECA0318330E0500DC3AE5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 20DEC9DB18330E0500DC3AE5 /* Crouching-Tiger-Hidden-Platelet */;
+			targetProxy = 20DECA0218330E0500DC3AE5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		20DEC9E918330E0500DC3AE5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				20DEC9EA18330E0500DC3AE5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		20DECA0718330E0500DC3AE5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				20DECA0818330E0500DC3AE5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		20DECA0D18330E0500DC3AE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		20DECA0E18330E0500DC3AE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		20DECA1018330E0500DC3AE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Crouching-Tiger-Hidden-Platelet/Crouching-Tiger-Hidden-Platelet-Prefix.pch";
+				INFOPLIST_FILE = "Crouching-Tiger-Hidden-Platelet/Crouching-Tiger-Hidden-Platelet-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		20DECA1118330E0500DC3AE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Crouching-Tiger-Hidden-Platelet/Crouching-Tiger-Hidden-Platelet-Prefix.pch";
+				INFOPLIST_FILE = "Crouching-Tiger-Hidden-Platelet/Crouching-Tiger-Hidden-Platelet-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		20DECA1318330E0500DC3AE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Crouching-Tiger-Hidden-Platelet.app/Crouching-Tiger-Hidden-Platelet";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Crouching-Tiger-Hidden-Platelet/Crouching-Tiger-Hidden-Platelet-Prefix.pch";
+				INFOPLIST_FILE = "Crouching-Tiger-Hidden-PlateletTests/Crouching-Tiger-Hidden-PlateletTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		20DECA1418330E0500DC3AE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Crouching-Tiger-Hidden-Platelet.app/Crouching-Tiger-Hidden-Platelet";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Crouching-Tiger-Hidden-Platelet/Crouching-Tiger-Hidden-Platelet-Prefix.pch";
+				INFOPLIST_FILE = "Crouching-Tiger-Hidden-PlateletTests/Crouching-Tiger-Hidden-PlateletTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		20DEC9D618330E0400DC3AE5 /* Build configuration list for PBXProject "Crouching-Tiger-Hidden-Platelet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20DECA0D18330E0500DC3AE5 /* Debug */,
+				20DECA0E18330E0500DC3AE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		20DECA0F18330E0500DC3AE5 /* Build configuration list for PBXNativeTarget "Crouching-Tiger-Hidden-Platelet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20DECA1018330E0500DC3AE5 /* Debug */,
+				20DECA1118330E0500DC3AE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		20DECA1218330E0500DC3AE5 /* Build configuration list for PBXNativeTarget "Crouching-Tiger-Hidden-PlateletTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20DECA1318330E0500DC3AE5 /* Debug */,
+				20DECA1418330E0500DC3AE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 20DEC9D318330E0400DC3AE5 /* Project object */;
+}
