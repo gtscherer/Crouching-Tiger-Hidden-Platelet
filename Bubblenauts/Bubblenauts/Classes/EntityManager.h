@@ -16,13 +16,14 @@ class Entity;
 
 USING_NS_CC;
 
-class EntityManager
+class EntityManager : public CCObject
 {
 public:
     EntityManager();
     ~EntityManager();
     
-    static Entity* createEntity();
+    static EntityManager* entityManager(void);
+    Entity* createEntity(void);
     
 private:
     uint32_t generateNewEID();

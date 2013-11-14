@@ -7,6 +7,10 @@
 //
 
 #include "EntityManager.h"
+#include "Entity.h"
+
+#pragma mark -
+#pragma mark Initialization Functions
 
 EntityManager::EntityManager()
 {
@@ -32,10 +36,26 @@ EntityManager::~EntityManager()
     CC_SAFE_RELEASE_NULL(m_pComponentsByClass);
 }
 
+EntityManager* EntityManager::entityManager(void)
+{
+    EntityManager *manager = new EntityManager();
+    if (manager) {
+        manager->autorelease();
+        return manager;
+    }
+    CC_SAFE_DELETE(manager);
+    return NULL;
+}
+
+#pragma mark -
+#pragma mark Entity Creation
+
 Entity* EntityManager::createEntity()
 {
     // Create an entity with the eid from generateNewEID()
-    
+    uint32_t eID = this->generateNewEID();
+    Entity *entity = Entity::entityWithID(eID);
+    return entity;
 }
 
 uint32_t EntityManager::generateNewEID()

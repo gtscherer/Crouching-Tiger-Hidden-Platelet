@@ -18,8 +18,6 @@ protected:
     // here we need some refs for some shit that needs to be done
     // this will include an entity manager and
 public:
-    System() = default;
-    
     virtual void update(float dt);
 };
 
