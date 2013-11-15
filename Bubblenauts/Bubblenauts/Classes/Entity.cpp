@@ -28,7 +28,7 @@
 //      This returns an autoreleased object that must be retained by the object
 //          that created this autoreleased object!
 //      Of course, we don't HAVE to do the init() method, but it makes things
-//          a little easier for us!
+//          a little easier for us to debug!
 
 #include "Entity.h"
 
@@ -40,6 +40,11 @@ Entity::Entity()
 Entity::~Entity()
 {
     
+}
+
+uint32_t Entity::getEID()
+{
+    return m_eID;
 }
 
 Entity* Entity::entityWithID(uint32_t eID)

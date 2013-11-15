@@ -283,6 +283,7 @@
 		BA86AB481832B9C900680624 /* System.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA86AB461832B9C900680624 /* System.cpp */; };
 		BA86AB4D1832C46400680624 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA86AB4B1832C46400680624 /* Entity.cpp */; };
 		BA86AB501832F1CA00680624 /* EntityManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA86AB4E1832F1CA00680624 /* EntityManager.cpp */; };
+		BAC2E113183569A2004410BD /* Component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAC2E111183569A2004410BD /* Component.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -882,6 +883,8 @@
 		BA86AB4C1832C46400680624 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Entity.h; path = Classes/Entity.h; sourceTree = "<group>"; };
 		BA86AB4E1832F1CA00680624 /* EntityManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EntityManager.cpp; path = Classes/EntityManager.cpp; sourceTree = "<group>"; };
 		BA86AB4F1832F1CA00680624 /* EntityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityManager.h; path = Classes/EntityManager.h; sourceTree = "<group>"; };
+		BAC2E111183569A2004410BD /* Component.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Component.cpp; path = Classes/Component.cpp; sourceTree = "<group>"; };
+		BAC2E112183569A2004410BD /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Component.h; path = Classes/Component.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1031,7 +1034,8 @@
 				BA86A9B11832AD2200680624 /* touch_dispatcher */,
 			);
 			name = cocos2dx;
-			sourceTree = "<group>";
+			path = Bubblenauts;
+			sourceTree = SOURCE_ROOT;
 		};
 		BA86A7CD1832AD1F00680624 /* actions */ = {
 			isa = PBXGroup;
@@ -2064,7 +2068,8 @@
 				BA86AB321832AD2500680624 /* ios */,
 			);
 			name = libwebsockets;
-			sourceTree = "<group>";
+			path = Bubblenauts;
+			sourceTree = SOURCE_ROOT;
 		};
 		BA86AB321832AD2500680624 /* ios */ = {
 			isa = PBXGroup;
@@ -2106,11 +2111,13 @@
 				BA86AB3C1832AD2500680624 /* AppDelegate.cpp */,
 				BA86AB3E1832AD2500680624 /* HelloWorldScene.h */,
 				BA86AB3F1832AD2500680624 /* HelloWorldScene.cpp */,
+				BAC2E11018356980004410BD /* Components */,
 				BA86AB4A1832C12D00680624 /* Framework */,
 				BA86AB491832C03000680624 /* Systems */,
 			);
 			name = Classes;
-			sourceTree = "<group>";
+			path = Bubblenauts;
+			sourceTree = SOURCE_ROOT;
 		};
 		BA86AB491832C03000680624 /* Systems */ = {
 			isa = PBXGroup;
@@ -2130,6 +2137,15 @@
 				BA86AB4E1832F1CA00680624 /* EntityManager.cpp */,
 			);
 			name = Framework;
+			sourceTree = "<group>";
+		};
+		BAC2E11018356980004410BD /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				BAC2E112183569A2004410BD /* Component.h */,
+				BAC2E111183569A2004410BD /* Component.cpp */,
+			);
+			name = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2457,6 +2473,7 @@
 				BA86A9A61832AD2200680624 /* CCTMXLayer.cpp in Sources */,
 				BA86A9E51832AD2300680624 /* CCBReader.cpp in Sources */,
 				BA86AA3E1832AD2300680624 /* CCControlColourPicker.cpp in Sources */,
+				BAC2E113183569A2004410BD /* Component.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2534,11 +2551,21 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Bubblenauts/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				HEADER_SEARCH_PATHS = (
+					"\"$(PROJECT_NAME)/libs/cocos2dx/kazmath/include\"",
+					"\"$(PROJECT_NAME)/libs/cocos2dx\"",
+					"\"$(PROJECT_NAME)/libs/CocosDenshion/include\"",
+					"\"$(PROJECT_NAME)/libs/extensions\"",
+					"\"$(PROJECT_NAME)/libs/cocos2dx/include\"",
+					"\"$(PROJECT_NAME)/libs/cocos2dx/platform/third_party/ios\"",
+					"\"$(PROJECT_NAME)/libs/cocos2dx/platform/ios\"",
+				);
 				INFOPLIST_FILE = Bubblenauts/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/bret/Desktop/Crouching-Tiger-Hidden-Platelet/Bubblenauts/Bubblenauts/libs/cocos2dx/platform/third_party/ios/libraries",
-					"/Users/bret/Desktop/Crouching-Tiger-Hidden-Platelet/Bubblenauts/Bubblenauts/libs/libwebsockets/ios/lib",
+					"$(SRCROOT)/Bubblenauts/libs/cocos2dx/platform/third_party/ios/libraries",
+					"$(SRCROOT)/Bubblenauts/libs/libwebsockets/ios/lib",
 				);
 				OTHER_LDFLAGS = (
 					"-lxml2",
@@ -2560,11 +2587,21 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Bubblenauts/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				HEADER_SEARCH_PATHS = (
+					"\"$(PROJECT_NAME)/libs/cocos2dx/kazmath/include\"",
+					"\"$(PROJECT_NAME)/libs/cocos2dx\"",
+					"\"$(PROJECT_NAME)/libs/CocosDenshion/include\"",
+					"\"$(PROJECT_NAME)/libs/extensions\"",
+					"\"$(PROJECT_NAME)/libs/cocos2dx/include\"",
+					"\"$(PROJECT_NAME)/libs/cocos2dx/platform/third_party/ios\"",
+					"\"$(PROJECT_NAME)/libs/cocos2dx/platform/ios\"",
+				);
 				INFOPLIST_FILE = Bubblenauts/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/bret/Desktop/Crouching-Tiger-Hidden-Platelet/Bubblenauts/Bubblenauts/libs/cocos2dx/platform/third_party/ios/libraries",
-					"/Users/bret/Desktop/Crouching-Tiger-Hidden-Platelet/Bubblenauts/Bubblenauts/libs/libwebsockets/ios/lib",
+					"$(SRCROOT)/Bubblenauts/libs/cocos2dx/platform/third_party/ios/libraries",
+					"$(SRCROOT)/Bubblenauts/libs/libwebsockets/ios/lib",
 				);
 				OTHER_LDFLAGS = (
 					"-lxml2",

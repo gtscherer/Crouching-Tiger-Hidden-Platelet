@@ -8,6 +8,7 @@
 
 #include "EntityManager.h"
 #include "Entity.h"
+#include "Component.h"
 
 #pragma mark -
 #pragma mark Initialization Functions
@@ -55,6 +56,10 @@ Entity* EntityManager::createEntity()
     // Create an entity with the eid from generateNewEID()
     uint32_t eID = this->generateNewEID();
     Entity *entity = Entity::entityWithID(eID);
+    
+    CCInteger *wrap = CCInteger::create(eID);
+    m_pEntities->addObject(wrap);
+    
     return entity;
 }
 
@@ -77,6 +82,45 @@ uint32_t EntityManager::generateNewEID()
         return 0;
     }
 }
+
+#pragma mark -
+#pragma mark Adding and Accessing Components
+
+void EntityManager::addComponentWithNameToEntity(Component* comp,
+                                                 std::string compClass,
+                                                 Entity* ent)
+{
+    // So the structure is like this - our class member m_pComponentsByClass
+    //  contains objects, where the keys are the names of components classes.
+    // The object returned by querying it with a key is another dictionary.
+    //  This sub-dictionary contains actual component objects, with the entity
+    //  ID as the key for each
+    //
+    // So here is a sample structure (where anything in '' is a key):
+    //
+    // m_pComponentsByClass : {
+    //      'HealthComponent' : {
+    //          '1' : Component,
+    //          '2' : Component
+    //      },
+    //      'VelocityComponent' : {
+    //          '1' : Component
+    //      }
+    // }
+    CCDictionary *components = (CCDictionary*)m_pComponentsByClass->objectForKey(compClass);
+    if (!components) {
+        components = CCDictionary::create();
+        m_pComponentsByClass->setObject(components, compClass);
+    }
+    
+    int entID = ent->getEID();
+    CCString *keyStr = CCString::createWithFormat("%d", entID);
+    components->setObject(comp, keyStr->m_sString);
+}
+
+
+
+
 
 
 

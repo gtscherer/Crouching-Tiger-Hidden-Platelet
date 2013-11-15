@@ -10,9 +10,11 @@
 #define __Bubblenauts__EntityManager__
 
 #include <iostream>
+#include <string>
 #include "cocos2d.h"
 
 class Entity;
+class Component;
 
 USING_NS_CC;
 
@@ -25,6 +27,8 @@ public:
     static EntityManager* entityManager(void);
     Entity* createEntity(void);
     
+    void addComponentWithNameToEntity(Component*, std::string, Entity*);
+    Component* getComponentTypeFromEntity(std::string, Entity*);
 private:
     uint32_t generateNewEID();
     

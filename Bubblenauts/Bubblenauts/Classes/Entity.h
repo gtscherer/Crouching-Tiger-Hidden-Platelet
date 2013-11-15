@@ -20,12 +20,13 @@ public:
     Entity();
     virtual ~Entity();
     
-    static Entity* entityWithID(uint32_t eID);
+    static Entity* entityWithID(uint32_t);
+    uint32_t getEID(void);
     
 private:
     uint32_t m_eID;
     
-    bool initWithID(uint32_t eID);
+    bool initWithID(uint32_t);
 };
 
 #endif /* defined(__Bubblenauts__Entity__) */
