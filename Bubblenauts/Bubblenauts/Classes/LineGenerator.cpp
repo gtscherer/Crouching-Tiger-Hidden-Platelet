@@ -11,14 +11,13 @@
 #include <queue>
 #include <list>
 #include <map>
-#include <pair>
-#include <random>
+#include <stdlib.h>
 #include <time.h>
 
 #define Probability_To_Generate double
 #define Line_Length unsigned
 #define Entity_Name int
-#define EntityProbabilityDistribution std::map <Entity_Name, Probability_To_Generate, less<mapped_type> >
+#define EntityProbabilityDistribution std::map <Entity_Name, Probability_To_Generate, less<Probability_To_Generate> >
 #define Line std::list <Entity>
 #define LineGroup std::queue <Line>
 
@@ -52,11 +51,18 @@ namespace ProceduralGenerator
 
 	LineGenerator::LineGenerator(Line_Length lineLength, EntityManager& entityManager) : lineLength(lineLength), entityManager(entityManager)
 	{
-		this->primaryObjectsProbabilityDistribution = { { Air, AirProbability } , { Spike, SpikeUnderPlatformProbability } };
-		this->secondaryObjectsProbabilityDistribution = { { Platform, PlatformProbability }, { Bubble, BubbleProbability }, { Suds, SudsProbability } };
-		this->tertiaryObjectsProbabilityDistribution = { { Spike, SpikeAbovePlatformProbability }, { Suds, SudGroupingProbability }, { Fan, FanProbability } };
+		this->primaryObjectsProbabilityDistribution[Air] = AirProbability;
+        this->primaryObjectsProbabilityDistribution[Spike] = SpikeUnderPlatformProbability;
+        
+		this->secondaryObjectsProbabilityDistribution[Platform] = PlatformProbability;
+        this->secondaryObjectsProbabilityDistribution[Bubble] = BubbleProbability;
+        this->secondaryObjectsProbabilityDistribution[Suds] = SudsProbability;
+        
+		this->tertiaryObjectsProbabilityDistribution[Spike] = SpikeAbovePlatformProbability;
+        this->tertiaryObjectsProbabilityDistribution[Suds] = SudGroupingProbability;
+        this->tertiaryObjectsProbabilityDistribution[Fan] = FanProbability;
 		//Initialize random number generator with seed once
-		std::srand(time(0));
+        std::srand(time(0));
 	}
 	double LineGenerator::generateRandomNumber(int min, int max)
 	{
