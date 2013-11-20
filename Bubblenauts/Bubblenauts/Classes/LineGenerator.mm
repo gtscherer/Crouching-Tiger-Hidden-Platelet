@@ -17,7 +17,6 @@
 #define Probability_To_Generate double
 #define Line_Length unsigned
 #define Entity_Name int
-#define EntityProbabilityDistribution std::map <Entity_Name, Probability_To_Generate, less<Probability_To_Generate> >
 #define Line std::list <Entity>
 #define LineGroup std::queue <Line>
 
@@ -87,7 +86,7 @@ namespace ProceduralGenerator
 
 	}
 
-	Entity LineGenerator::initializeEntityObject(Entity_Name entityName)
+	Entity* LineGenerator::initializeEntityObject(Entity_Name entityName)
 	{
 		switch(entityName)
 		{

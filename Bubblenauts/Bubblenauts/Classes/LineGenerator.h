@@ -44,7 +44,7 @@ private:
     Line_Length lineLength;
     EntityManager& entityManager;
 
-    Entity initializeEntityObject(Entity_Name);
+    Entity* initializeEntityObject(Entity_Name);
     Entity_Name generatePrimaryEntity();
     Entity_Name generateSecondaryEntity();
     Entity_Name generateTertiaryEntity();

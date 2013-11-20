@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		200CFE24183D505D00BD5F7F /* LineGenerator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 200CFE23183D505D00BD5F7F /* LineGenerator.mm */; };
+		200CFE25183D505D00BD5F7F /* LineGenerator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 200CFE23183D505D00BD5F7F /* LineGenerator.mm */; };
 		40A8D2BD183C66A1008F694F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A8D2BC183C66A1008F694F /* QuartzCore.framework */; };
 		40A8D2BF183C66A1008F694F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A8D2BE183C66A1008F694F /* OpenGLES.framework */; };
 		40A8D2C1183C66A1008F694F /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A8D2C0183C66A1008F694F /* OpenAL.framework */; };
@@ -287,6 +289,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		200CFE22183D505D00BD5F7F /* LineGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LineGenerator.h; path = Classes/LineGenerator.h; sourceTree = "<group>"; };
+		200CFE23183D505D00BD5F7F /* LineGenerator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = LineGenerator.mm; path = Classes/LineGenerator.mm; sourceTree = "<group>"; };
 		40A8D2B9183C66A1008F694F /* Bubblenauts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bubblenauts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40A8D2BC183C66A1008F694F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		40A8D2BE183C66A1008F694F /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -623,6 +627,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		200CFE26183D506200BD5F7F /* Procedural Generator */ = {
+			isa = PBXGroup;
+			children = (
+				200CFE22183D505D00BD5F7F /* LineGenerator.h */,
+				200CFE23183D505D00BD5F7F /* LineGenerator.mm */,
+			);
+			name = "Procedural Generator";
+			sourceTree = "<group>";
+		};
 		40A8D2B0183C66A1008F694F = {
 			isa = PBXGroup;
 			children = (
@@ -663,6 +676,7 @@
 		40A8D2D0183C66A1008F694F /* Bubblenauts */ = {
 			isa = PBXGroup;
 			children = (
+				200CFE26183D506200BD5F7F /* Procedural Generator */,
 				40A8D461183C66A2008F694F /* AppDelegate.h */,
 				40A8D462183C66A2008F694F /* AppDelegate.m */,
 				40A8D464183C66A2008F694F /* HelloWorldLayer.h */,
@@ -1234,6 +1248,7 @@
 				40A8D348183C66A1008F694F /* CCLabelBMFont.m in Sources */,
 				40A8D3F5183C66A2008F694F /* ccCArray.m in Sources */,
 				40A8D41F183C66A2008F694F /* CDXMacOSXSupport.m in Sources */,
+				200CFE24183D505D00BD5F7F /* LineGenerator.mm in Sources */,
 				40A8D413183C66A2008F694F /* ZipUtils.m in Sources */,
 				40A8D305183C66A1008F694F /* CCActionManager.m in Sources */,
 				40A8D36D183C66A1008F694F /* CCParticleSystemQuad.m in Sources */,
@@ -1388,6 +1403,7 @@
 				40A8D590183C6CDD008F694F /* CCParticleSystemQuad.m in Sources */,
 				40A8D591183C6CDD008F694F /* CCPhysicsDebugNode.m in Sources */,
 				40A8D592183C6CDD008F694F /* CCPhysicsSprite.mm in Sources */,
+				200CFE25183D505D00BD5F7F /* LineGenerator.mm in Sources */,
 				40A8D593183C6CDD008F694F /* CCProgressTimer.m in Sources */,
 				40A8D594183C6CDD008F694F /* CCRenderTexture.m in Sources */,
 				40A8D595183C6CDD008F694F /* CCScene.m in Sources */,
