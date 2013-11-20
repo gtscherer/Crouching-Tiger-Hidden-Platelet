@@ -266,6 +266,14 @@
 		40A8D5D0183C6CDD008F694F /* mat4stack.c in Sources */ = {isa = PBXBuildFile; fileRef = 40A8D444183C66A2008F694F /* mat4stack.c */; };
 		40A8D5D1183C6CDD008F694F /* matrix.c in Sources */ = {isa = PBXBuildFile; fileRef = 40A8D446183C66A2008F694F /* matrix.c */; };
 		40A8D5D2183C6CDD008F694F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A8D45F183C66A2008F694F /* main.m */; };
+		40A8D61F183C7659008F694F /* Space-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 40A8D61D183C7659008F694F /* Space-hd.png */; };
+		40A8D620183C7659008F694F /* Space-iphone5hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 40A8D61E183C7659008F694F /* Space-iphone5hd.png */; };
+		40A8D623183C7C88008F694F /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A8D622183C7C88008F694F /* Entity.m */; };
+		40A8D624183C7C88008F694F /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A8D622183C7C88008F694F /* Entity.m */; };
+		40A8D627183C7DB9008F694F /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A8D626183C7DB9008F694F /* Component.m */; };
+		40A8D628183C7DB9008F694F /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A8D626183C7DB9008F694F /* Component.m */; };
+		40A8D62B183C7E3F008F694F /* EntityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A8D62A183C7E3F008F694F /* EntityManager.m */; };
+		40A8D62C183C7E3F008F694F /* EntityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A8D62A183C7E3F008F694F /* EntityManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -566,6 +574,14 @@
 		40A8D551183C6B7C008F694F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		40A8D553183C6B7C008F694F /* BubblenautsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BubblenautsTests.m; sourceTree = "<group>"; };
 		40A8D555183C6B7C008F694F /* BubblenautsTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BubblenautsTests-Prefix.pch"; sourceTree = "<group>"; };
+		40A8D61D183C7659008F694F /* Space-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Space-hd.png"; sourceTree = "<group>"; };
+		40A8D61E183C7659008F694F /* Space-iphone5hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Space-iphone5hd.png"; sourceTree = "<group>"; };
+		40A8D621183C7C88008F694F /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Entity.h; path = Framework/Entity.h; sourceTree = "<group>"; };
+		40A8D622183C7C88008F694F /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Entity.m; path = Framework/Entity.m; sourceTree = "<group>"; };
+		40A8D625183C7DB9008F694F /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Component.h; path = Components/Component.h; sourceTree = "<group>"; };
+		40A8D626183C7DB9008F694F /* Component.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Component.m; path = Components/Component.m; sourceTree = "<group>"; };
+		40A8D629183C7E3F008F694F /* EntityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityManager.h; path = Framework/EntityManager.h; sourceTree = "<group>"; };
+		40A8D62A183C7E3F008F694F /* EntityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityManager.m; path = Framework/EntityManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -653,6 +669,9 @@
 				40A8D465183C66A2008F694F /* HelloWorldLayer.m */,
 				40A8D467183C66A2008F694F /* IntroLayer.h */,
 				40A8D468183C66A2008F694F /* IntroLayer.m */,
+				40A8D615183C7479008F694F /* Framework */,
+				40A8D616183C747F008F694F /* Systems */,
+				40A8D614183C7471008F694F /* Components */,
 				40A8D2D1183C66A1008F694F /* Resources */,
 				40A8D2E9183C66A1008F694F /* libs */,
 				40A8D45D183C66A2008F694F /* Supporting Files */,
@@ -663,6 +682,8 @@
 		40A8D2D1183C66A1008F694F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				40A8D61D183C7659008F694F /* Space-hd.png */,
+				40A8D61E183C7659008F694F /* Space-iphone5hd.png */,
 				40A8D2D2183C66A1008F694F /* Default.png */,
 				40A8D2D4183C66A1008F694F /* Default@2x.png */,
 				40A8D2D6183C66A1008F694F /* Default-568h@2x.png */,
@@ -1060,6 +1081,33 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		40A8D614183C7471008F694F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				40A8D625183C7DB9008F694F /* Component.h */,
+				40A8D626183C7DB9008F694F /* Component.m */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		40A8D615183C7479008F694F /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				40A8D621183C7C88008F694F /* Entity.h */,
+				40A8D622183C7C88008F694F /* Entity.m */,
+				40A8D629183C7E3F008F694F /* EntityManager.h */,
+				40A8D62A183C7E3F008F694F /* EntityManager.m */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
+		40A8D616183C747F008F694F /* Systems */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Systems;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1137,8 +1185,10 @@
 			files = (
 				40A8D2E3183C66A1008F694F /* Icon.png in Resources */,
 				40A8D441183C66A2008F694F /* ChangeLog in Resources */,
+				40A8D61F183C7659008F694F /* Space-hd.png in Resources */,
 				40A8D2D5183C66A1008F694F /* Default@2x.png in Resources */,
 				40A8D2DF183C66A1008F694F /* Icon-Small.png in Resources */,
+				40A8D620183C7659008F694F /* Space-iphone5hd.png in Resources */,
 				40A8D2DB183C66A1008F694F /* Icon-72.png in Resources */,
 				40A8D2D3183C66A1008F694F /* Default.png in Resources */,
 				40A8D2DD183C66A1008F694F /* Icon-Small-50.png in Resources */,
@@ -1220,7 +1270,9 @@
 				40A8D39E183C66A2008F694F /* CCSpriteFrame.m in Sources */,
 				40A8D30B183C66A1008F694F /* CCActionProgressTimer.m in Sources */,
 				40A8D2ED183C66A1008F694F /* CCAction.m in Sources */,
+				40A8D623183C7C88008F694F /* Entity.m in Sources */,
 				40A8D425183C66A2008F694F /* CocosDenshion.m in Sources */,
+				40A8D627183C7DB9008F694F /* Component.m in Sources */,
 				40A8D3AA183C66A2008F694F /* CCTextureCache.m in Sources */,
 				40A8D44D183C66A2008F694F /* neon_matrix_impl.c in Sources */,
 				40A8D37D183C66A1008F694F /* CCScene.m in Sources */,
@@ -1252,6 +1304,7 @@
 				40A8D302183C66A1008F694F /* CCActionInterval.m in Sources */,
 				40A8D370183C66A1008F694F /* CCPhysicsDebugNode.m in Sources */,
 				40A8D2F6183C66A1008F694F /* CCActionEase.m in Sources */,
+				40A8D62B183C7E3F008F694F /* EntityManager.m in Sources */,
 				40A8D333183C66A1008F694F /* CCFontDefinition.m in Sources */,
 				40A8D373183C66A1008F694F /* CCPhysicsSprite.mm in Sources */,
 				40A8D457183C66A2008F694F /* vec2.c in Sources */,
@@ -1285,6 +1338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40A8D554183C6B7C008F694F /* BubblenautsTests.m in Sources */,
+				40A8D628183C7DB9008F694F /* Component.m in Sources */,
 				40A8D563183C6CDD008F694F /* AppDelegate.m in Sources */,
 				40A8D564183C6CDD008F694F /* HelloWorldLayer.m in Sources */,
 				40A8D565183C6CDD008F694F /* IntroLayer.m in Sources */,
@@ -1296,6 +1350,7 @@
 				40A8D56B183C6CDD008F694F /* CCActionGrid3D.m in Sources */,
 				40A8D56C183C6CDD008F694F /* CCActionInstant.m in Sources */,
 				40A8D56D183C6CDD008F694F /* CCActionInterval.m in Sources */,
+				40A8D624183C7C88008F694F /* Entity.m in Sources */,
 				40A8D56E183C6CDD008F694F /* CCActionManager.m in Sources */,
 				40A8D56F183C6CDD008F694F /* CCActionPageTurn3D.m in Sources */,
 				40A8D570183C6CDD008F694F /* CCActionProgressTimer.m in Sources */,
@@ -1344,6 +1399,7 @@
 				40A8D59B183C6CDD008F694F /* CCSpriteFrame.m in Sources */,
 				40A8D59C183C6CDD008F694F /* CCSpriteFrameCache.m in Sources */,
 				40A8D59D183C6CDD008F694F /* CCTexture2D.m in Sources */,
+				40A8D62C183C7E3F008F694F /* EntityManager.m in Sources */,
 				40A8D59E183C6CDD008F694F /* CCTextureAtlas.m in Sources */,
 				40A8D59F183C6CDD008F694F /* CCTextureCache.m in Sources */,
 				40A8D5A0183C6CDD008F694F /* CCTexturePVR.m in Sources */,
@@ -1426,6 +1482,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1437,7 +1494,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1447,6 +1504,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1456,7 +1514,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1476,6 +1534,7 @@
 				GCC_PREFIX_HEADER = Bubblenauts/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"Bubblenauts/libs/kazmath/include\"";
 				INFOPLIST_FILE = Bubblenauts/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3",
@@ -1499,6 +1558,7 @@
 				GCC_PREFIX_HEADER = Bubblenauts/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"Bubblenauts/libs/kazmath/include\"";
 				INFOPLIST_FILE = Bubblenauts/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3",
