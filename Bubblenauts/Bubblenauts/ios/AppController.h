@@ -12,7 +12,7 @@
     UIWindow *window;
     RootViewController    *viewController;
 }
-
+//jeff is gona mess this up
 @property (nonatomic, retain) UIWindow *window;
 @property (nonatomic, retain) RootViewController *viewController;
 
