@@ -561,7 +561,7 @@
 		40A8D467183C66A2008F694F /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		40A8D468183C66A2008F694F /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
 		40A8D548183C6B7C008F694F /* BubblenautsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BubblenautsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		40A8D549183C6B7C008F694F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/Developer/Library/Frameworks/XCTest.framework; sourceTree = "<absolute>"; };
+		40A8D549183C6B7C008F694F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = /Applications/Xcode.app/Contents/Developer/Library/Frameworks/XCTest.framework; sourceTree = "<absolute>"; };
 		40A8D54F183C6B7C008F694F /* BubblenautsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BubblenautsTests-Info.plist"; sourceTree = "<group>"; };
 		40A8D551183C6B7C008F694F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		40A8D553183C6B7C008F694F /* BubblenautsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BubblenautsTests.m; sourceTree = "<group>"; };
@@ -1615,6 +1615,7 @@
 				40A8D46E183C66A2008F694F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		40A8D558183C6B7C008F694F /* Build configuration list for PBXNativeTarget "BubblenautsTests" */ = {
 			isa = XCConfigurationList;
@@ -1623,6 +1624,7 @@
 				40A8D55A183C6B7C008F694F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
