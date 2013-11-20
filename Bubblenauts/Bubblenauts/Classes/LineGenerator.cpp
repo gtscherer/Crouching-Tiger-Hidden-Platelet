@@ -64,6 +64,9 @@ namespace ProceduralGenerator
 		//Initialize random number generator with seed once
         std::srand(time(0));
 	}
+    
+    LineGenerator::~LineGenerator() {}
+    
 	double LineGenerator::generateRandomNumber(int min, int max)
 	{
 		return static_cast<double>((std::rand()) / (max + 1)) * (max - min + 1) + min;

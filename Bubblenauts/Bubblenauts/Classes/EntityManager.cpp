@@ -90,6 +90,7 @@ void EntityManager::addComponentWithNameToEntity(Component* comp,
                                                  std::string compClass,
                                                  Entity* ent)
 {
+    
     // So the structure is like this - our class member m_pComponentsByClass
     //  contains objects, where the keys are the names of components classes.
     // The object returned by querying it with a key is another dictionary.
@@ -107,6 +108,7 @@ void EntityManager::addComponentWithNameToEntity(Component* comp,
     //          '1' : Component
     //      }
     // }
+    
     CCDictionary *components = (CCDictionary*)m_pComponentsByClass->objectForKey(compClass);
     if (!components) {
         components = CCDictionary::create();

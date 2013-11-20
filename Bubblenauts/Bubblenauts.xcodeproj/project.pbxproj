@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		207B68E91838099E0071215F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 207B68E81838099E0071215F /* Default-568h@2x.png */; };
 		20AC21681837EC6C00ADB290 /* LineGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20AC21661837EC6C00ADB290 /* LineGenerator.cpp */; };
 		BA86A79A1832AD1E00680624 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA86A7991832AD1E00680624 /* QuartzCore.framework */; };
 		BA86A79C1832AD1E00680624 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA86A79B1832AD1E00680624 /* OpenGLES.framework */; };
@@ -289,7 +288,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		207B68E81838099E0071215F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		20AC21661837EC6C00ADB290 /* LineGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LineGenerator.cpp; path = Classes/LineGenerator.cpp; sourceTree = "<group>"; };
 		20AC21671837EC6C00ADB290 /* LineGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LineGenerator.h; path = Classes/LineGenerator.h; sourceTree = "<group>"; };
 		BA86A7961832AD1E00680624 /* Bubblenauts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bubblenauts.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -926,7 +924,6 @@
 		BA86A78D1832AD1E00680624 = {
 			isa = PBXGroup;
 			children = (
-				207B68E81838099E0071215F /* Default-568h@2x.png */,
 				BA86A7A91832AD1E00680624 /* Bubblenauts */,
 				BA86A7981832AD1E00680624 /* Frameworks */,
 				BA86A7971832AD1E00680624 /* Products */,
@@ -2219,7 +2216,6 @@
 				BA86A7AC1832AD1F00680624 /* CloseNormal.png in Resources */,
 				BA86A7B81832AD1F00680624 /* Icon-Small.png in Resources */,
 				BA86A7B41832AD1F00680624 /* Icon-72.png in Resources */,
-				207B68E91838099E0071215F /* Default-568h@2x.png in Resources */,
 				BA86A7B21832AD1F00680624 /* HelloWorld.png in Resources */,
 				BA86A7B61832AD1F00680624 /* Icon-Small-50.png in Resources */,
 				BA86A7C01832AD1F00680624 /* iTunesArtwork in Resources */,
