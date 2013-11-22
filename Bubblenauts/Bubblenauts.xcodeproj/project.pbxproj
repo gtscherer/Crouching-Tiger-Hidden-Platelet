@@ -274,6 +274,16 @@
 		40A8D628183C7DB9008F694F /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A8D626183C7DB9008F694F /* Component.m */; };
 		40A8D62B183C7E3F008F694F /* EntityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A8D62A183C7E3F008F694F /* EntityManager.m */; };
 		40A8D62C183C7E3F008F694F /* EntityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A8D62A183C7E3F008F694F /* EntityManager.m */; };
+		40A8D62F183D41E2008F694F /* GravityComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A8D62E183D41E2008F694F /* GravityComponent.m */; };
+		40A8D630183D41E2008F694F /* GravityComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A8D62E183D41E2008F694F /* GravityComponent.m */; };
+		40A8D633183D4204008F694F /* RenderComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A8D632183D4204008F694F /* RenderComponent.m */; };
+		40A8D634183D4204008F694F /* RenderComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A8D632183D4204008F694F /* RenderComponent.m */; };
+		40F487B9183D4DAD00EBECE4 /* System.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F487B8183D4DAD00EBECE4 /* System.m */; };
+		40F487BA183D4DAD00EBECE4 /* System.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F487B8183D4DAD00EBECE4 /* System.m */; };
+		40F487BD183D748900EBECE4 /* enemy1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 40F487BB183D748900EBECE4 /* enemy1-hd.png */; };
+		40F487BE183D748900EBECE4 /* enemy2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 40F487BC183D748900EBECE4 /* enemy2-hd.png */; };
+		40F487C1183D78C000EBECE4 /* EntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F487C0183D78C000EBECE4 /* EntityFactory.m */; };
+		40F487C2183D78C000EBECE4 /* EntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F487C0183D78C000EBECE4 /* EntityFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -582,6 +592,16 @@
 		40A8D626183C7DB9008F694F /* Component.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Component.m; path = Components/Component.m; sourceTree = "<group>"; };
 		40A8D629183C7E3F008F694F /* EntityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityManager.h; path = Framework/EntityManager.h; sourceTree = "<group>"; };
 		40A8D62A183C7E3F008F694F /* EntityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityManager.m; path = Framework/EntityManager.m; sourceTree = "<group>"; };
+		40A8D62D183D41E2008F694F /* GravityComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GravityComponent.h; path = Components/GravityComponent.h; sourceTree = "<group>"; };
+		40A8D62E183D41E2008F694F /* GravityComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GravityComponent.m; path = Components/GravityComponent.m; sourceTree = "<group>"; };
+		40A8D631183D4204008F694F /* RenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderComponent.h; path = Components/RenderComponent.h; sourceTree = "<group>"; };
+		40A8D632183D4204008F694F /* RenderComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderComponent.m; path = Components/RenderComponent.m; sourceTree = "<group>"; };
+		40F487B7183D4DAD00EBECE4 /* System.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System.h; path = Systems/System.h; sourceTree = "<group>"; };
+		40F487B8183D4DAD00EBECE4 /* System.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System.m; path = Systems/System.m; sourceTree = "<group>"; };
+		40F487BB183D748900EBECE4 /* enemy1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "enemy1-hd.png"; sourceTree = "<group>"; };
+		40F487BC183D748900EBECE4 /* enemy2-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "enemy2-hd.png"; sourceTree = "<group>"; };
+		40F487BF183D78C000EBECE4 /* EntityFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityFactory.h; sourceTree = "<group>"; };
+		40F487C0183D78C000EBECE4 /* EntityFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -682,6 +702,8 @@
 		40A8D2D1183C66A1008F694F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				40F487BB183D748900EBECE4 /* enemy1-hd.png */,
+				40F487BC183D748900EBECE4 /* enemy2-hd.png */,
 				40A8D61D183C7659008F694F /* Space-hd.png */,
 				40A8D61E183C7659008F694F /* Space-iphone5hd.png */,
 				40A8D2D2183C66A1008F694F /* Default.png */,
@@ -1086,6 +1108,10 @@
 			children = (
 				40A8D625183C7DB9008F694F /* Component.h */,
 				40A8D626183C7DB9008F694F /* Component.m */,
+				40A8D62D183D41E2008F694F /* GravityComponent.h */,
+				40A8D62E183D41E2008F694F /* GravityComponent.m */,
+				40A8D631183D4204008F694F /* RenderComponent.h */,
+				40A8D632183D4204008F694F /* RenderComponent.m */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -1097,6 +1123,8 @@
 				40A8D622183C7C88008F694F /* Entity.m */,
 				40A8D629183C7E3F008F694F /* EntityManager.h */,
 				40A8D62A183C7E3F008F694F /* EntityManager.m */,
+				40F487BF183D78C000EBECE4 /* EntityFactory.h */,
+				40F487C0183D78C000EBECE4 /* EntityFactory.m */,
 			);
 			name = Framework;
 			sourceTree = "<group>";
@@ -1104,6 +1132,8 @@
 		40A8D616183C747F008F694F /* Systems */ = {
 			isa = PBXGroup;
 			children = (
+				40F487B7183D4DAD00EBECE4 /* System.h */,
+				40F487B8183D4DAD00EBECE4 /* System.m */,
 			);
 			name = Systems;
 			sourceTree = "<group>";
@@ -1192,10 +1222,12 @@
 				40A8D2DB183C66A1008F694F /* Icon-72.png in Resources */,
 				40A8D2D3183C66A1008F694F /* Default.png in Resources */,
 				40A8D2DD183C66A1008F694F /* Icon-Small-50.png in Resources */,
+				40F487BE183D748900EBECE4 /* enemy2-hd.png in Resources */,
 				40A8D2E8183C66A1008F694F /* iTunesArtwork in Resources */,
 				40A8D2E1183C66A1008F694F /* Icon-Small@2x.png in Resources */,
 				40A8D2D9183C66A1008F694F /* Default-Landscape~ipad.png in Resources */,
 				40A8D2D7183C66A1008F694F /* Default-568h@2x.png in Resources */,
+				40F487BD183D748900EBECE4 /* enemy1-hd.png in Resources */,
 				40A8D2E5183C66A1008F694F /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1225,6 +1257,7 @@
 				40A8D3E2183C66A2008F694F /* CCDirectorMac.m in Sources */,
 				40A8D33C183C66A1008F694F /* ccGLStateCache.m in Sources */,
 				40A8D40E183C66A2008F694F /* TransformUtils.m in Sources */,
+				40A8D62F183D41E2008F694F /* GravityComponent.m in Sources */,
 				40A8D35B183C66A1008F694F /* CCNode+Debug.m in Sources */,
 				40A8D336183C66A1008F694F /* ccFPSImages.m in Sources */,
 				40A8D3BC183C66A2008F694F /* CCTMXXMLParser.m in Sources */,
@@ -1276,6 +1309,7 @@
 				40A8D3AA183C66A2008F694F /* CCTextureCache.m in Sources */,
 				40A8D44D183C66A2008F694F /* neon_matrix_impl.c in Sources */,
 				40A8D37D183C66A1008F694F /* CCScene.m in Sources */,
+				40F487C1183D78C000EBECE4 /* EntityFactory.m in Sources */,
 				40A8D2FC183C66A1008F694F /* CCActionGrid3D.m in Sources */,
 				40A8D445183C66A2008F694F /* mat4stack.c in Sources */,
 				40A8D3A1183C66A2008F694F /* CCSpriteFrameCache.m in Sources */,
@@ -1285,6 +1319,7 @@
 				40A8D3DE183C66A2008F694F /* CCTouchHandler.m in Sources */,
 				40A8D358183C66A1008F694F /* CCMotionStreak.m in Sources */,
 				40A8D3D7183C66A2008F694F /* CCGLView.m in Sources */,
+				40A8D633183D4204008F694F /* RenderComponent.m in Sources */,
 				40A8D404183C66A2008F694F /* CGPointExtension.m in Sources */,
 				40A8D308183C66A1008F694F /* CCActionPageTurn3D.m in Sources */,
 				40A8D459183C66A2008F694F /* vec3.c in Sources */,
@@ -1305,6 +1340,7 @@
 				40A8D370183C66A1008F694F /* CCPhysicsDebugNode.m in Sources */,
 				40A8D2F6183C66A1008F694F /* CCActionEase.m in Sources */,
 				40A8D62B183C7E3F008F694F /* EntityManager.m in Sources */,
+				40F487B9183D4DAD00EBECE4 /* System.m in Sources */,
 				40A8D333183C66A1008F694F /* CCFontDefinition.m in Sources */,
 				40A8D373183C66A1008F694F /* CCPhysicsSprite.mm in Sources */,
 				40A8D457183C66A2008F694F /* vec2.c in Sources */,
@@ -1356,9 +1392,11 @@
 				40A8D570183C6CDD008F694F /* CCActionProgressTimer.m in Sources */,
 				40A8D571183C6CDD008F694F /* CCActionTiledGrid.m in Sources */,
 				40A8D572183C6CDD008F694F /* CCActionTween.m in Sources */,
+				40A8D634183D4204008F694F /* RenderComponent.m in Sources */,
 				40A8D573183C6CDD008F694F /* CCAnimation.m in Sources */,
 				40A8D574183C6CDD008F694F /* CCAnimationCache.m in Sources */,
 				40A8D575183C6CDD008F694F /* CCAtlasNode.m in Sources */,
+				40F487C2183D78C000EBECE4 /* EntityFactory.m in Sources */,
 				40A8D576183C6CDD008F694F /* CCCamera.m in Sources */,
 				40A8D577183C6CDD008F694F /* CCClippingNode.m in Sources */,
 				40A8D578183C6CDD008F694F /* CCConfiguration.m in Sources */,
@@ -1369,6 +1407,7 @@
 				40A8D57D183C6CDD008F694F /* CCFontDefinition.m in Sources */,
 				40A8D57E183C6CDD008F694F /* ccFPSImages.m in Sources */,
 				40A8D57F183C6CDD008F694F /* CCGLProgram.m in Sources */,
+				40A8D630183D41E2008F694F /* GravityComponent.m in Sources */,
 				40A8D580183C6CDD008F694F /* ccGLStateCache.m in Sources */,
 				40A8D581183C6CDD008F694F /* CCGrabber.m in Sources */,
 				40A8D582183C6CDD008F694F /* CCGrid.m in Sources */,
@@ -1440,6 +1479,7 @@
 				40A8D5C3183C6CDD008F694F /* CocosDenshion.m in Sources */,
 				40A8D5C4183C6CDD008F694F /* SimpleAudioEngine.m in Sources */,
 				40A8D5C5183C6CDD008F694F /* aabb.c in Sources */,
+				40F487BA183D4DAD00EBECE4 /* System.m in Sources */,
 				40A8D5C6183C6CDD008F694F /* mat3.c in Sources */,
 				40A8D5C7183C6CDD008F694F /* mat4.c in Sources */,
 				40A8D5C8183C6CDD008F694F /* neon_matrix_impl.c in Sources */,

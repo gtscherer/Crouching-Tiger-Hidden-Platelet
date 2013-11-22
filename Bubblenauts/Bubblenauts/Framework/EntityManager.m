@@ -19,17 +19,22 @@
 
 @implementation EntityManager
 
+// Init method just sets up internal data structure for tracking
+// This includes an array to track entities, and a dictionary to
+// track components for these entities
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        m_Entities = [NSMutableArray array];
-        m_Comps = [NSMutableDictionary dictionary];
+        m_Entities = [[NSMutableArray array] retain];
+        m_Comps = [[NSMutableDictionary dictionary] retain];
         m_LowestEID = 1;
     }
     return self;
 }
 
+// Generates the lowest available ID for an entity. If we have gone to the max,
+// we search for any available ones from deallocation and give those out
 - (uint32_t)generateNewEntityID
 {
     if (m_LowestEID < UINT32_MAX) {
@@ -45,6 +50,7 @@
     NSLog(@"Flagrant system error.");
     return 0;
 }
+
 
 - (Entity *)createNewBlankEntity
 {
@@ -104,6 +110,17 @@
     else {
         return [NSArray array];
     }
+}
+
+- (void)dealloc
+{
+    [m_Entities release];
+    m_Entities = nil;
+    
+    [m_Comps release];
+    m_Comps = nil;
+    
+    [super dealloc];
 }
 
 @end

@@ -29,4 +29,9 @@
     return m_eID;
 }
 
+- (void)dealloc
+{
+    [super dealloc];
+}
+
 @end
