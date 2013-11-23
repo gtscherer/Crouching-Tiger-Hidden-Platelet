@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <time.h>
 
+#define NotGenerated 'x'
 #define Air '0'
 #define Platform '1'
 #define Bubble '2'
@@ -97,7 +98,7 @@ StringRepresentation LineGenerator::getNextLine()
     //Generate list of random numbers between zero and one
 
     for(int linePosition = 0; linePosition < this->lineLength; ++linePosition){
-        workingLine.push_back('x');
+        workingLine.push_back(NotGenerated);
         primaryProbabilityValues.push_back(this->generateRandomNumber(0, 1));
         secondaryProbabilityValues.push_back(this->generateRandomNumber(0, 1));
         tertiaryProbabilityValues.push_back(this->generateRandomNumber(0, 1));
@@ -110,7 +111,7 @@ StringRepresentation LineGenerator::getNextLine()
         for(Entity object : previousLine){
             if(object == ThirdLevelVerticalInvalidSpace) *linePosition = SecondLevelVerticalInvalidSpace;
             else if(object == SecondLevelVerticalInvalidSpace) *linePosition = FirstLevelVerticalInvalidSpace;
-            else if(object == FirstLevelVerticalInvalidSpace) *linePosition = 'x';
+            else if(object == FirstLevelVerticalInvalidSpace) *linePosition = NotGenerated;
             else if(object == Platform || object == Spike || object == Fan) *linePosition = SecondLevelVerticalInvalidSpace;
             else if(object == Bubble || object == Suds) *linePosition = ThirdLevelVerticalInvalidSpace;
         }
@@ -134,7 +135,7 @@ StringRepresentation LineGenerator::getNextLine()
     }
 
     // Ensure every position has been assigned an entity -> Default = Air
-    for(Entity & linePosition : workingLine) if(linePosition == 'x') linePosition = Air;
+    for(Entity & linePosition : workingLine) if(linePosition == NotGenerated) linePosition = Air;
 
     // Second Pass
     linePosition = workingLine.begin();
@@ -171,6 +172,26 @@ StringRepresentation LineGenerator::getNextLine()
     
     //Insert third pass here
     
+    {
+        
+    }
+    
+    this->previousLine = workingLine;
+    
+    //Clean up -> make sure everything is a generatable entity
+    for(Entity& entity: workingLine)
+    {
+        switch(entity)
+        {
+            case FirstLevelVerticalInvalidSpace:
+            case SecondLevelVerticalInvalidSpace:
+            case ThirdLevelVerticalInvalidSpace:
+                entity = Air;
+                break;
+            default:
+                continue;
+        }
+    }
     
     //Convert Line List to string..
     std::string stringRepresentation;
@@ -178,8 +199,6 @@ StringRepresentation LineGenerator::getNextLine()
     {
         stringRepresentation += entity;
     }
-    
-    this->previousLine = workingLine;
     
     return stringRepresentation.data();
 
