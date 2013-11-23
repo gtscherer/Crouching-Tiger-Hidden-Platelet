@@ -179,7 +179,8 @@ StringRepresentation LineGenerator::getNextLine()
         stringRepresentation += entity;
     }
     
-    //Add to last three lines
+    this->previousLine = workingLine;
+    
     return stringRepresentation.data();
 
 }
