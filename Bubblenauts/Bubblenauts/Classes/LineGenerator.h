@@ -11,10 +11,9 @@
 #define __Bubblenauts__LineGenerator__
 #define Probability_To_Generate double
 #define Entity char
-#define StringRepresentation char*
-#define Line_Length unsigned
-#define Entity_Name int
-#define EntityProbabilityDistribution std::map <Entity_Name, Probability_To_Generate, std::less<Probability_To_Generate> >
+#define StringRepresentation const char*
+#define LineLength unsigned
+#define EntityProbabilityDistribution std::map <Entity, Probability_To_Generate, std::less<Probability_To_Generate> >
 #define Line std::list <Entity>
 #define LineGroup std::queue <Line>
 
@@ -30,24 +29,23 @@ class LineGenerator
 {
 
 public:
-	LineGenerator(Line_Length);
+	LineGenerator(LineLength);
     StringRepresentation getNextLine();
-    EntityProbabilityDistribution getPrimaryObjectsProbabilityDistribution();
-    EntityProbabilityDistribution getSecondaryObjectsProbabilityDistribution();
-    EntityProbabilityDistribution getTertiaryObjectsProbabilityDistribution();
-
+    LineLength getLineLength();
+    
 private:
 	EntityProbabilityDistribution primaryObjectsProbabilityDistribution;
     EntityProbabilityDistribution secondaryObjectsProbabilityDistribution;
     EntityProbabilityDistribution tertiaryObjectsProbabilityDistribution;
     LineGroup lastThreeLines;
-    Line_Length lineLength;
-
-    Entity initializeEntityObject(Entity_Name);
-    Entity_Name generatePrimaryEntity();
-    Entity_Name generateSecondaryEntity();
-    Entity_Name generateTertiaryEntity();
-    double generateRandomNumber(int min, int max);
+    LineLength lineLength;
+    bool checkIfBlocked(Entity entityName);
+    bool requiredEntityBelow(Entity required, int position);
+    
+    Entity generatePrimaryEntity();
+    Entity generateSecondaryEntity();
+    Entity generateTertiaryEntity();
+    Probability_To_Generate generateRandomNumber(int min, int max);
     virtual ~LineGenerator();
     LineGenerator();
     
