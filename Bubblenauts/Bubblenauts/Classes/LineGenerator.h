@@ -10,6 +10,8 @@
 
 #define __Bubblenauts__LineGenerator__
 #define Probability_To_Generate double
+#define Entity char
+#define StringRepresentation char*
 #define Line_Length unsigned
 #define Entity_Name int
 #define EntityProbabilityDistribution std::map <Entity_Name, Probability_To_Generate, std::less<Probability_To_Generate> >
@@ -17,8 +19,6 @@
 #define LineGroup std::queue <Line>
 
 #include <iostream>
-#include "Entity.h"
-#include "EntityManager.h" 
 #include <queue>
 #include <list>
 #include <map>
@@ -30,8 +30,8 @@ class LineGenerator
 {
 
 public:
-	LineGenerator(Line_Length, EntityManager&);
-    Line getNextLine();
+	LineGenerator(Line_Length);
+    StringRepresentation getNextLine();
     EntityProbabilityDistribution getPrimaryObjectsProbabilityDistribution();
     EntityProbabilityDistribution getSecondaryObjectsProbabilityDistribution();
     EntityProbabilityDistribution getTertiaryObjectsProbabilityDistribution();
@@ -42,9 +42,8 @@ private:
     EntityProbabilityDistribution tertiaryObjectsProbabilityDistribution;
     LineGroup lastThreeLines;
     Line_Length lineLength;
-    EntityManager& entityManager;
 
-    Entity* initializeEntityObject(Entity_Name);
+    Entity initializeEntityObject(Entity_Name);
     Entity_Name generatePrimaryEntity();
     Entity_Name generateSecondaryEntity();
     Entity_Name generateTertiaryEntity();

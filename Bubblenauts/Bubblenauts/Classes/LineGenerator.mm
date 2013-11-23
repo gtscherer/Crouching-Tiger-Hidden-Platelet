@@ -6,19 +6,11 @@
 //
 //
 #include "LineGenerator.h"
-#include "Entity.h"
-#include "EntityManager.h"
 #include <queue>
 #include <list>
 #include <map>
 #include <stdlib.h>
 #include <time.h>
-
-#define Probability_To_Generate double
-#define Line_Length unsigned
-#define Entity_Name int
-#define Line std::list <Entity>
-#define LineGroup std::queue <Line>
 
 #define Air 0
 #define Platform 1
@@ -48,7 +40,7 @@
 namespace ProceduralGenerator
 {
 
-	LineGenerator::LineGenerator(Line_Length lineLength, EntityManager& entityManager) : lineLength(lineLength), entityManager(entityManager)
+	LineGenerator::LineGenerator(Line_Length lineLength) : lineLength(lineLength)
 	{
 		this->primaryObjectsProbabilityDistribution[Air] = AirProbability;
         this->primaryObjectsProbabilityDistribution[Spike] = SpikeUnderPlatformProbability;
@@ -82,11 +74,11 @@ namespace ProceduralGenerator
 	{
 
 	}
-	Line LineGenerator::getNextLine(){
+	StringRepresentation LineGenerator::getNextLine(){
 
 	}
 
-	Entity* LineGenerator::initializeEntityObject(Entity_Name entityName)
+	Entity LineGenerator::initializeEntityObject(Entity_Name entityName)
 	{
 		switch(entityName)
 		{
