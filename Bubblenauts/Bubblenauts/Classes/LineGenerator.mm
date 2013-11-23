@@ -76,11 +76,14 @@ bool LineGenerator::checkIfBlocked(char entityName)
 
 bool LineGenerator::requiredEntityBelow(char required, int position)
 {
-    std::list<Entity>::iterator previousLineEntity = this->lastThreeLines.front().begin();
-    for(int pos = 0; pos < position; ++pos, ++previousLineEntity);
-    if(*previousLineEntity == required) return true;
+    if(this->previousLine.size() > 0)
+    {
+        std::list<Entity>::iterator previousLineEntity = this->previousLine.begin();
+        for(int pos = 0; pos < position; ++pos, ++previousLineEntity);
+        if(*previousLineEntity == required) return true;
+        else return false;
+    }
     else return false;
-    
 }
 
 StringRepresentation LineGenerator::getNextLine()
@@ -102,8 +105,8 @@ StringRepresentation LineGenerator::getNextLine()
     
     std::list<Entity>::iterator linePosition = workingLine.begin();
     //Check for blocking entities from below
-    if(this->lastThreeLines.size() > 0){
-        Line previousLine = this->lastThreeLines.front();
+    if(this->previousLine.size() > 0){
+        Line previousLine = this->previousLine;
         for(Entity object : previousLine){
             if(object == ThirdLevelVerticalInvalidSpace) *linePosition = SecondLevelVerticalInvalidSpace;
             else if(object == SecondLevelVerticalInvalidSpace) *linePosition = FirstLevelVerticalInvalidSpace;
@@ -175,6 +178,8 @@ StringRepresentation LineGenerator::getNextLine()
     {
         stringRepresentation += entity;
     }
+    
+    //Add to last three lines
     return stringRepresentation.data();
 
 }

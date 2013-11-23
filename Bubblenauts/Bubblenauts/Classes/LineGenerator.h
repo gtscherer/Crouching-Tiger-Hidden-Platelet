@@ -15,7 +15,7 @@
 #define LineLength unsigned
 #define EntityProbabilityDistribution std::map <Entity, Probability_To_Generate, std::less<Probability_To_Generate> >
 #define Line std::list <Entity>
-#define LineGroup std::queue <Line>
+//#define LineGroup std::queue <Line>
 
 #include <iostream>
 #include <queue>
@@ -37,7 +37,7 @@ private:
 	EntityProbabilityDistribution primaryObjectsProbabilityDistribution;
     EntityProbabilityDistribution secondaryObjectsProbabilityDistribution;
     EntityProbabilityDistribution tertiaryObjectsProbabilityDistribution;
-    LineGroup lastThreeLines;
+    Line previousLine;
     LineLength lineLength;
     bool checkIfBlocked(Entity entityName);
     bool requiredEntityBelow(Entity required, int position);
