@@ -206,7 +206,12 @@ StringRepresentation LineGenerator::getNextLine()
 
 Probability_To_Generate LineGenerator::generateRandomNumber(int min, int max)
 {
-    return static_cast<double>((std::rand()) / (max + 1)) * (max - min + 1) + min;
+    if(max-min == 1)
+    {
+        max = max * 100;
+        min = min * 100;
+    }
+    return  (static_cast<double>((std::rand()) / (max + 1)) * (max - min + 1) + min) / 100;
 }
 
 
