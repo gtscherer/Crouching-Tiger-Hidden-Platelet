@@ -57,7 +57,7 @@
         [self addChild:background2];
         
         m_BGRefs = [@[background, background2] retain];
-        m_EntityManager = [EntityManager new];
+        m_EntityManager = [[EntityManager alloc] init];
         m_EntFactory = [[EntityFactory alloc] initWithEntityManager:m_EntityManager nodeParent:self];
         m_GravitySys = [[GravitySystem alloc] initWithEntityManager:m_EntityManager];
         m_RenderSys = [[RenderSystem alloc] initWithEntityManager:m_EntityManager];
@@ -123,6 +123,12 @@
     
     [m_RenderSys release];
     m_RenderSys = nil;
+    
+    [m_CleanupSys release];
+    m_CleanupSys = nil;
+    
+    [m_ForceSys release];
+    m_ForceSys = nil;
     
 	[super dealloc];
 }
