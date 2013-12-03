@@ -10,11 +10,13 @@
 
 @class Entity;
 @class EntityManager;
+@class CCNode;
 
 @interface EntityFactory : NSObject
 
-- (instancetype)initWithEntityManager:(EntityManager*)entityManager;
-
-- (Entity*)createTestCreature;
+// Neither of these arguments are retained, so they must be retained elsewhere
+// by your own class
+- (instancetype)initWithEntityManager:(EntityManager*)entityManager nodeParent:(CCNode*)parent;
+- (Entity*)createTestCreatureAtPoint:(CGPoint)pt;
 
 @end

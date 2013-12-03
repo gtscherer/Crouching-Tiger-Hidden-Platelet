@@ -13,12 +13,13 @@
 
 @interface EntityManager : NSObject
 
-- (Entity*)createNewBlankEntity;
+- (Entity*)createEntityWithComponents:(NSArray*)comps;
+- (NSArray*)getAllEntitiesWithComponentClass:(Class)aClass;
 
 - (void)addComponent:(Component*)comp toEntity:(Entity*)entity;
-- (Component*)getComponentType:(Class)aClass onEntity:(Entity*)entity;
+- (void)removeComponent:(Component*)comp fromEntity:(Entity*)entity;
 
+- (void)registerEntityToGame:(Entity*)entity;
 - (void)removeEntityFromGame:(Entity*)entity;
-- (NSArray*)getAllEntitiesWithComponentClass:(Class)aClass;
 
 @end

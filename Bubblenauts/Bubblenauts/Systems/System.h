@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EntityManager.h"
+#import "Entity.h"
 
-@class EntityManager;
-
-@interface System : NSObject
-
-@property (strong) EntityManager *entManager;
+@interface System : NSObject {
+    @protected
+    EntityManager *m_EntManager;
+}
 
 - (instancetype)initWithEntityManager:(EntityManager*)entMan;
 - (void)update:(float)dt;

@@ -11,7 +11,7 @@
 
 @interface RenderComponent : Component
 
-@property (strong) CCSprite *node;
+@property (readonly) CCSprite *node;
 
 - (instancetype)initWithRenderNode:(CCSprite*)node;
 

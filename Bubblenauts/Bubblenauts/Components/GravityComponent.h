@@ -10,4 +10,6 @@
 
 @interface GravityComponent : Component
 
+@property (assign, readonly) CGPoint gravity;
+
 @end

@@ -14,7 +14,7 @@
 {
     self = [super init];
     if (self) {
-        _entManager = entMan;
+        m_EntManager = entMan;
     }
     return self;
 }
@@ -26,9 +26,6 @@
 
 - (void)dealloc
 {
-    [_entManager release];
-    _entManager = nil;
-    
     [super dealloc];
 }
 

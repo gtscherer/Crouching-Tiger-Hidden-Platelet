@@ -1,20 +1,20 @@
 //
-//  GravityComponent.m
+//  CleanupComponent.m
 //  Bubblenauts
 //
-//  Created by Breton Goers on 11/20/13.
+//  Created by Breton Goers on 12/2/13.
 //  Copyright (c) 2013 Corvus. All rights reserved.
 //
 
-#import "GravityComponent.h"
+#import "CleanupComponent.h"
 
-@implementation GravityComponent
+@implementation CleanupComponent
 
--(instancetype)init
+-(instancetype)initWithMinY:(float)y
 {
     self = [super init];
     if (self) {
-        _gravity = CGPointMake(0.0f, -50.0f);
+        _yMin = y;
     }
     return self;
 }

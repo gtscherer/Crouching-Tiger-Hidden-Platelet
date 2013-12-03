@@ -9,6 +9,18 @@
 /* Begin PBXBuildFile section */
 		200CFE24183D505D00BD5F7F /* LineGenerator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 200CFE23183D505D00BD5F7F /* LineGenerator.mm */; };
 		200CFE25183D505D00BD5F7F /* LineGenerator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 200CFE23183D505D00BD5F7F /* LineGenerator.mm */; };
+		404EF7AF184D6FCC002C88D8 /* GravitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 404EF7AE184D6FCC002C88D8 /* GravitySystem.m */; };
+		404EF7B0184D6FCC002C88D8 /* GravitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 404EF7AE184D6FCC002C88D8 /* GravitySystem.m */; };
+		404EF7B3184D7327002C88D8 /* RenderSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 404EF7B2184D7327002C88D8 /* RenderSystem.m */; };
+		404EF7B4184D7327002C88D8 /* RenderSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 404EF7B2184D7327002C88D8 /* RenderSystem.m */; };
+		404EF7B7184D7A45002C88D8 /* CleanupComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 404EF7B6184D7A45002C88D8 /* CleanupComponent.m */; };
+		404EF7B8184D7A45002C88D8 /* CleanupComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 404EF7B6184D7A45002C88D8 /* CleanupComponent.m */; };
+		404EF7BB184D7AE3002C88D8 /* CleanupSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 404EF7BA184D7AE3002C88D8 /* CleanupSystem.m */; };
+		404EF7BC184D7AE3002C88D8 /* CleanupSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 404EF7BA184D7AE3002C88D8 /* CleanupSystem.m */; };
+		404EF7C3184DB4BE002C88D8 /* ForceComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 404EF7C2184DB4BE002C88D8 /* ForceComponent.m */; };
+		404EF7C4184DB4BE002C88D8 /* ForceComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 404EF7C2184DB4BE002C88D8 /* ForceComponent.m */; };
+		404EF7C7184DB69B002C88D8 /* ForceSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 404EF7C6184DB69B002C88D8 /* ForceSystem.m */; };
+		404EF7C8184DB69B002C88D8 /* ForceSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 404EF7C6184DB69B002C88D8 /* ForceSystem.m */; };
 		40A8D2BD183C66A1008F694F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A8D2BC183C66A1008F694F /* QuartzCore.framework */; };
 		40A8D2BF183C66A1008F694F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A8D2BE183C66A1008F694F /* OpenGLES.framework */; };
 		40A8D2C1183C66A1008F694F /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A8D2C0183C66A1008F694F /* OpenAL.framework */; };
@@ -280,6 +292,8 @@
 		40A8D630183D41E2008F694F /* GravityComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A8D62E183D41E2008F694F /* GravityComponent.m */; };
 		40A8D633183D4204008F694F /* RenderComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A8D632183D4204008F694F /* RenderComponent.m */; };
 		40A8D634183D4204008F694F /* RenderComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A8D632183D4204008F694F /* RenderComponent.m */; };
+		40B01C6E18471C4F00D731AE /* VelocityComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B01C6D18471C4F00D731AE /* VelocityComponent.m */; };
+		40B01C6F18471C4F00D731AE /* VelocityComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B01C6D18471C4F00D731AE /* VelocityComponent.m */; };
 		40F487B9183D4DAD00EBECE4 /* System.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F487B8183D4DAD00EBECE4 /* System.m */; };
 		40F487BA183D4DAD00EBECE4 /* System.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F487B8183D4DAD00EBECE4 /* System.m */; };
 		40F487BD183D748900EBECE4 /* enemy1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 40F487BB183D748900EBECE4 /* enemy1-hd.png */; };
@@ -301,6 +315,18 @@
 /* Begin PBXFileReference section */
 		200CFE22183D505D00BD5F7F /* LineGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LineGenerator.h; path = Classes/LineGenerator.h; sourceTree = "<group>"; };
 		200CFE23183D505D00BD5F7F /* LineGenerator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = LineGenerator.mm; path = Classes/LineGenerator.mm; sourceTree = "<group>"; };
+		404EF7AD184D6FCC002C88D8 /* GravitySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GravitySystem.h; path = Systems/GravitySystem.h; sourceTree = "<group>"; };
+		404EF7AE184D6FCC002C88D8 /* GravitySystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GravitySystem.m; path = Systems/GravitySystem.m; sourceTree = "<group>"; };
+		404EF7B1184D7327002C88D8 /* RenderSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderSystem.h; path = Systems/RenderSystem.h; sourceTree = "<group>"; };
+		404EF7B2184D7327002C88D8 /* RenderSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderSystem.m; path = Systems/RenderSystem.m; sourceTree = "<group>"; };
+		404EF7B5184D7A45002C88D8 /* CleanupComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CleanupComponent.h; path = Components/CleanupComponent.h; sourceTree = "<group>"; };
+		404EF7B6184D7A45002C88D8 /* CleanupComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CleanupComponent.m; path = Components/CleanupComponent.m; sourceTree = "<group>"; };
+		404EF7B9184D7AE3002C88D8 /* CleanupSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CleanupSystem.h; path = Systems/CleanupSystem.h; sourceTree = "<group>"; };
+		404EF7BA184D7AE3002C88D8 /* CleanupSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CleanupSystem.m; path = Systems/CleanupSystem.m; sourceTree = "<group>"; };
+		404EF7C1184DB4BE002C88D8 /* ForceComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForceComponent.h; path = Components/ForceComponent.h; sourceTree = "<group>"; };
+		404EF7C2184DB4BE002C88D8 /* ForceComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForceComponent.m; path = Components/ForceComponent.m; sourceTree = "<group>"; };
+		404EF7C5184DB69B002C88D8 /* ForceSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForceSystem.h; path = Systems/ForceSystem.h; sourceTree = "<group>"; };
+		404EF7C6184DB69B002C88D8 /* ForceSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForceSystem.m; path = Systems/ForceSystem.m; sourceTree = "<group>"; };
 		40A8D2B9183C66A1008F694F /* Bubblenauts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bubblenauts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40A8D2BC183C66A1008F694F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		40A8D2BE183C66A1008F694F /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -600,6 +626,8 @@
 		40A8D62E183D41E2008F694F /* GravityComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GravityComponent.m; path = Components/GravityComponent.m; sourceTree = "<group>"; };
 		40A8D631183D4204008F694F /* RenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderComponent.h; path = Components/RenderComponent.h; sourceTree = "<group>"; };
 		40A8D632183D4204008F694F /* RenderComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RenderComponent.m; path = Components/RenderComponent.m; sourceTree = "<group>"; };
+		40B01C6C18471C4F00D731AE /* VelocityComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VelocityComponent.h; path = Components/VelocityComponent.h; sourceTree = "<group>"; };
+		40B01C6D18471C4F00D731AE /* VelocityComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VelocityComponent.m; path = Components/VelocityComponent.m; sourceTree = "<group>"; };
 		40F487B7183D4DAD00EBECE4 /* System.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System.h; path = Systems/System.h; sourceTree = "<group>"; };
 		40F487B8183D4DAD00EBECE4 /* System.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System.m; path = Systems/System.m; sourceTree = "<group>"; };
 		40F487BB183D748900EBECE4 /* enemy1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "enemy1-hd.png"; sourceTree = "<group>"; };
@@ -1126,6 +1154,12 @@
 				40A8D62E183D41E2008F694F /* GravityComponent.m */,
 				40A8D631183D4204008F694F /* RenderComponent.h */,
 				40A8D632183D4204008F694F /* RenderComponent.m */,
+				40B01C6C18471C4F00D731AE /* VelocityComponent.h */,
+				40B01C6D18471C4F00D731AE /* VelocityComponent.m */,
+				404EF7B5184D7A45002C88D8 /* CleanupComponent.h */,
+				404EF7B6184D7A45002C88D8 /* CleanupComponent.m */,
+				404EF7C1184DB4BE002C88D8 /* ForceComponent.h */,
+				404EF7C2184DB4BE002C88D8 /* ForceComponent.m */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -1148,6 +1182,14 @@
 			children = (
 				40F487B7183D4DAD00EBECE4 /* System.h */,
 				40F487B8183D4DAD00EBECE4 /* System.m */,
+				404EF7AD184D6FCC002C88D8 /* GravitySystem.h */,
+				404EF7AE184D6FCC002C88D8 /* GravitySystem.m */,
+				404EF7B1184D7327002C88D8 /* RenderSystem.h */,
+				404EF7B2184D7327002C88D8 /* RenderSystem.m */,
+				404EF7B9184D7AE3002C88D8 /* CleanupSystem.h */,
+				404EF7BA184D7AE3002C88D8 /* CleanupSystem.m */,
+				404EF7C5184DB69B002C88D8 /* ForceSystem.h */,
+				404EF7C6184DB69B002C88D8 /* ForceSystem.m */,
 			);
 			name = Systems;
 			sourceTree = "<group>";
@@ -1277,6 +1319,7 @@
 				40A8D3BC183C66A2008F694F /* CCTMXXMLParser.m in Sources */,
 				40A8D453183C66A2008F694F /* ray2.c in Sources */,
 				40A8D3EE183C66A2008F694F /* base64.c in Sources */,
+				404EF7B7184D7A45002C88D8 /* CleanupComponent.m in Sources */,
 				40A8D311183C66A1008F694F /* CCActionTween.m in Sources */,
 				40A8D348183C66A1008F694F /* CCLabelBMFont.m in Sources */,
 				40A8D3F5183C66A2008F694F /* ccCArray.m in Sources */,
@@ -1302,6 +1345,7 @@
 				40A8D422183C66A2008F694F /* CDXPropertyModifierAction.m in Sources */,
 				40A8D3F2183C66A2008F694F /* CCArray.m in Sources */,
 				40A8D44F183C66A2008F694F /* plane.c in Sources */,
+				404EF7BB184D7AE3002C88D8 /* CleanupSystem.m in Sources */,
 				40A8D3FB183C66A2008F694F /* CCProfiling.m in Sources */,
 				40A8D392183C66A1008F694F /* CCShaderCache.m in Sources */,
 				40A8D398183C66A1008F694F /* CCSprite.m in Sources */,
@@ -1312,6 +1356,7 @@
 				40A8D345183C66A1008F694F /* CCLabelAtlas.m in Sources */,
 				40A8D361183C66A1008F694F /* CCParallaxNode.m in Sources */,
 				40A8D469183C66A2008F694F /* IntroLayer.m in Sources */,
+				404EF7B3184D7327002C88D8 /* RenderSystem.m in Sources */,
 				40A8D2F9183C66A1008F694F /* CCActionGrid.m in Sources */,
 				40A8D342183C66A1008F694F /* CCGrid.m in Sources */,
 				40A8D451183C66A2008F694F /* quaternion.c in Sources */,
@@ -1322,7 +1367,9 @@
 				40A8D425183C66A2008F694F /* CocosDenshion.m in Sources */,
 				40A8D627183C7DB9008F694F /* Component.m in Sources */,
 				40A8D3AA183C66A2008F694F /* CCTextureCache.m in Sources */,
+				404EF7AF184D6FCC002C88D8 /* GravitySystem.m in Sources */,
 				40A8D44D183C66A2008F694F /* neon_matrix_impl.c in Sources */,
+				404EF7C7184DB69B002C88D8 /* ForceSystem.m in Sources */,
 				40A8D37D183C66A1008F694F /* CCScene.m in Sources */,
 				40F487C1183D78C000EBECE4 /* EntityFactory.m in Sources */,
 				40A8D2FC183C66A1008F694F /* CCActionGrid3D.m in Sources */,
@@ -1340,6 +1387,7 @@
 				40A8D459183C66A2008F694F /* vec3.c in Sources */,
 				40A8D40B183C66A2008F694F /* TGAlib.m in Sources */,
 				40A8D314183C66A1008F694F /* CCAnimation.m in Sources */,
+				404EF7C3184DB4BE002C88D8 /* ForceComponent.m in Sources */,
 				40A8D43F183C66A2008F694F /* aabb.c in Sources */,
 				40A8D3B6183C66A2008F694F /* CCTMXObjectGroup.m in Sources */,
 				40A8D418183C66A2008F694F /* CDAudioManager.m in Sources */,
@@ -1365,6 +1413,7 @@
 				40A8D466183C66A2008F694F /* HelloWorldLayer.m in Sources */,
 				40A8D3EB183C66A2008F694F /* CCWindow.m in Sources */,
 				40A8D3C9183C66A2008F694F /* cocos2d.m in Sources */,
+				40B01C6E18471C4F00D731AE /* VelocityComponent.m in Sources */,
 				40A8D376183C66A1008F694F /* CCProgressTimer.m in Sources */,
 				40A8D34B183C66A1008F694F /* CCLabelTTF.m in Sources */,
 				40A8D3F8183C66A2008F694F /* CCFileUtils.m in Sources */,
@@ -1404,6 +1453,8 @@
 				40A8D624183C7C88008F694F /* Entity.m in Sources */,
 				40A8D56E183C6CDD008F694F /* CCActionManager.m in Sources */,
 				40A8D56F183C6CDD008F694F /* CCActionPageTurn3D.m in Sources */,
+				404EF7B4184D7327002C88D8 /* RenderSystem.m in Sources */,
+				40B01C6F18471C4F00D731AE /* VelocityComponent.m in Sources */,
 				40A8D570183C6CDD008F694F /* CCActionProgressTimer.m in Sources */,
 				40A8D571183C6CDD008F694F /* CCActionTiledGrid.m in Sources */,
 				40A8D572183C6CDD008F694F /* CCActionTween.m in Sources */,
@@ -1414,6 +1465,7 @@
 				40F487C2183D78C000EBECE4 /* EntityFactory.m in Sources */,
 				40A8D576183C6CDD008F694F /* CCCamera.m in Sources */,
 				40A8D577183C6CDD008F694F /* CCClippingNode.m in Sources */,
+				404EF7C8184DB69B002C88D8 /* ForceSystem.m in Sources */,
 				40A8D578183C6CDD008F694F /* CCConfiguration.m in Sources */,
 				40A8D579183C6CDD008F694F /* ccDeprecated.m in Sources */,
 				40A8D57A183C6CDD008F694F /* CCDirector.m in Sources */,
@@ -1422,7 +1474,9 @@
 				40A8D57D183C6CDD008F694F /* CCFontDefinition.m in Sources */,
 				40A8D57E183C6CDD008F694F /* ccFPSImages.m in Sources */,
 				40A8D57F183C6CDD008F694F /* CCGLProgram.m in Sources */,
+				404EF7B8184D7A45002C88D8 /* CleanupComponent.m in Sources */,
 				40A8D630183D41E2008F694F /* GravityComponent.m in Sources */,
+				404EF7C4184DB4BE002C88D8 /* ForceComponent.m in Sources */,
 				40A8D580183C6CDD008F694F /* ccGLStateCache.m in Sources */,
 				40A8D581183C6CDD008F694F /* CCGrabber.m in Sources */,
 				40A8D582183C6CDD008F694F /* CCGrid.m in Sources */,
@@ -1444,6 +1498,7 @@
 				40A8D592183C6CDD008F694F /* CCPhysicsSprite.mm in Sources */,
 				200CFE25183D505D00BD5F7F /* LineGenerator.mm in Sources */,
 				40A8D593183C6CDD008F694F /* CCProgressTimer.m in Sources */,
+				404EF7B0184D6FCC002C88D8 /* GravitySystem.m in Sources */,
 				40A8D594183C6CDD008F694F /* CCRenderTexture.m in Sources */,
 				40A8D595183C6CDD008F694F /* CCScene.m in Sources */,
 				40A8D596183C6CDD008F694F /* CCScheduler.m in Sources */,
@@ -1489,6 +1544,7 @@
 				40A8D5BD183C6CDD008F694F /* TransformUtils.m in Sources */,
 				40A8D5BE183C6CDD008F694F /* ZipUtils.m in Sources */,
 				40A8D5BF183C6CDD008F694F /* CDAudioManager.m in Sources */,
+				404EF7BC184D7AE3002C88D8 /* CleanupSystem.m in Sources */,
 				40A8D5C0183C6CDD008F694F /* CDOpenALSupport.m in Sources */,
 				40A8D5C1183C6CDD008F694F /* CDXMacOSXSupport.m in Sources */,
 				40A8D5C2183C6CDD008F694F /* CDXPropertyModifierAction.m in Sources */,

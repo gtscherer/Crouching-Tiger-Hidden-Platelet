@@ -8,9 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class Component;
+
 @interface Entity : NSObject
 
-- (id)initWithEntityID:(uint32_t)eID;
-- (uint32_t)entityID;
+@property (nonatomic, readonly) NSArray *allComponents;
+
++ (Entity*)entity;
+- (void)addComponent:(Component*)component;
+- (Component*)getComponentOfClass:(Class)class;
 
 @end
