@@ -21,6 +21,10 @@
 		404EF7C4184DB4BE002C88D8 /* ForceComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 404EF7C2184DB4BE002C88D8 /* ForceComponent.m */; };
 		404EF7C7184DB69B002C88D8 /* ForceSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 404EF7C6184DB69B002C88D8 /* ForceSystem.m */; };
 		404EF7C8184DB69B002C88D8 /* ForceSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 404EF7C6184DB69B002C88D8 /* ForceSystem.m */; };
+		404EF7CB184E38B6002C88D8 /* ScrollComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 404EF7CA184E38B6002C88D8 /* ScrollComponent.m */; };
+		404EF7CC184E38B6002C88D8 /* ScrollComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 404EF7CA184E38B6002C88D8 /* ScrollComponent.m */; };
+		404EF7CF184E3E81002C88D8 /* ScrollSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 404EF7CE184E3E81002C88D8 /* ScrollSystem.m */; };
+		404EF7D0184E3E81002C88D8 /* ScrollSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 404EF7CE184E3E81002C88D8 /* ScrollSystem.m */; };
 		40A8D2BD183C66A1008F694F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A8D2BC183C66A1008F694F /* QuartzCore.framework */; };
 		40A8D2BF183C66A1008F694F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A8D2BE183C66A1008F694F /* OpenGLES.framework */; };
 		40A8D2C1183C66A1008F694F /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A8D2C0183C66A1008F694F /* OpenAL.framework */; };
@@ -327,6 +331,10 @@
 		404EF7C2184DB4BE002C88D8 /* ForceComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForceComponent.m; path = Components/ForceComponent.m; sourceTree = "<group>"; };
 		404EF7C5184DB69B002C88D8 /* ForceSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForceSystem.h; path = Systems/ForceSystem.h; sourceTree = "<group>"; };
 		404EF7C6184DB69B002C88D8 /* ForceSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForceSystem.m; path = Systems/ForceSystem.m; sourceTree = "<group>"; };
+		404EF7C9184E38B6002C88D8 /* ScrollComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScrollComponent.h; path = Components/ScrollComponent.h; sourceTree = "<group>"; };
+		404EF7CA184E38B6002C88D8 /* ScrollComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScrollComponent.m; path = Components/ScrollComponent.m; sourceTree = "<group>"; };
+		404EF7CD184E3E81002C88D8 /* ScrollSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScrollSystem.h; path = Systems/ScrollSystem.h; sourceTree = "<group>"; };
+		404EF7CE184E3E81002C88D8 /* ScrollSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScrollSystem.m; path = Systems/ScrollSystem.m; sourceTree = "<group>"; };
 		40A8D2B9183C66A1008F694F /* Bubblenauts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bubblenauts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40A8D2BC183C66A1008F694F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		40A8D2BE183C66A1008F694F /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1160,6 +1168,8 @@
 				404EF7B6184D7A45002C88D8 /* CleanupComponent.m */,
 				404EF7C1184DB4BE002C88D8 /* ForceComponent.h */,
 				404EF7C2184DB4BE002C88D8 /* ForceComponent.m */,
+				404EF7C9184E38B6002C88D8 /* ScrollComponent.h */,
+				404EF7CA184E38B6002C88D8 /* ScrollComponent.m */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -1190,6 +1200,8 @@
 				404EF7BA184D7AE3002C88D8 /* CleanupSystem.m */,
 				404EF7C5184DB69B002C88D8 /* ForceSystem.h */,
 				404EF7C6184DB69B002C88D8 /* ForceSystem.m */,
+				404EF7CD184E3E81002C88D8 /* ScrollSystem.h */,
+				404EF7CE184E3E81002C88D8 /* ScrollSystem.m */,
 			);
 			name = Systems;
 			sourceTree = "<group>";
@@ -1309,6 +1321,7 @@
 				40A8D3B0183C66A2008F694F /* CCTileMapAtlas.m in Sources */,
 				40A8D3B3183C66A2008F694F /* CCTMXLayer.m in Sources */,
 				40A8D44B183C66A2008F694F /* mat4.c in Sources */,
+				404EF7CF184E3E81002C88D8 /* ScrollSystem.m in Sources */,
 				40A8D327183C66A1008F694F /* ccDeprecated.m in Sources */,
 				40A8D3E2183C66A2008F694F /* CCDirectorMac.m in Sources */,
 				40A8D33C183C66A1008F694F /* ccGLStateCache.m in Sources */,
@@ -1381,6 +1394,7 @@
 				40A8D3DE183C66A2008F694F /* CCTouchHandler.m in Sources */,
 				40A8D358183C66A1008F694F /* CCMotionStreak.m in Sources */,
 				40A8D3D7183C66A2008F694F /* CCGLView.m in Sources */,
+				404EF7CB184E38B6002C88D8 /* ScrollComponent.m in Sources */,
 				40A8D633183D4204008F694F /* RenderComponent.m in Sources */,
 				40A8D404183C66A2008F694F /* CGPointExtension.m in Sources */,
 				40A8D308183C66A1008F694F /* CCActionPageTurn3D.m in Sources */,
@@ -1442,6 +1456,7 @@
 				40A8D563183C6CDD008F694F /* AppDelegate.m in Sources */,
 				40A8D564183C6CDD008F694F /* HelloWorldLayer.m in Sources */,
 				40A8D565183C6CDD008F694F /* IntroLayer.m in Sources */,
+				404EF7D0184E3E81002C88D8 /* ScrollSystem.m in Sources */,
 				40A8D566183C6CDD008F694F /* CCAction.m in Sources */,
 				40A8D567183C6CDD008F694F /* CCActionCamera.m in Sources */,
 				40A8D568183C6CDD008F694F /* CCActionCatmullRom.m in Sources */,
@@ -1560,6 +1575,7 @@
 				40A8D5CB183C6CDD008F694F /* ray2.c in Sources */,
 				40A8D5CC183C6CDD008F694F /* utility.c in Sources */,
 				40A8D5CD183C6CDD008F694F /* vec2.c in Sources */,
+				404EF7CC184E38B6002C88D8 /* ScrollComponent.m in Sources */,
 				40A8D5CE183C6CDD008F694F /* vec3.c in Sources */,
 				40A8D5CF183C6CDD008F694F /* vec4.c in Sources */,
 				40A8D5D0183C6CDD008F694F /* mat4stack.c in Sources */,

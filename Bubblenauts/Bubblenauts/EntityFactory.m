@@ -13,6 +13,7 @@
 #import "RenderComponent.h"
 #import "GravityComponent.h"
 #import "CleanupComponent.h"
+#import "ScrollComponent.h"
 
 @interface EntityFactory() {
     EntityManager *m_EntityManager;
@@ -52,6 +53,28 @@
     [vel release];
     [cleanup release];
     [render release];
+    
+    return entity;
+}
+
+- (Entity *)scrollingBackgroundAtPoint:(CGPoint)pt
+{
+    CGSize scrnSz = [[CCDirector sharedDirector] winSize];
+    
+    CCSprite *sprite = [CCSprite spriteWithFile:@"Space.png"];
+    sprite.position = pt;
+    [m_ParentNode addChild:sprite];
+    RenderComponent *render = [[RenderComponent alloc] initWithRenderNode:sprite];
+    
+    ScrollComponent *scroll = [[ScrollComponent alloc] initWithYScrollSpeed:20.0f];
+    scroll.shouldRepeat = YES;
+    scroll.repeatPoint = -scrnSz.height*0.5;
+    scroll.repeatOffset = scrnSz.height*2 - 2;
+    
+    Entity *entity = [m_EntityManager createEntityWithComponents:@[render, scroll]];
+    
+    [render release];
+    [scroll release];
     
     return entity;
 }

@@ -18,5 +18,6 @@
 // by your own class
 - (instancetype)initWithEntityManager:(EntityManager*)entityManager nodeParent:(CCNode*)parent;
 - (Entity*)createTestCreatureAtPoint:(CGPoint)pt;
+- (Entity*)scrollingBackgroundAtPoint:(CGPoint)pt;
 
 @end

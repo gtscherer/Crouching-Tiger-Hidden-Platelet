@@ -12,6 +12,6 @@
 
 @property (assign, readonly) float yMin;
 
--(instancetype)initWithMinY:(float)y;
+- (instancetype)initWithMinY:(float)y;
 
 @end

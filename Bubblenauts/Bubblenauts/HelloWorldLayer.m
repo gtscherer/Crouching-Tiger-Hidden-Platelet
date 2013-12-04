@@ -14,11 +14,12 @@
 #import "CleanupSystem.h"
 #import "ForceSystem.h"
 #import "EntityFactory.h"
+#import "ScrollSystem.h"
 
 #import "ForceComponent.h"
 
 @interface HelloWorldLayer() {
-    NSArray *m_BGRefs;
+//    NSArray *m_BGRefs;
     CGSize scrnSz;
     
     EntityManager *m_EntityManager;
@@ -26,6 +27,7 @@
     GravitySystem *m_GravitySys;
     CleanupSystem *m_CleanupSys;
     ForceSystem *m_ForceSys;
+    ScrollSystem *m_ScrollSys;
     EntityFactory *m_EntFactory;
 }
 @end
@@ -47,22 +49,26 @@
 	if (self) {
 		scrnSz = [[CCDirector sharedDirector] winSize];
         
-        CCSprite *background = [CCSprite spriteWithFile:@"Space.png"];
-        background.position = ccp(scrnSz.width/2, scrnSz.height/2);
-        [self addChild:background];
+//        CCSprite *background = [CCSprite spriteWithFile:@"Space.png"];
+//        background.position = ccp(scrnSz.width/2, scrnSz.height/2);
+//        [self addChild:background];
+//        
+//        CCSprite *background2 = [CCSprite spriteWithFile:@"Space.png"];
+//        background2.position = ccp(scrnSz.width/2, scrnSz.height*1.5 - 1);
+//        background2.flipY = TRUE;
+//        [self addChild:background2];
         
-        CCSprite *background2 = [CCSprite spriteWithFile:@"Space.png"];
-        background2.position = ccp(scrnSz.width/2, scrnSz.height*1.5 - 1);
-        background2.flipY = TRUE;
-        [self addChild:background2];
-        
-        m_BGRefs = [@[background, background2] retain];
+//        m_BGRefs = [@[background, background2] retain];
         m_EntityManager = [[EntityManager alloc] init];
         m_EntFactory = [[EntityFactory alloc] initWithEntityManager:m_EntityManager nodeParent:self];
         m_GravitySys = [[GravitySystem alloc] initWithEntityManager:m_EntityManager];
         m_RenderSys = [[RenderSystem alloc] initWithEntityManager:m_EntityManager];
         m_CleanupSys = [[CleanupSystem alloc] initWithEntityManager:m_EntityManager];
         m_ForceSys = [[ForceSystem alloc] initWithEntityManager:m_EntityManager];
+        m_ScrollSys = [[ScrollSystem alloc] initWithEntityManager:m_EntityManager];
+        
+        Entity *bg1 = [m_EntFactory scrollingBackgroundAtPoint:ccp(scrnSz.width/2, scrnSz.height/2)];
+        Entity *bg2 = [m_EntFactory scrollingBackgroundAtPoint:ccp(scrnSz.width/2, scrnSz.height*1.5 - 1)];
 
         self.touchEnabled = TRUE;
         [self schedule:@selector(frameTick:) interval:1.0/30.0];
@@ -73,26 +79,27 @@
 - (void)frameTick:(ccTime)dt
 {
     // In one second, I want to move 20 pixels down...
-    for (CCSprite *bg in m_BGRefs) {
-        CGPoint pos = bg.position;
-        pos.y -= (dt * 20);
-        if (pos.y < (-scrnSz.height*0.5))
-            pos.y += (scrnSz.height*2 - 2);
-        bg.position = pos;
-    }
+//    for (CCSprite *bg in m_BGRefs) {
+//        CGPoint pos = bg.position;
+//        pos.y -= (dt * 20);
+//        if (pos.y < (-scrnSz.height*0.5))
+//            pos.y += (scrnSz.height*2 - 2);
+//        bg.position = pos;
+//    }
     
     [m_GravitySys update:dt];
     [m_RenderSys update:dt];
     [m_CleanupSys update:dt];
     [m_ForceSys update:dt];
+    [m_ScrollSys update:dt];
 }
 
 - (void)addCreatureToWorldAtPoint:(CGPoint)point
 {
     Entity *entity = [m_EntFactory createTestCreatureAtPoint:point];
     
-    int lowerBound = -50;
-    int upperBound = 50;
+    int lowerBound = -100;
+    int upperBound = 100;
     int rndValue = lowerBound + arc4random() % (upperBound - lowerBound);
     CGPoint aForce = ccp(rndValue, 0);
     ForceComponent *force = [[ForceComponent alloc] initWithForce:aForce];
@@ -109,8 +116,8 @@
 
 - (void)dealloc
 {
-    [m_BGRefs release];
-    m_BGRefs = nil;
+//    [m_BGRefs release];
+//    m_BGRefs = nil;
     
     [m_EntityManager release];
     m_EntityManager = nil;
