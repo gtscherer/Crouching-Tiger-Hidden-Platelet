@@ -12,10 +12,6 @@
 
 @property (assign, readonly) float speed;
 
-@property (assign) BOOL shouldRepeat;
-@property (assign) float repeatPoint;
-@property (assign) float repeatOffset;
-
 - (instancetype)initWithYScrollSpeed:(float)spd;
 
 @end

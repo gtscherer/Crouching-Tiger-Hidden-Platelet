@@ -15,11 +15,17 @@
     self = [super init];
     if (self) {
         _speed = spd;
-        _shouldRepeat = NO;
-        _repeatPoint = 0.0f;
-        _repeatOffset = 0.0f;
+//        _shouldRepeat = NO;
+//        _repeatPoint = 0.0f;
+//        _repeatOffset = 0.0f;
     }
     return self;
 }
+
+//-(void)adjustScrollSpeedBy:(float)by
+//{
+//    _speed += by;
+//    if (_speed < 0) _speed = 0;
+//}
 
 @end

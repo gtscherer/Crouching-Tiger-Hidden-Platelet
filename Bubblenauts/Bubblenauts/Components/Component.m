@@ -10,9 +10,4 @@
 
 @implementation Component
 
--(void)dealloc
-{
-    [super dealloc];
-}
-
 @end

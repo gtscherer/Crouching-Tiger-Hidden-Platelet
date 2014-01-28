@@ -7,6 +7,7 @@
 //
 
 #import "Entity.h"
+#import "Component.h"
 
 @interface Entity() {
     NSMutableDictionary *m_ComponentsByClass;
@@ -17,7 +18,7 @@
 
 + (Entity*)entity
 {
-    return [[[self alloc] init] autorelease];
+    return [[self alloc] init];
 }
 
 // Simple init method to initialize any variables
@@ -54,14 +55,6 @@
 - (Component*)getComponentOfClass:(Class)class
 {
     return m_ComponentsByClass[NSStringFromClass(class)];
-}
-
-- (void)dealloc
-{
-    [m_ComponentsByClass release];
-    m_ComponentsByClass = nil;
-    
-    [super dealloc];
 }
 
 @end

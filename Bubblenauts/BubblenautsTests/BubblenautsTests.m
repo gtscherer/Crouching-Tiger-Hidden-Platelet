@@ -2,8 +2,8 @@
 //  BubblenautsTests.m
 //  BubblenautsTests
 //
-//  Created by Breton Goers on 11/19/13.
-//  Copyright (c) 2013 Corvus. All rights reserved.
+//  Created by Breton Goers on 1/14/14.
+//  Copyright (c) 2014 Corvus. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>

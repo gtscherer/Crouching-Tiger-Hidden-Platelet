@@ -12,6 +12,7 @@
 
 @interface Entity : NSObject
 
+@property (nonatomic, assign) ObjectType type;
 @property (nonatomic, readonly) NSArray *allComponents;
 
 + (Entity*)entity;

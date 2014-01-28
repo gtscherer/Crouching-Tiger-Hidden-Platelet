@@ -10,18 +10,13 @@
 
 @implementation RenderComponent
 
-- (instancetype)initWithRenderNode:(CCSprite*)node
+- (instancetype)initWithRenderNode:(SKSpriteNode*)node
 {
     self = [super init];
     if (self) {
         _node = node;
     }
     return self;
-}
-
--(void)dealloc
-{
-    [super dealloc];
 }
 
 @end

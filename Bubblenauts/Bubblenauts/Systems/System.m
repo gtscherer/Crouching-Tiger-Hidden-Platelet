@@ -15,6 +15,7 @@
     self = [super init];
     if (self) {
         m_EntManager = entMan;
+        _active = TRUE;
     }
     return self;
 }
@@ -22,11 +23,6 @@
 - (void)update:(float)dt
 {
     // Override in system subclasses!
-}
-
-- (void)dealloc
-{
-    [super dealloc];
 }
 
 @end

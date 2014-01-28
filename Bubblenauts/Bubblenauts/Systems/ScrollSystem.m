@@ -10,12 +10,29 @@
 #import "ScrollComponent.h"
 #import "RenderComponent.h"
 
+@import SpriteKit;
+
+@interface ScrollSystem () {
+    Class scrollClass;
+    Class renderClass;
+}
+@end
+
 @implementation ScrollSystem
+
+- (instancetype)initWithEntityManager:(EntityManager *)entMan
+{
+    self = [super initWithEntityManager:entMan];
+    if (self) {
+        scrollClass = [ScrollComponent class];
+        renderClass = [RenderComponent class];
+    }
+    return self;
+}
 
 -(void)update:(float)dt
 {
-    Class scrollClass = [ScrollComponent class];
-    Class renderClass = [RenderComponent class];
+    if (!self.active) return;
     
     NSArray *entities = [m_EntManager getAllEntitiesWithComponentClass:scrollClass];
     for (Entity *entity in entities) {
@@ -27,11 +44,6 @@
         CGPoint pos = render.node.position;
         pos.y -= scroll.speed*dt;
         render.node.position = pos;
-        
-        if (scroll.shouldRepeat && (render.node.position.y <= scroll.repeatPoint)) {
-            pos.y += scroll.repeatOffset;
-            render.node.position = pos;
-        }
     }
 }
 

@@ -2,27 +2,14 @@
 //  AppDelegate.h
 //  Bubblenauts
 //
-//  Created by Breton Goers on 11/19/13.
-//  Copyright Corvus 2013. All rights reserved.
+//  Created by Breton Goers on 1/14/14.
+//  Copyright (c) 2014 Corvus. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "cocos2d.h"
 
-// Added only for iOS 6 support
-@interface MyNavigationController : UINavigationController <CCDirectorDelegate>
-@end
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@interface AppController : NSObject <UIApplicationDelegate>
-{
-	UIWindow *window_;
-	MyNavigationController *navController_;
-
-	CCDirectorIOS	*director_;							// weak ref
-}
-
-@property (nonatomic, retain) UIWindow *window;
-@property (readonly) MyNavigationController *navController;
-@property (readonly) CCDirectorIOS *director;
+@property (strong, nonatomic) UIWindow *window;
 
 @end

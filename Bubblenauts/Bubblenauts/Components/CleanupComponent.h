@@ -11,6 +11,7 @@
 @interface CleanupComponent : Component
 
 @property (assign, readonly) float yMin;
+@property (assign) BOOL causesGameOver;
 
 - (instancetype)initWithMinY:(float)y;
 

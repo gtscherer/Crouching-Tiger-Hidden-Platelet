@@ -9,15 +9,32 @@
 #import "CleanupSystem.h"
 #import "CleanupComponent.h"
 #import "RenderComponent.h"
-#import "CCSprite.h"
+
+@import SpriteKit;
+
+@interface CleanupSystem() {
+    NSMutableArray *toRemove;
+    Class cleanupClass;
+    Class renderClass;
+}
+@end
 
 @implementation CleanupSystem
 
+- (instancetype)initWithEntityManager:(EntityManager *)entMan
+{
+    self = [super initWithEntityManager:entMan];
+    if (self) {
+        toRemove = [NSMutableArray array];
+        cleanupClass = [CleanupComponent class];
+        renderClass = [RenderComponent class];
+    }
+    
+    return self;
+}
+
 -(void)update:(float)dt
 {
-    Class cleanupClass = [CleanupComponent class];
-    Class renderClass = [RenderComponent class];
-    
     // There is a potential issue here. I fixed it, but it is probably not algorithmically
     // great.
     //
@@ -29,7 +46,6 @@
     // and then delete them outside of the enumeration. This way the collection is
     // only modified after it has been iterated
     NSArray *entities = [m_EntManager getAllEntitiesWithComponentClass:cleanupClass];
-    NSMutableArray *toRemove = nil;
     
     for (Entity *entity in entities) {
         CleanupComponent *cleanup = (CleanupComponent*)[entity getComponentOfClass:cleanupClass];
@@ -37,25 +53,28 @@
         
         if (!cleanup || !render) continue;
         
-        if (render.node.position.y < cleanup.yMin) {
-            if (!toRemove) toRemove = [NSMutableArray array];
+        if (render.node.position.y < cleanup.yMin)
             [toRemove addObject:entity];
-        }
     }
     
+    BOOL shouldEndGame = FALSE;
     NSUInteger i, count = [toRemove count];
     for (i = 0; i < count; i++) {
         Entity *entity = toRemove[i];
+        CleanupComponent *cleanup = (CleanupComponent*)[entity getComponentOfClass:cleanupClass];
         RenderComponent *render = (RenderComponent*)[entity getComponentOfClass:renderClass];
         
-        [render.node removeFromParentAndCleanup:YES];
+        if (cleanup.causesGameOver) shouldEndGame = TRUE;
+        
+        [render.node removeFromParent];
         [m_EntManager removeEntityFromGame:entity];
     }
-}
-
--(void)dealloc
-{
-    [super dealloc];
+    
+    [toRemove removeAllObjects];
+    if (shouldEndGame == TRUE) {
+        // post the notification to end game!
+        [[NSNotificationCenter defaultCenter] postNotificationName:GameOverCondition object:nil];
+    }
 }
 
 @end

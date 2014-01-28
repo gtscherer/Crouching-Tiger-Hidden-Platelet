@@ -7,12 +7,13 @@
 //
 
 #import "Component.h"
-#import "cocos2d.h"
+
+@class SKSpriteNode;
 
 @interface RenderComponent : Component
 
-@property (readonly) CCSprite *node;
+@property (readonly) SKSpriteNode *node;
 
-- (instancetype)initWithRenderNode:(CCSprite*)node;
+- (instancetype)initWithRenderNode:(SKSpriteNode*)node;
 
 @end

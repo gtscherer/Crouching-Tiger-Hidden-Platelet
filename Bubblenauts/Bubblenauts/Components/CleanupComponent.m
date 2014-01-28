@@ -15,13 +15,9 @@
     self = [super init];
     if (self) {
         _yMin = y;
+        _causesGameOver = FALSE;
     }
     return self;
-}
-
--(void)dealloc
-{
-    [super dealloc];
 }
 
 @end

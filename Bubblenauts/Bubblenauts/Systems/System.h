@@ -15,6 +15,8 @@
     EntityManager *m_EntManager;
 }
 
+@property (assign) BOOL active;
+
 - (instancetype)initWithEntityManager:(EntityManager*)entMan;
 - (void)update:(float)dt;
 

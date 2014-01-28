@@ -14,14 +14,9 @@
 {
     self = [super init];
     if (self) {
-        _velocity = CGPointMake(0.0f, 0.0f);
+        _velocity = ccp(0.0f, 0.0f);
     }
     return self;
-}
-
--(void)dealloc
-{
-    [super dealloc];
 }
 
 @end

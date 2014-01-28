@@ -9,15 +9,27 @@
 #import "ForceSystem.h"
 #import "VelocityComponent.h"
 #import "ForceComponent.h"
-#import "CGPointExtension.h"
+
+@interface ForceSystem() {
+    Class veloClass;
+    Class forceClass;
+}
+@end
 
 @implementation ForceSystem
 
+- (instancetype)initWithEntityManager:(EntityManager *)entMan
+{
+    self = [super initWithEntityManager:entMan];
+    if (self) {
+        veloClass = [VelocityComponent class];
+        forceClass = [ForceComponent class];
+    }
+    return self;
+}
+
 -(void)update:(float)dt
 {
-    Class veloClass = [VelocityComponent class];
-    Class forceClass = [ForceComponent class];
-    
     NSArray *entities = [m_EntManager getAllEntitiesWithComponentClass:forceClass];
     for (Entity *entity in entities) {
         ForceComponent *force = (ForceComponent*)[entity getComponentOfClass:forceClass];
@@ -29,11 +41,6 @@
         velocity.velocity = ccpAdd(velocity.velocity, force.force);
         [m_EntManager removeComponent:force fromEntity:entity];
     }
-}
-
--(void)dealloc
-{
-    [super dealloc];
 }
 
 @end

@@ -47,9 +47,9 @@
 // contains that component.
 - (NSArray*)getAllEntitiesWithComponentClass:(Class)aClass
 {
-    NSArray *components = m_EntitiesByClass[NSStringFromClass(aClass)];
-    if (components) {
-        return components;
+    NSArray *entities = m_EntitiesByClass[NSStringFromClass(aClass)];
+    if (entities) {
+        return entities;
     }
     else {
         return [NSArray array];
@@ -111,15 +111,6 @@
     if (!entities) return;
     
     [entities removeObject:entity];
-}
-
-
-- (void)dealloc
-{
-    [m_EntitiesByClass release];
-    m_EntitiesByClass = nil;
-    
-    [super dealloc];
 }
 
 @end
