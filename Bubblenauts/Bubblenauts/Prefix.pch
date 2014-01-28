@@ -1,8 +1,0 @@
-//
-// Prefix header for all source files of the 'Bubblenauts' target in the 'Bubblenauts' project
-//
-
-#ifdef __OBJC__
-	#import <Foundation/Foundation.h>
-	#import <UIKit/UIKit.h>
-#endif
