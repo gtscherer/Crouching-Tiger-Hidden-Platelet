@@ -1,11 +1,10 @@
-#include "Entity.h"
+#include "LineGeneratorEntity.h"
 #include "Rule.h"
-#include <list>
-#include <queue>
-#include <map>
-#include <pair>
-#define Rules std::list<Rule>
-#define ProbabilityList std::list< pair<int, Entity> >
+#include <deque>
+
+#define Entity ProceduralGenerator::LineGeneratorEntity
+#define ProbabilityList std::list< std::pair<int, ProceduralGenerator::LineGeneratorEntity> >
+
 namespace ProceduralGenerator
 {
 	class RuleList
@@ -13,45 +12,48 @@ namespace ProceduralGenerator
 	public:
 		Rules getExclusions();
 		Rules getForceGenerate();
+        std::deque<Rule> getRules();
+
 	private:
-		Rules rules;
+        std::deque<Rule> rules;
 	};
 
 	class RuleQueue
 	{
 	public:
-		RuleQueue(int size);
-		Rule peekRule(int column_number);
-		Rule popRule(int column_number);
-		Rule addRule(Rule rule, int column_number);
-		void addRule(int row_number, int column_number);
+        ProceduralGenerator::Rule peekRule(int column_number);
+		void popRule(int column_number);
+		ProceduralGenerator::Rule addRule(ProceduralGenerator::Rule rule, int column_number);
+		void addRule(ProceduralGenerator::Rule rule, int row_number, int column_number);
 	private:
-		queue< RuleList > ruleQueue[];
+        std::vector< ProceduralGenerator::RuleList > ruleQueue;
 	};
 
 	class Distribution
 	{
 	public:
-		Distribution(std::map< Entity, int > distribution);
+		Distribution(std::map< ProceduralGenerator::LineGeneratorEntity, int > distribution);
+        Distribution();
 		ProbabilityList getProbabilityList();
-		void removeEntity(char entity);
+		void removeEntity(Entity entity);
 	private:
-		std::map< Entity,  int > distribution;
+		std::map< ProceduralGenerator::LineGeneratorEntity,  int > distribution;
 
 	};
 
 	class LineGenerator
 	{
 	public:
+        LineGenerator();
 		LineGenerator(int);
-		char generateEntity();
+		char generateEntity(ProbabilityList probabilities);
 		char* getNextLine();
-		Distribution evaluateDistribution(Rules exclusions, int column_number);
-		void setDistribution(Distribution);
-		Distribution getDistribution;
+		ProceduralGenerator::Distribution evaluateDistribution(Rules exclusions, int column_number);
+		void setDistribution(ProceduralGenerator::Distribution);
+		ProceduralGenerator::Distribution getDistribution();
 
 	private:
-		Distribution globalDistribution;
+		ProceduralGenerator::Distribution globalDistribution;
 		RuleQueue ruleQueue;
 		int width;
 

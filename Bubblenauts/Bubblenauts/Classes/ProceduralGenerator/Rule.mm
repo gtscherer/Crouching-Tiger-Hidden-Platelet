@@ -1,26 +1,16 @@
 #include "Rule.h"
-#include "Entity.h"
 
 using namespace ProceduralGenerator;
 
-Rule::Rule()
-{
 
+LineGeneratorEntity& Rule::getEntity()
+{
+	return *this->entity;
 }
 
-Rule::~Rule()
+void Rule::setEntity(LineGeneratorEntity& entity)
 {
-
-}
-
-Entity& Rule::getEntity()
-{
-	return this->entity;
-}
-
-void Rule::setEntity(Entity& entity)
-{
-	this->entity = entity;
+	this->entity = &entity;
 }
 
 Integer_Pair Rule::getAreaAffected()
@@ -33,7 +23,7 @@ void Rule::setAreaAffected(int x, int y)
 	this->areaAffected = Integer_Pair(x, y);
 }
 
-void Rule::setAreaAffected(Integer_pair dimensions)
+void Rule::setAreaAffected(Integer_Pair dimensions)
 {
 	this->areaAffected = dimensions;
 }

@@ -6,20 +6,27 @@ Rule:
 	Entity getEntity()
 	type: force|exclude
 */
-#include <pair>
+#ifndef RULE_H
+#define RULE_H
 #include <list>
-#include "Entity.h"
-#define Integer_Pair std::pair<int, int>
+#include "LineGeneratorEntity.h"
+
 #define Force 0
 #define Exclude 1
+#define Integer_Pair std::pair<int, int>
+#define Double_Pair std::pair<double, double>
+#define ScaleFactors std::list< Double_Pair >
+
 namespace ProceduralGenerator 
 {
+    class LineGeneratorEntity;
+    
 	class Rule
 	{
 	public:
-		Entity& getEntity();
-		void setEntity(Entity& entity);
-		Integer_Pair getAreaAffected();
+        ProceduralGenerator::LineGeneratorEntity& getEntity();
+		void setEntity(ProceduralGenerator::LineGeneratorEntity& entity);
+        Integer_Pair getAreaAffected();
 		void setAreaAffected(int, int);
 		void setAreaAffected(Integer_Pair dimensions);
 		Integer_Pair getOffset();
@@ -27,9 +34,11 @@ namespace ProceduralGenerator
 		void setOffset(Integer_Pair offset);
 		int getRuleType();
 	private:
-		Entity* entity;
+		ProceduralGenerator::LineGeneratorEntity* entity;
 		Integer_Pair areaAffected;
-		Offset offset;
+		Integer_Pair offset;
 		int ruleType;
 	};
 }
+
+#endif
