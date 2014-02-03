@@ -142,7 +142,10 @@ StringRepresentation LineGenerator::getNextLine()
     // Second Pass
     linePosition = workingLine.begin();
     int currentLinePosition = 0;
+<<<<<<< HEAD
     char previousEntity = 'x';
+=======
+>>>>>>> origin
     for(Probability_To_Generate probability : secondaryProbabilityValues)
     {
         if(this->checkIfBlocked(*linePosition))
