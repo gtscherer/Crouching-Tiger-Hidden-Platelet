@@ -1,5 +1,5 @@
 #include "Rule.h"
-word?
+word.
 using namespace ProceduralGenerator;
 
 
