@@ -1,5 +1,6 @@
 #include "LineGenerator.h"
 #include <time.h>
+#include <string>
 
 #define NotGenerated 'x'
 #define Air '0'
@@ -12,9 +13,14 @@
 using namespace ProceduralGenerator;
 using namespace std;
 
-deque<Rule> RuleList::getRules()
+list<Rule> RuleList::getRules()
 {
 	return this->rules;
+}
+
+int RuleList::size()
+{
+    return this->rules.size();
 }
 
 Rules RuleList::getExclusions()
@@ -32,19 +38,43 @@ Rules RuleList::getForceGenerate()
 }
 
 
-void RuleQueue::addRule(Rule rule, int row_number, int column_number)
+void MasterRuleQueue::addRule(ProceduralGenerator::Rule rule, int column_number, int height)
 {
+    int columnSize = this->size(column_number);
+    if(columnSize != -1)
+    {
+        if(height <= columnSize)
+        {
+            auto queueIterator = this->ruleQueue.begin();
+            for(int i = 0; i < height; ++i, ++queueIterator);
+            //*queueIterator
+        }
+    }
+    
 
 }
 
-Rule RuleQueue::peekRule(int column_number)
+int MasterRuleQueue::size()
 {
-	return this->ruleQueue[column_number].getRules().front();
+    return this->ruleQueue.size();
 }
 
-void RuleQueue::popRule(int column_number)
+int MasterRuleQueue::size(int index)
 {
-    this->ruleQueue[column_number].getRules().pop_front();
+    if(index < this->size()) return this->ruleQueue[index].size();
+    else return -1;
+}
+
+RuleList MasterRuleQueue::peekRule(int column_number)
+{
+	return this->ruleQueue[column_number].front();
+}
+
+RuleList MasterRuleQueue::popRule(int column_number)
+{
+    RuleList ruleList = this->peekRule(column_number);
+    this->ruleQueue[column_number].pop_front();
+    return ruleList;
 }
 
 Distribution::Distribution()
@@ -57,17 +87,27 @@ Distribution::Distribution(map< Entity, int > distribution)
 	this->distribution = distribution;
 }
 
+map< LineGeneratorEntity, int >::iterator Distribution::begin()
+{
+    return this->distribution.begin();
+}
+
+map< LineGeneratorEntity, int >::iterator Distribution::end()
+{
+    return this->distribution.end();
+}
+
 ProbabilityList Distribution::getProbabilityList()
 {
 	int position = 0;
 	ProbabilityList probabilities; 
-	for(auto& probabilityPair : this->distribution)
+	for(auto probabilityPair : this->distribution)
 	{
 		position += probabilityPair.second;
-		probabilities.push_back(pair<int, Entity>(position, probabilityPair.first));
+		probabilities.push_back(ProbabilityMapping(probabilityPair.first, position));
 	}
 	//normalize
-	for(auto& probabilityPair : probabilities) probabilityPair.first = (probabilityPair.first / (position)) * 1000;
+	for(auto& probabilityPair : probabilities) probabilityPair.second = (probabilityPair.second / (position)) * 1000;
     return probabilities;
 }
 
@@ -102,12 +142,12 @@ Distribution LineGenerator::getDistribution()
 	return this->globalDistribution;
 }
 
-char LineGenerator::generateEntity(ProbabilityList probabilities)
+char LineGenerator::generateEntity(Distribution distribution)
 {
-	int randomNumber = (rand() mod 1000);
+	int randomNumber = (rand() % 1000);
 	char entityToGenerate = Air;
-	for(auto probabilityPair : distribution){
-		if(randomNumber < probabilityPair.first) entityToGenerate = probabilityPair.second;
+	for(ProbabilityMapping probabilityPair : distribution){
+		if(randomNumber < probabilityPair.second) entityToGenerate = probabilityPair.first.getSymbol();
 		else break;
 	}
 	return entityToGenerate;
@@ -134,27 +174,27 @@ char* LineGenerator::getNextLine()
     	generatedLine.addEntity(Air)
 	++col_num
 	*/
-	string generatedLine;
-	for(int column_number = 0; column_number < ruleQueue.size(); ++column_number)
+    string generatedLine;
+	for(int column_number = 0; column_number < this->width; ++column_number)
 	{
-		Rules rules = this->ruleQueue.popRule(column_number);
-		char entity;
-		Rules forceGenerate = rules.getForceGenerate();
-		if(forceGenerate.size() < 1){
+		RuleList rules = this->masterRuleQueue.popRule(column_number);
+        Entity entity;
+		if(rules.getForceGenerate().size() < 1){
 			Distribution evaluatedDistribution = evaluateDistribution(rules.getExclusions(), column_number);
-			entity = generateEntity(evaluatedDistribution);
+			entity = this->generateEntity(evaluatedDistribution);
 		}
-		else if(forceGenerate.size() == 1) entity = forceGenerate.front.getSymbol();
+		else entity = rules.getForceGenerate().front().getEntity();
 		bool canPlace = true;
 		for(Rule rule : entity.getRules())
 		{
-			if(!ruleQueue.canPlace(rule.getEntity())){
+			if(!this->masterRuleQueue.canPlace(rule.getEntity())){
 				canPlace = false;
 				break;
 			}
 		}
+        //needs current position
 		if(canPlace){
-			for(Rule rule : entity.getRules()) ruleQueue.addRule(rule);
+			for(Rule rule : entity.getRules()) this->masterRuleQueue.addRule(rule);
 			generatedLine += entity;
 		}
 		else generatedLine += Air;

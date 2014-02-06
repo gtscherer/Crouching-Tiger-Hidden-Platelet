@@ -30,7 +30,7 @@ namespace ProceduralGenerator
 		void setAreaAffected(int, int);
 		void setAreaAffected(Integer_Pair dimensions);
 		Integer_Pair getOffset();
-		void setOffset(int, int);
+		void setOffset(int, int); 
 		void setOffset(Integer_Pair offset);
 		int getRuleType();
 	private:

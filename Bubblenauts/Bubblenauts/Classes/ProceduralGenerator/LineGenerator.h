@@ -2,31 +2,37 @@
 #include "Rule.h"
 #include <deque>
 
-#define Entity ProceduralGenerator::LineGeneratorEntity
-#define ProbabilityList std::list< std::pair<int, ProceduralGenerator::LineGeneratorEntity> >
 
 namespace ProceduralGenerator
 {
+    typedef ProceduralGenerator::LineGeneratorEntity Entity;
+    typedef std::pair<Entity, int> ProbabilityMapping;
+    typedef std::list<ProbabilityMapping> ProbabilityList;
+    
 	class RuleList
 	{
 	public:
 		Rules getExclusions();
 		Rules getForceGenerate();
-        std::deque<Rule> getRules();
+        int size();
+        std::list<Rule> getRules();
 
 	private:
-        std::deque<Rule> rules;
+        std::list<Rule> rules;
 	};
+    
+    typedef std::deque<ProceduralGenerator::RuleList> RuleQueue;
 
-	class RuleQueue
+	class MasterRuleQueue
 	{
 	public:
-        ProceduralGenerator::Rule peekRule(int column_number);
-		void popRule(int column_number);
-		ProceduralGenerator::Rule addRule(ProceduralGenerator::Rule rule, int column_number);
-		void addRule(ProceduralGenerator::Rule rule, int row_number, int column_number);
+        ProceduralGenerator::RuleList peekRule(int column_number);
+		ProceduralGenerator::RuleList popRule(int column_number);
+        int size();
+        int size(int index);
+		void addRule(ProceduralGenerator::Rule rule, int column_number, int height);
 	private:
-        std::vector< ProceduralGenerator::RuleList > ruleQueue;
+        std::vector< RuleQueue > ruleQueue;
 	};
 
 	class Distribution
@@ -34,6 +40,8 @@ namespace ProceduralGenerator
 	public:
 		Distribution(std::map< ProceduralGenerator::LineGeneratorEntity, int > distribution);
         Distribution();
+        std::map< ProceduralGenerator::LineGeneratorEntity, int >::iterator begin();
+        std::map< ProceduralGenerator::LineGeneratorEntity, int >::iterator end();
 		ProbabilityList getProbabilityList();
 		void removeEntity(Entity entity);
 	private:
@@ -46,7 +54,7 @@ namespace ProceduralGenerator
 	public:
         LineGenerator();
 		LineGenerator(int);
-		char generateEntity(ProbabilityList probabilities);
+		char generateEntity(ProceduralGenerator::Distribution distribution);
 		char* getNextLine();
 		ProceduralGenerator::Distribution evaluateDistribution(Rules exclusions, int column_number);
 		void setDistribution(ProceduralGenerator::Distribution);
@@ -54,7 +62,7 @@ namespace ProceduralGenerator
 
 	private:
 		ProceduralGenerator::Distribution globalDistribution;
-		RuleQueue ruleQueue;
+		MasterRuleQueue masterRuleQueue;
 		int width;
 
 	};

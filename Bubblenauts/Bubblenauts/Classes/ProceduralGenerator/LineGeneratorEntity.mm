@@ -42,6 +42,8 @@ LineGeneratorEntity::LineGeneratorEntity(char symbol,
     this->forceGeneration = forceGenerate;
 }
 
+
+
 char LineGeneratorEntity::getSymbol()
 {
 	return this->symbol;
@@ -71,6 +73,15 @@ bool LineGeneratorEntity::operator!=(const LineGeneratorEntity& rhs)
     else return true;
 }
 
+Rules LineGeneratorEntity::getForceGeneration()
+{
+    return this->forceGeneration;
+}
+
+Rules LineGeneratorEntity::getExclusions()
+{
+    return this->exclusions;
+}
 
 //must delete result in callback!!
 RulePointerList LineGeneratorEntity::getRules()

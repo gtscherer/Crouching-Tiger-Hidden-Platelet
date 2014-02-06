@@ -28,13 +28,16 @@ namespace ProceduralGenerator{
     
 	class LineGeneratorEntity{
 	public:
+        LineGeneratorEntity();
         LineGeneratorEntity(char symbol);
         LineGeneratorEntity(char symbol, int frequency);
         LineGeneratorEntity(char symbol, int frequency, Integer_Pair dimensions, ScaleFactors scaleFactors);
         LineGeneratorEntity(char symbol, int frequency, Integer_Pair dimensions, ScaleFactors scaleFactors, Rules exclusions, Rules forceGenerate);
 		RulePointerList getRules();
-        void addExclusion(ProceduralGenerator::Rule);
-        void addForceGeneration(ProceduralGenerator::Rule);
+        void addExclusion(ProceduralGenerator::Rule rule);
+        Rules getExclusions();
+        void addForceGeneration(ProceduralGenerator::Rule rule);
+        Rules getForceGeneration();
         void setFrequency(int);
 		Integer_Pair getDimensions();
 		void setDimensions(int x, int y);
