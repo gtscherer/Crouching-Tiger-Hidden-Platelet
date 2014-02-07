@@ -1,10 +1,8 @@
 #ifndef LINEGENERATORENTITY_H
 #define LINEGENERATORENTITY_H
 
-#include <queue>
-#include <map>
+#include "Rule.h"
 #include <list>
-
 /*
 LineGeneratorEntity:
         	symbol: char
@@ -16,15 +14,14 @@ LineGeneratorEntity:
         	Rules getRules()
 */
 
-#define Rules std::list< ProceduralGenerator::Rule >
-#define Integer_Pair std::pair<int, int>
-#define Double_Pair std::pair<double, double>
-#define ScaleFactors std::list< Double_Pair >
-#define RulePointerList std::list<Rule*>
-
 
 namespace ProceduralGenerator{
-    class Rule;
+    
+    typedef std::list< ProceduralGenerator::Rule > Rules;
+    typedef std::pair<int, int> Integer_Pair;
+    typedef std::pair<double, double> Double_Pair;
+    typedef std::list< Double_Pair > ScaleFactors;
+    typedef std::list<ProceduralGenerator::Rule*> RulePointerList;
     
 	class LineGeneratorEntity{
 	public:
@@ -46,6 +43,7 @@ namespace ProceduralGenerator{
         void addScaleFactors(double x, double y);
 		char getSymbol();
         bool operator==(const LineGeneratorEntity& rhs);
+        bool operator==(const char& rhs);
         bool operator<(const LineGeneratorEntity& rhs);
         bool operator<=(const LineGeneratorEntity& rhs);
         bool operator!=(const LineGeneratorEntity& rhs);
@@ -57,6 +55,7 @@ namespace ProceduralGenerator{
 		int frequency;
         char symbol;
 	};
+    typedef ProceduralGenerator::LineGeneratorEntity Entity;
 }
 
 #endif

@@ -1,11 +1,12 @@
-#include "LineGeneratorEntity.h"
 #include "Rule.h"
+#include "LineGeneratorEntity.h"
 #include <deque>
+#include <vector>
+#include <map>
 
 
 namespace ProceduralGenerator
 {
-    typedef ProceduralGenerator::LineGeneratorEntity Entity;
     typedef std::pair<Entity, int> ProbabilityMapping;
     typedef std::list<ProbabilityMapping> ProbabilityList;
     
@@ -15,10 +16,10 @@ namespace ProceduralGenerator
 		Rules getExclusions();
 		Rules getForceGenerate();
         int size();
-        std::list<Rule> getRules();
+        std::list<ProceduralGenerator::Rule> getRules();
 
 	private:
-        std::list<Rule> rules;
+        std::list<ProceduralGenerator::Rule> rules;
 	};
     
     typedef std::deque<ProceduralGenerator::RuleList> RuleQueue;

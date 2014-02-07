@@ -174,6 +174,8 @@ char* LineGenerator::getNextLine()
     	generatedLine.addEntity(Air)
 	++col_num
 	*/
+    
+    /*
     string generatedLine;
 	for(int column_number = 0; column_number < this->width; ++column_number)
 	{
@@ -199,5 +201,7 @@ char* LineGenerator::getNextLine()
 		}
 		else generatedLine += Air;
 	}
+     */
+    return "yay";
 }
 

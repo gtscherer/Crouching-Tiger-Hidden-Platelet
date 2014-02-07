@@ -3,14 +3,14 @@
 using namespace ProceduralGenerator;
 
 
-LineGeneratorEntity& Rule::getEntity()
+char Rule::getEntity()
 {
-	return *this->entity;
+	return this->entity;
 }
 
-void Rule::setEntity(LineGeneratorEntity& entity)
+void Rule::setEntity(char entity)
 {
-	this->entity = &entity;
+	this->entity = entity;
 }
 
 Integer_Pair Rule::getAreaAffected()

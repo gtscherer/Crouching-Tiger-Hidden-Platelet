@@ -55,6 +55,12 @@ bool LineGeneratorEntity::operator==(const LineGeneratorEntity& rhs)
 	else return false;
 }
 
+bool LineGeneratorEntity::operator==(const char& rhs)
+{
+    if(this->symbol == rhs) return true;
+    else return false;
+}
+
 bool LineGeneratorEntity::operator<(const LineGeneratorEntity& rhs)
 {
 	if(this->getSymbol() < rhs.symbol) return true;
