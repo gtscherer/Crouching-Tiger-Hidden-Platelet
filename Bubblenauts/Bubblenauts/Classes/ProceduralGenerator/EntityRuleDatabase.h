@@ -12,7 +12,7 @@
 #include <iostream>
 #include "Rule.h"
 #include "LineGeneratorEntity.h"
-
+/*
 namespace ProceduralGenerator
 {
     class EntityRuleMapping
@@ -42,4 +42,5 @@ namespace ProceduralGenerator
         std::list<ProceduralGenerator::EntityRuleMapping> database;
     };
 }
+ */
 #endif /* defined(__Bubblenauts__EntityRuleDatabase__) */

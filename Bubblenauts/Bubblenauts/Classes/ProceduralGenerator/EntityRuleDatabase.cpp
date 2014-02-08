@@ -7,6 +7,7 @@
 //
 
 #include "EntityRuleDatabase.h"
+/*
 using namespace ProceduralGenerator;
 
 EntityRuleMapping::EntityRuleMapping(Entity entity, ProceduralGenerator::Rule rule)
@@ -89,3 +90,4 @@ bool RelationshipDatabase::addRelationship(Entity entity, ProceduralGenerator::R
     this->database.push_back(newMapping);
     return true;
 }
+*/

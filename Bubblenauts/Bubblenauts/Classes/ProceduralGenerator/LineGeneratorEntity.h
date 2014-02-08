@@ -18,7 +18,6 @@ LineGeneratorEntity:
 namespace ProceduralGenerator{
     
     typedef std::list< ProceduralGenerator::Rule > Rules;
-    typedef std::pair<int, int> Integer_Pair;
     typedef std::pair<double, double> Double_Pair;
     typedef std::list< Double_Pair > ScaleFactors;
     typedef std::list<ProceduralGenerator::Rule*> RulePointerList;
@@ -44,7 +43,7 @@ namespace ProceduralGenerator{
 		char getSymbol();
         bool operator==(const LineGeneratorEntity& rhs);
         bool operator==(const char& rhs);
-        bool operator<(const LineGeneratorEntity& rhs);
+        bool operator<(const LineGeneratorEntity& rhs) const;
         bool operator<=(const LineGeneratorEntity& rhs);
         bool operator!=(const LineGeneratorEntity& rhs);
 	private:

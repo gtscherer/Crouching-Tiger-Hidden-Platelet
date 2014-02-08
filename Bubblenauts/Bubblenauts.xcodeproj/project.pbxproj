@@ -7,6 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2020FF3918A5CE6A00B9B0A0 /* PCGRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 2020FF3818A5CE6A00B9B0A0 /* PCGRule.m */; };
+		2020FF3E18A5DA3B00B9B0A0 /* PCGPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 2020FF3D18A5DA3B00B9B0A0 /* PCGPair.m */; };
+		2020FF4118A5DB9900B9B0A0 /* PCGEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2020FF4018A5DB9900B9B0A0 /* PCGEntity.m */; };
+		2020FF4418A5E1D900B9B0A0 /* PCGLineGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2020FF4318A5E1D900B9B0A0 /* PCGLineGenerator.m */; };
+		2020FF4718A5E1F800B9B0A0 /* PCGMasterRuleQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2020FF4618A5E1F800B9B0A0 /* PCGMasterRuleQueue.m */; };
+		2020FF4A18A5E20D00B9B0A0 /* PCGDistribution.m in Sources */ = {isa = PBXBuildFile; fileRef = 2020FF4918A5E20D00B9B0A0 /* PCGDistribution.m */; };
+		206223EF189F5D0600B22652 /* LineGenerator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 206223E7189F5D0600B22652 /* LineGenerator.mm */; };
+		206223F5189F615A00B22652 /* LineGeneratorEntity.mm in Sources */ = {isa = PBXBuildFile; fileRef = 206223F1189F615A00B22652 /* LineGeneratorEntity.mm */; };
+		206223F6189F615A00B22652 /* Rule.mm in Sources */ = {isa = PBXBuildFile; fileRef = 206223F3189F615A00B22652 /* Rule.mm */; };
+		2078C54918A6A2D900769A58 /* TestPCGPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 2078C54818A6A2D900769A58 /* TestPCGPair.m */; };
+		2078C54F18A6A5FB00769A58 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4000E6671886466600EBEDFA /* XCTest.framework */; };
+		2078C55018A6A5FB00769A58 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4000E6411886466500EBEDFA /* Foundation.framework */; };
+		2078C55118A6A5FB00769A58 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4000E6451886466500EBEDFA /* UIKit.framework */; };
+		2078C56318A6AB4E00769A58 /* PCGRule.h in Sources */ = {isa = PBXBuildFile; fileRef = 2020FF3718A5CE6A00B9B0A0 /* PCGRule.h */; };
+		2078C56418A6AB4E00769A58 /* PCGRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 2020FF3818A5CE6A00B9B0A0 /* PCGRule.m */; };
+		2078C56518A6AB4E00769A58 /* PCGPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 2020FF3D18A5DA3B00B9B0A0 /* PCGPair.m */; };
+		2078C56618A6AB4E00769A58 /* PCGPair.h in Sources */ = {isa = PBXBuildFile; fileRef = 2020FF3A18A5D65800B9B0A0 /* PCGPair.h */; };
+		2078C56718A6AB4E00769A58 /* PCGEntity.h in Sources */ = {isa = PBXBuildFile; fileRef = 2020FF3F18A5DB9900B9B0A0 /* PCGEntity.h */; };
+		2078C56818A6AB4E00769A58 /* PCGEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2020FF4018A5DB9900B9B0A0 /* PCGEntity.m */; };
+		2078C56918A6AB4E00769A58 /* PCGLineGenerator.h in Sources */ = {isa = PBXBuildFile; fileRef = 2020FF4218A5E1D900B9B0A0 /* PCGLineGenerator.h */; };
+		2078C56A18A6AB4E00769A58 /* PCGLineGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2020FF4318A5E1D900B9B0A0 /* PCGLineGenerator.m */; };
+		2078C56B18A6AB4E00769A58 /* PCGMasterRuleQueue.h in Sources */ = {isa = PBXBuildFile; fileRef = 2020FF4518A5E1F800B9B0A0 /* PCGMasterRuleQueue.h */; };
+		2078C56C18A6AB4E00769A58 /* PCGMasterRuleQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2020FF4618A5E1F800B9B0A0 /* PCGMasterRuleQueue.m */; };
+		2078C56D18A6AB4E00769A58 /* PCGDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = 2020FF4818A5E20D00B9B0A0 /* PCGDistribution.h */; };
+		2078C56E18A6AB4E00769A58 /* PCGDistribution.m in Sources */ = {isa = PBXBuildFile; fileRef = 2020FF4918A5E20D00B9B0A0 /* PCGDistribution.m */; };
+		2078C56F18A6AB4E00769A58 /* PCGComparable.h in Sources */ = {isa = PBXBuildFile; fileRef = 2078C56218A6A81100769A58 /* PCGComparable.h */; };
+		20ECCE6A18A46DC4004D8E3C /* TestPCGRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 20ECCE6918A46DC4004D8E3C /* TestPCGRule.m */; };
+		20ECCE6D18A473CC004D8E3C /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20ECCE6B18A473CC004D8E3C /* OCHamcrest.framework */; };
+		20ECCE6E18A473CC004D8E3C /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20ECCE6C18A473CC004D8E3C /* OCHamcrestIOS.framework */; };
+		20ECCE7118A473E3004D8E3C /* OCMockito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20ECCE6F18A473E3004D8E3C /* OCMockito.framework */; };
+		20ECCE7218A473E3004D8E3C /* OCMockitoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20ECCE7018A473E3004D8E3C /* OCMockitoIOS.framework */; };
 		4000E6421886466500EBEDFA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4000E6411886466500EBEDFA /* Foundation.framework */; };
 		4000E6441886466500EBEDFA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4000E6431886466500EBEDFA /* CoreGraphics.framework */; };
 		4000E6461886466500EBEDFA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4000E6451886466500EBEDFA /* UIKit.framework */; };
@@ -23,44 +54,25 @@
 		4000E66A1886466600EBEDFA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4000E6451886466500EBEDFA /* UIKit.framework */; };
 		4000E6721886466600EBEDFA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4000E6701886466600EBEDFA /* InfoPlist.strings */; };
 		4000E6741886466600EBEDFA /* BubblenautsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E6731886466600EBEDFA /* BubblenautsTests.m */; };
-		4000E6A118864C3400EBEDFA /* LineGenerator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4000E67F18864C3400EBEDFA /* LineGenerator.mm */; };
-		4000E6A218864C3400EBEDFA /* LineGenerator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4000E67F18864C3400EBEDFA /* LineGenerator.mm */; };
 		4000E6A318864C3400EBEDFA /* CleanupComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E68218864C3400EBEDFA /* CleanupComponent.m */; };
-		4000E6A418864C3400EBEDFA /* CleanupComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E68218864C3400EBEDFA /* CleanupComponent.m */; };
 		4000E6A518864C3400EBEDFA /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E68418864C3400EBEDFA /* Component.m */; };
-		4000E6A618864C3400EBEDFA /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E68418864C3400EBEDFA /* Component.m */; };
 		4000E6A718864C3400EBEDFA /* ForceComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E68618864C3400EBEDFA /* ForceComponent.m */; };
-		4000E6A818864C3400EBEDFA /* ForceComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E68618864C3400EBEDFA /* ForceComponent.m */; };
 		4000E6AB18864C3400EBEDFA /* RenderComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E68A18864C3400EBEDFA /* RenderComponent.m */; };
-		4000E6AC18864C3400EBEDFA /* RenderComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E68A18864C3400EBEDFA /* RenderComponent.m */; };
 		4000E6AD18864C3400EBEDFA /* ScrollComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E68C18864C3400EBEDFA /* ScrollComponent.m */; };
-		4000E6AE18864C3400EBEDFA /* ScrollComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E68C18864C3400EBEDFA /* ScrollComponent.m */; };
 		4000E6AF18864C3400EBEDFA /* VelocityComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E68E18864C3400EBEDFA /* VelocityComponent.m */; };
-		4000E6B018864C3400EBEDFA /* VelocityComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E68E18864C3400EBEDFA /* VelocityComponent.m */; };
 		4000E6B118864C3400EBEDFA /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E69118864C3400EBEDFA /* Entity.m */; };
-		4000E6B218864C3400EBEDFA /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E69118864C3400EBEDFA /* Entity.m */; };
 		4000E6B318864C3400EBEDFA /* EntityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E69318864C3400EBEDFA /* EntityManager.m */; };
-		4000E6B418864C3400EBEDFA /* EntityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E69318864C3400EBEDFA /* EntityManager.m */; };
 		4000E6B518864C3400EBEDFA /* CleanupSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E69618864C3400EBEDFA /* CleanupSystem.m */; };
-		4000E6B618864C3400EBEDFA /* CleanupSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E69618864C3400EBEDFA /* CleanupSystem.m */; };
 		4000E6B718864C3400EBEDFA /* ForceSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E69818864C3400EBEDFA /* ForceSystem.m */; };
-		4000E6B818864C3400EBEDFA /* ForceSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E69818864C3400EBEDFA /* ForceSystem.m */; };
 		4000E6BB18864C3400EBEDFA /* RenderSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E69C18864C3400EBEDFA /* RenderSystem.m */; };
-		4000E6BC18864C3400EBEDFA /* RenderSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E69C18864C3400EBEDFA /* RenderSystem.m */; };
 		4000E6BD18864C3400EBEDFA /* ScrollSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E69E18864C3400EBEDFA /* ScrollSystem.m */; };
-		4000E6BE18864C3400EBEDFA /* ScrollSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E69E18864C3400EBEDFA /* ScrollSystem.m */; };
 		4000E6BF18864C3400EBEDFA /* System.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E6A018864C3400EBEDFA /* System.m */; };
-		4000E6C018864C3400EBEDFA /* System.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E6A018864C3400EBEDFA /* System.m */; };
 		4000E6C318864C4B00EBEDFA /* EntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E6C218864C4B00EBEDFA /* EntityFactory.m */; };
-		4000E6C418864C4B00EBEDFA /* EntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E6C218864C4B00EBEDFA /* EntityFactory.m */; };
 		4000E6DA18864C8A00EBEDFA /* output.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4000E6CD18864C8A00EBEDFA /* output.txt */; };
 		4000E6DB18864C8A00EBEDFA /* output.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4000E6CD18864C8A00EBEDFA /* output.txt */; };
 		4000E76C1887923800EBEDFA /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E76B1887923800EBEDFA /* Constants.m */; };
-		4000E76D1887923800EBEDFA /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E76B1887923800EBEDFA /* Constants.m */; };
 		4000E770188794D200EBEDFA /* CollisionComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E76F188794D200EBEDFA /* CollisionComponent.m */; };
-		4000E771188794D200EBEDFA /* CollisionComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E76F188794D200EBEDFA /* CollisionComponent.m */; };
 		4000E774188795D300EBEDFA /* CollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E773188795D300EBEDFA /* CollisionSystem.m */; };
-		4000E775188795D300EBEDFA /* CollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E773188795D300EBEDFA /* CollisionSystem.m */; };
 		401BDE9A18973A6D006D5523 /* MainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 401BDE9918973A6D006D5523 /* MainMenuScene.m */; };
 		409642C81892112A00D0C4C6 /* MoveComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 409642C71892112A00D0C4C6 /* MoveComponent.m */; };
 		409642CB1892124700D0C4C6 /* MoveSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 409642CA1892124700D0C4C6 /* MoveSystem.m */; };
@@ -69,6 +81,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2078C55B18A6A5FB00769A58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4000E6361886466500EBEDFA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4000E63D1886466500EBEDFA;
+			remoteInfo = Bubblenauts;
+		};
 		4000E66B1886466600EBEDFA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4000E6361886466500EBEDFA /* Project object */;
@@ -79,6 +98,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2020FF3718A5CE6A00B9B0A0 /* PCGRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCGRule.h; path = Bubblenauts/Classes/ProceduralGeneratorObjC/PCGRule.h; sourceTree = SOURCE_ROOT; };
+		2020FF3818A5CE6A00B9B0A0 /* PCGRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCGRule.m; path = Bubblenauts/Classes/ProceduralGeneratorObjC/PCGRule.m; sourceTree = SOURCE_ROOT; };
+		2020FF3A18A5D65800B9B0A0 /* PCGPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCGPair.h; path = Bubblenauts/Classes/ProceduralGeneratorObjC/PCGPair.h; sourceTree = SOURCE_ROOT; };
+		2020FF3D18A5DA3B00B9B0A0 /* PCGPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCGPair.m; path = Bubblenauts/Classes/ProceduralGeneratorObjC/PCGPair.m; sourceTree = SOURCE_ROOT; };
+		2020FF3F18A5DB9900B9B0A0 /* PCGEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCGEntity.h; path = Bubblenauts/Classes/ProceduralGeneratorObjC/PCGEntity.h; sourceTree = SOURCE_ROOT; };
+		2020FF4018A5DB9900B9B0A0 /* PCGEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCGEntity.m; path = Bubblenauts/Classes/ProceduralGeneratorObjC/PCGEntity.m; sourceTree = SOURCE_ROOT; };
+		2020FF4218A5E1D900B9B0A0 /* PCGLineGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCGLineGenerator.h; path = Bubblenauts/Classes/ProceduralGeneratorObjC/PCGLineGenerator.h; sourceTree = SOURCE_ROOT; };
+		2020FF4318A5E1D900B9B0A0 /* PCGLineGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCGLineGenerator.m; path = Bubblenauts/Classes/ProceduralGeneratorObjC/PCGLineGenerator.m; sourceTree = SOURCE_ROOT; };
+		2020FF4518A5E1F800B9B0A0 /* PCGMasterRuleQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCGMasterRuleQueue.h; path = Bubblenauts/Classes/ProceduralGeneratorObjC/PCGMasterRuleQueue.h; sourceTree = SOURCE_ROOT; };
+		2020FF4618A5E1F800B9B0A0 /* PCGMasterRuleQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCGMasterRuleQueue.m; path = Bubblenauts/Classes/ProceduralGeneratorObjC/PCGMasterRuleQueue.m; sourceTree = SOURCE_ROOT; };
+		2020FF4818A5E20D00B9B0A0 /* PCGDistribution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCGDistribution.h; path = Bubblenauts/Classes/ProceduralGeneratorObjC/PCGDistribution.h; sourceTree = SOURCE_ROOT; };
+		2020FF4918A5E20D00B9B0A0 /* PCGDistribution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCGDistribution.m; path = Bubblenauts/Classes/ProceduralGeneratorObjC/PCGDistribution.m; sourceTree = SOURCE_ROOT; };
+		206223E7189F5D0600B22652 /* LineGenerator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LineGenerator.mm; sourceTree = "<group>"; };
+		206223E8189F5D0600B22652 /* LineGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineGenerator.h; sourceTree = "<group>"; };
+		206223F1189F615A00B22652 /* LineGeneratorEntity.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LineGeneratorEntity.mm; sourceTree = "<group>"; };
+		206223F2189F615A00B22652 /* LineGeneratorEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineGeneratorEntity.h; sourceTree = "<group>"; };
+		206223F3189F615A00B22652 /* Rule.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Rule.mm; sourceTree = "<group>"; };
+		206223F4189F615A00B22652 /* Rule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rule.h; sourceTree = "<group>"; };
+		206223FD18A03EDA00B22652 /* Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Types.h; sourceTree = "<group>"; };
+		2078C54818A6A2D900769A58 /* TestPCGPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPCGPair.m; sourceTree = "<group>"; };
+		2078C54E18A6A5FB00769A58 /* PCGTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PCGTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2078C56218A6A81100769A58 /* PCGComparable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCGComparable.h; path = Bubblenauts/Classes/ProceduralGeneratorObjC/PCGComparable.h; sourceTree = SOURCE_ROOT; };
+		20ECCE6918A46DC4004D8E3C /* TestPCGRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPCGRule.m; sourceTree = "<group>"; };
+		20ECCE6B18A473CC004D8E3C /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCHamcrest.framework; sourceTree = "<group>"; };
+		20ECCE6C18A473CC004D8E3C /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCHamcrestIOS.framework; sourceTree = "<group>"; };
+		20ECCE6F18A473E3004D8E3C /* OCMockito.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMockito.framework; sourceTree = "<group>"; };
+		20ECCE7018A473E3004D8E3C /* OCMockitoIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMockitoIOS.framework; sourceTree = "<group>"; };
 		4000E63E1886466500EBEDFA /* Bubblenauts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bubblenauts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4000E6411886466500EBEDFA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4000E6431886466500EBEDFA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -101,8 +147,6 @@
 		4000E66F1886466600EBEDFA /* BubblenautsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BubblenautsTests-Info.plist"; sourceTree = "<group>"; };
 		4000E6711886466600EBEDFA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4000E6731886466600EBEDFA /* BubblenautsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BubblenautsTests.m; sourceTree = "<group>"; };
-		4000E67E18864C3400EBEDFA /* LineGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineGenerator.h; sourceTree = "<group>"; };
-		4000E67F18864C3400EBEDFA /* LineGenerator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LineGenerator.mm; sourceTree = "<group>"; };
 		4000E68118864C3400EBEDFA /* CleanupComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CleanupComponent.h; sourceTree = "<group>"; };
 		4000E68218864C3400EBEDFA /* CleanupComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CleanupComponent.m; sourceTree = "<group>"; };
 		4000E68318864C3400EBEDFA /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
@@ -152,6 +196,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2078C54B18A6A5FB00769A58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2078C54F18A6A5FB00769A58 /* XCTest.framework in Frameworks */,
+				2078C55118A6A5FB00769A58 /* UIKit.framework in Frameworks */,
+				2078C55018A6A5FB00769A58 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4000E63B1886466500EBEDFA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -168,14 +222,53 @@
 			buildActionMask = 2147483647;
 			files = (
 				4000E6681886466600EBEDFA /* XCTest.framework in Frameworks */,
+				20ECCE6D18A473CC004D8E3C /* OCHamcrest.framework in Frameworks */,
+				20ECCE6E18A473CC004D8E3C /* OCHamcrestIOS.framework in Frameworks */,
 				4000E66A1886466600EBEDFA /* UIKit.framework in Frameworks */,
 				4000E6691886466600EBEDFA /* Foundation.framework in Frameworks */,
+				20ECCE7218A473E3004D8E3C /* OCMockitoIOS.framework in Frameworks */,
+				20ECCE7118A473E3004D8E3C /* OCMockito.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2020FF3618A5CCE900B9B0A0 /* ProceduralGeneratorObjC */ = {
+			isa = PBXGroup;
+			children = (
+				2020FF3718A5CE6A00B9B0A0 /* PCGRule.h */,
+				2020FF3818A5CE6A00B9B0A0 /* PCGRule.m */,
+				2020FF3D18A5DA3B00B9B0A0 /* PCGPair.m */,
+				2020FF3A18A5D65800B9B0A0 /* PCGPair.h */,
+				2020FF3F18A5DB9900B9B0A0 /* PCGEntity.h */,
+				2020FF4018A5DB9900B9B0A0 /* PCGEntity.m */,
+				2020FF4218A5E1D900B9B0A0 /* PCGLineGenerator.h */,
+				2020FF4318A5E1D900B9B0A0 /* PCGLineGenerator.m */,
+				2020FF4518A5E1F800B9B0A0 /* PCGMasterRuleQueue.h */,
+				2020FF4618A5E1F800B9B0A0 /* PCGMasterRuleQueue.m */,
+				2020FF4818A5E20D00B9B0A0 /* PCGDistribution.h */,
+				2020FF4918A5E20D00B9B0A0 /* PCGDistribution.m */,
+				2078C56218A6A81100769A58 /* PCGComparable.h */,
+			);
+			name = ProceduralGeneratorObjC;
+			path = ProceduralGenerator;
+			sourceTree = "<group>";
+		};
+		206223E6189F5D0600B22652 /* ProceduralGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				206223F1189F615A00B22652 /* LineGeneratorEntity.mm */,
+				206223F2189F615A00B22652 /* LineGeneratorEntity.h */,
+				206223F3189F615A00B22652 /* Rule.mm */,
+				206223F4189F615A00B22652 /* Rule.h */,
+				206223FD18A03EDA00B22652 /* Types.h */,
+				206223E7189F5D0600B22652 /* LineGenerator.mm */,
+				206223E8189F5D0600B22652 /* LineGenerator.h */,
+			);
+			path = ProceduralGenerator;
+			sourceTree = "<group>";
+		};
 		4000E6351886466500EBEDFA = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +284,7 @@
 			children = (
 				4000E63E1886466500EBEDFA /* Bubblenauts.app */,
 				4000E6661886466600EBEDFA /* BubblenautsTests.xctest */,
+				2078C54E18A6A5FB00769A58 /* PCGTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -198,6 +292,10 @@
 		4000E6401886466500EBEDFA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				20ECCE6F18A473E3004D8E3C /* OCMockito.framework */,
+				20ECCE7018A473E3004D8E3C /* OCMockitoIOS.framework */,
+				20ECCE6B18A473CC004D8E3C /* OCHamcrest.framework */,
+				20ECCE6C18A473CC004D8E3C /* OCHamcrestIOS.framework */,
 				4000E6411886466500EBEDFA /* Foundation.framework */,
 				4000E6431886466500EBEDFA /* CoreGraphics.framework */,
 				4000E6451886466500EBEDFA /* UIKit.framework */,
@@ -247,6 +345,8 @@
 		4000E66D1886466600EBEDFA /* BubblenautsTests */ = {
 			isa = PBXGroup;
 			children = (
+				20ECCE6918A46DC4004D8E3C /* TestPCGRule.m */,
+				2078C54818A6A2D900769A58 /* TestPCGPair.m */,
 				4000E6731886466600EBEDFA /* BubblenautsTests.m */,
 				4000E66E1886466600EBEDFA /* Supporting Files */,
 			);
@@ -265,8 +365,8 @@
 		4000E67D18864C3400EBEDFA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				4000E67E18864C3400EBEDFA /* LineGenerator.h */,
-				4000E67F18864C3400EBEDFA /* LineGenerator.mm */,
+				2020FF3618A5CCE900B9B0A0 /* ProceduralGeneratorObjC */,
+				206223E6189F5D0600B22652 /* ProceduralGenerator */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -335,6 +435,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2078C54D18A6A5FB00769A58 /* PCGTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2078C55D18A6A5FB00769A58 /* Build configuration list for PBXNativeTarget "PCGTests" */;
+			buildPhases = (
+				2078C54A18A6A5FB00769A58 /* Sources */,
+				2078C54B18A6A5FB00769A58 /* Frameworks */,
+				2078C54C18A6A5FB00769A58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2078C55C18A6A5FB00769A58 /* PBXTargetDependency */,
+			);
+			name = PCGTests;
+			productName = PCGTests;
+			productReference = 2078C54E18A6A5FB00769A58 /* PCGTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		4000E63D1886466500EBEDFA /* Bubblenauts */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4000E6771886466600EBEDFA /* Build configuration list for PBXNativeTarget "Bubblenauts" */;
@@ -379,11 +497,11 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Corvus;
 				TargetAttributes = {
+					2078C54D18A6A5FB00769A58 = {
+						TestTargetID = 4000E63D1886466500EBEDFA;
+					};
 					4000E63D1886466500EBEDFA = {
 						DevelopmentTeam = NLD7SE8NHP;
-					};
-					4000E6651886466600EBEDFA = {
-						TestTargetID = 4000E63D1886466500EBEDFA;
 					};
 				};
 			};
@@ -402,11 +520,19 @@
 			targets = (
 				4000E63D1886466500EBEDFA /* Bubblenauts */,
 				4000E6651886466600EBEDFA /* BubblenautsTests */,
+				2078C54D18A6A5FB00769A58 /* PCGTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2078C54C18A6A5FB00769A58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4000E63C1886466500EBEDFA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -430,6 +556,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2078C54A18A6A5FB00769A58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4000E63A1886466500EBEDFA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -438,10 +571,11 @@
 				4000E6AF18864C3400EBEDFA /* VelocityComponent.m in Sources */,
 				4000E65D1886466500EBEDFA /* MyScene.m in Sources */,
 				4000E6BF18864C3400EBEDFA /* System.m in Sources */,
-				4000E6A118864C3400EBEDFA /* LineGenerator.mm in Sources */,
 				4000E6B118864C3400EBEDFA /* Entity.m in Sources */,
+				2020FF3918A5CE6A00B9B0A0 /* PCGRule.m in Sources */,
 				40A127231896AF9F008E9E10 /* FollowComponent.m in Sources */,
 				401BDE9A18973A6D006D5523 /* MainMenuScene.m in Sources */,
+				2020FF3E18A5DA3B00B9B0A0 /* PCGPair.m in Sources */,
 				409642CB1892124700D0C4C6 /* MoveSystem.m in Sources */,
 				4000E6A318864C3400EBEDFA /* CleanupComponent.m in Sources */,
 				4000E6AD18864C3400EBEDFA /* ScrollComponent.m in Sources */,
@@ -449,18 +583,25 @@
 				4000E6AB18864C3400EBEDFA /* RenderComponent.m in Sources */,
 				4000E76C1887923800EBEDFA /* Constants.m in Sources */,
 				4000E65A1886466500EBEDFA /* ViewController.m in Sources */,
+				2020FF4718A5E1F800B9B0A0 /* PCGMasterRuleQueue.m in Sources */,
 				4000E774188795D300EBEDFA /* CollisionSystem.m in Sources */,
 				4000E6A518864C3400EBEDFA /* Component.m in Sources */,
+				2020FF4A18A5E20D00B9B0A0 /* PCGDistribution.m in Sources */,
 				4000E6A718864C3400EBEDFA /* ForceComponent.m in Sources */,
 				4000E6B718864C3400EBEDFA /* ForceSystem.m in Sources */,
+				206223EF189F5D0600B22652 /* LineGenerator.mm in Sources */,
 				4000E6B518864C3400EBEDFA /* CleanupSystem.m in Sources */,
 				4000E6541886466500EBEDFA /* AppDelegate.m in Sources */,
 				4000E6BB18864C3400EBEDFA /* RenderSystem.m in Sources */,
 				4000E770188794D200EBEDFA /* CollisionComponent.m in Sources */,
 				4000E6501886466500EBEDFA /* main.m in Sources */,
+				206223F5189F615A00B22652 /* LineGeneratorEntity.mm in Sources */,
+				2020FF4418A5E1D900B9B0A0 /* PCGLineGenerator.m in Sources */,
 				40A127261896B05E008E9E10 /* FollowSystem.m in Sources */,
 				409642C81892112A00D0C4C6 /* MoveComponent.m in Sources */,
+				2020FF4118A5DB9900B9B0A0 /* PCGEntity.m in Sources */,
 				4000E6C318864C4B00EBEDFA /* EntityFactory.m in Sources */,
+				206223F6189F615A00B22652 /* Rule.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,31 +609,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4000E6B218864C3400EBEDFA /* Entity.m in Sources */,
-				4000E6BC18864C3400EBEDFA /* RenderSystem.m in Sources */,
-				4000E6AC18864C3400EBEDFA /* RenderComponent.m in Sources */,
-				4000E6C018864C3400EBEDFA /* System.m in Sources */,
+				2078C56318A6AB4E00769A58 /* PCGRule.h in Sources */,
+				2078C56418A6AB4E00769A58 /* PCGRule.m in Sources */,
+				2078C56518A6AB4E00769A58 /* PCGPair.m in Sources */,
+				2078C56618A6AB4E00769A58 /* PCGPair.h in Sources */,
+				2078C56718A6AB4E00769A58 /* PCGEntity.h in Sources */,
+				2078C56818A6AB4E00769A58 /* PCGEntity.m in Sources */,
+				2078C56918A6AB4E00769A58 /* PCGLineGenerator.h in Sources */,
+				2078C56A18A6AB4E00769A58 /* PCGLineGenerator.m in Sources */,
+				2078C56B18A6AB4E00769A58 /* PCGMasterRuleQueue.h in Sources */,
+				2078C56C18A6AB4E00769A58 /* PCGMasterRuleQueue.m in Sources */,
+				2078C56D18A6AB4E00769A58 /* PCGDistribution.h in Sources */,
+				2078C56E18A6AB4E00769A58 /* PCGDistribution.m in Sources */,
+				2078C56F18A6AB4E00769A58 /* PCGComparable.h in Sources */,
+				2078C54918A6A2D900769A58 /* TestPCGPair.m in Sources */,
 				4000E6741886466600EBEDFA /* BubblenautsTests.m in Sources */,
-				4000E6C418864C4B00EBEDFA /* EntityFactory.m in Sources */,
-				4000E6B618864C3400EBEDFA /* CleanupSystem.m in Sources */,
-				4000E6A618864C3400EBEDFA /* Component.m in Sources */,
-				4000E6A218864C3400EBEDFA /* LineGenerator.mm in Sources */,
-				4000E6A818864C3400EBEDFA /* ForceComponent.m in Sources */,
-				4000E6B018864C3400EBEDFA /* VelocityComponent.m in Sources */,
-				4000E6AE18864C3400EBEDFA /* ScrollComponent.m in Sources */,
-				4000E6B418864C3400EBEDFA /* EntityManager.m in Sources */,
-				4000E771188794D200EBEDFA /* CollisionComponent.m in Sources */,
-				4000E775188795D300EBEDFA /* CollisionSystem.m in Sources */,
-				4000E6BE18864C3400EBEDFA /* ScrollSystem.m in Sources */,
-				4000E6B818864C3400EBEDFA /* ForceSystem.m in Sources */,
-				4000E6A418864C3400EBEDFA /* CleanupComponent.m in Sources */,
-				4000E76D1887923800EBEDFA /* Constants.m in Sources */,
+				20ECCE6A18A46DC4004D8E3C /* TestPCGRule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2078C55C18A6A5FB00769A58 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4000E63D1886466500EBEDFA /* Bubblenauts */;
+			targetProxy = 2078C55B18A6A5FB00769A58 /* PBXContainerItemProxy */;
+		};
 		4000E66C1886466600EBEDFA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4000E63D1886466500EBEDFA /* Bubblenauts */;
@@ -528,6 +671,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2078C55E18A6A5FB00769A58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Bubblenauts.app/Bubblenauts";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PCGTests/PCGTests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PCGTests/PCGTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		2078C55F18A6A5FB00769A58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Bubblenauts.app/Bubblenauts";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PCGTests/PCGTests-Prefix.pch";
+				INFOPLIST_FILE = "PCGTests/PCGTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 		4000E6751886466600EBEDFA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -606,6 +791,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bubblenauts/Bubblenauts-Prefix.pch";
 				INFOPLIST_FILE = "Bubblenauts/Bubblenauts-Info.plist";
@@ -623,6 +809,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bubblenauts/Bubblenauts-Prefix.pch";
 				INFOPLIST_FILE = "Bubblenauts/Bubblenauts-Info.plist";
@@ -638,11 +825,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Bubblenauts.app/Bubblenauts";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"/Users/gtscherer/Documents/Crouching-Tiger-Hidden-Platelet/Bubblenauts",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bubblenauts/Bubblenauts-Prefix.pch";
@@ -652,7 +839,6 @@
 				);
 				INFOPLIST_FILE = "BubblenautsTests/BubblenautsTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -661,17 +847,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Bubblenauts.app/Bubblenauts";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"/Users/gtscherer/Documents/Crouching-Tiger-Hidden-Platelet/Bubblenauts",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bubblenauts/Bubblenauts-Prefix.pch";
 				INFOPLIST_FILE = "BubblenautsTests/BubblenautsTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
@@ -679,6 +864,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2078C55D18A6A5FB00769A58 /* Build configuration list for PBXNativeTarget "PCGTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2078C55E18A6A5FB00769A58 /* Debug */,
+				2078C55F18A6A5FB00769A58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		4000E6391886466500EBEDFA /* Build configuration list for PBXProject "Bubblenauts" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

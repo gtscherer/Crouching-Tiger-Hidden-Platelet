@@ -13,7 +13,7 @@
 @interface PCGLineGenerator : NSObject
 
 @property (nonatomic, strong) PCGDistribution* globalDistribution;
-@property (nonatomic, strong) PCGMasterRuleQueue* masterRuleQueue;
+@property (nonatomic, strong) PCGMasterRuleCircuit* masterRuleQueue;
 @property (nonatomic) int width;
 
 @end

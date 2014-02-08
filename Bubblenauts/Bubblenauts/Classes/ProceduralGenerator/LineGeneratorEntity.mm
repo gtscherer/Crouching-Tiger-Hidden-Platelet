@@ -61,9 +61,9 @@ bool LineGeneratorEntity::operator==(const char& rhs)
     else return false;
 }
 
-bool LineGeneratorEntity::operator<(const LineGeneratorEntity& rhs)
+bool LineGeneratorEntity::operator<(const LineGeneratorEntity& rhs) const
 {
-	if(this->getSymbol() < rhs.symbol) return true;
+	if(this->symbol < rhs.symbol) return true;
 	else return false;
 }
 

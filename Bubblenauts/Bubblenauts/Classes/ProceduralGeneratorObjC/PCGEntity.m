@@ -32,7 +32,7 @@
     else return false;
 }
 
--(bool) equals: (PCGEntity*) rhs
+-(bool) isEqual: (PCGEntity*) rhs
 {
     if(self.symbol == rhs.symbol) return true;
     else return false;

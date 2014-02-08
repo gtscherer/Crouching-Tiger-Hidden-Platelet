@@ -8,9 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "PCGPair.h"
-#import "PCGComparableObject.h"
 
-@interface PCGRule : PCGComparableObject
+@interface PCGRule : NSObject
 
 @property (nonatomic) char entity;
 @property (nonatomic) NSInteger ruleType;
@@ -18,6 +17,6 @@
 @property (nonatomic, strong) PCGIntegerPair* areaAffected;
 @property (nonatomic, strong) PCGIntegerPair* offset;
 
--(bool) equals: (PCGRule*) rule;
+-(bool) isEqual: (PCGRule*) rule;
 
 @end

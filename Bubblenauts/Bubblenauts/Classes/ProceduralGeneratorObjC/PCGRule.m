@@ -10,12 +10,12 @@
 
 @implementation PCGRule
 
--(bool) equals: (PCGRule*) rule
+-(bool) isEqual: (PCGRule*) rule
 {
     if(self.entity == rule.entity
        && self.ruleType == rule.ruleType
-       && [self.areaAffected equals:rule.areaAffected]
-       && [self.offset equals:rule.offset])
+       && [self.areaAffected isEqual:rule.areaAffected]
+       && [self.offset isEqual:rule.offset])
         return YES;
     else return NO;
 }

@@ -9,9 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "PCGPair.h"
 #import "PCGRule.h"
-#import "PCGComparableObject.h"
 
-@interface PCGEntity : PCGComparableObject
+@interface PCGEntity : NSObject
 
 @property (nonatomic, strong) NSMutableSet* exclusions;
 @property (nonatomic, strong) NSMutableSet* forceGeneration;
@@ -28,6 +27,6 @@
 
 -(bool) lessThanOrEqualTo: (PCGEntity*) rhs;
 
--(bool) equals: (PCGEntity*) rhs;
+-(bool) isEqual: (PCGEntity*) rhs;
 
 @end

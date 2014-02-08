@@ -8,28 +8,38 @@ Rule:
 */
 #ifndef RULE_H
 #define RULE_H
+
+#include <map>
+
+
 #define Force 0
 #define Exclude 1
 
+
 namespace ProceduralGenerator 
 {
-    
+    typedef std::pair<int, int> Integer_Pair;
+
 	class Rule
 	{
 	public:
+        Rule(char entity);
+        Rule(char entity, int ruleType);
+        Rule(char entity, int ruleType, Integer_Pair areaAffected, Integer_Pair offset);
         char getEntity();
 		void setEntity(char entity);
-        std::pair<int, int> getAreaAffected();
+        Integer_Pair getAreaAffected();
 		void setAreaAffected(int, int);
-		void setAreaAffected(std::pair<int, int> dimensions);
-		std::pair<int, int> getOffset();
+		void setAreaAffected(Integer_Pair dimensions);
+		Integer_Pair getOffset();
 		void setOffset(int, int); 
-		void setOffset(std::pair<int, int> offset);
+		void setOffset(Integer_Pair offset);
 		int getRuleType();
+        void setRuleType(int ruleType);
 	private:
 		char entity;
-		std::pair<int, int> areaAffected;
-		std::pair<int, int> offset;
+		Integer_Pair areaAffected;
+		Integer_Pair offset;
 		int ruleType;
 	};
 

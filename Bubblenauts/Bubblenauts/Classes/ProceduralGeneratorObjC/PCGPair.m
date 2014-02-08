@@ -10,7 +10,7 @@
 
 @implementation PCGIntegerPair
 
--(bool) equals: (PCGIntegerPair*) rhs
+-(bool) isEqual: (PCGIntegerPair*) rhs
 {
     if(self.first == rhs.first
        && self.second == rhs.second)
@@ -18,13 +18,24 @@
         return YES;
     }
     else return NO;
+}
+
+-(PCGIntegerPair*) initWithIntegers:(NSInteger)first secondInteger:(NSInteger)second
+{
+    self = [super init];
+    if(self)
+    {
+        [self setFirst: first];
+        [self setSecond: second];
+    }
+    return self;
 }
 
 @end
 
 @implementation PCGDoublePair
 
--(bool) equals: (PCGDoublePair*) rhs
+-(bool) isEqual: (PCGDoublePair*) rhs
 {
     if(self.first == rhs.first
        && self.second == rhs.second)
@@ -34,24 +45,40 @@
     else return NO;
 }
 
+-(PCGDoublePair*) initWithDoubles:(double)first secondDouble:(double)second
+{
+    self = [super init];
+    if(self)
+    {
+        [self setFirst: first];
+        [self setSecond: second];
+    }
+    return self;
+}
+
 @end
 
 @implementation PCGPair
 
--(bool) equals: (PCGPair*) rhs
+-(bool) isEqual: (PCGPair*) rhs
 {
-    if([self.first respondsToSelector:@selector(equals:)]
-       && [self.second respondsToSelector:@selector(equals:)])
+    if([self.first isEqual:rhs.first]
+        && [self.second isEqual:rhs.second])
     {
-        if([self.first equals:rhs.first]
-           && [self.second equals:rhs.second])
-        {
-            return YES;
-        }
-        else return NO;
+        return YES;
     }
     else return NO;
 }
 
+-(PCGPair*) initWithObjects:(NSObject *)first secondObject:(NSObject *)second
+{
+    self = [super init];
+    if(self)
+    {
+        [self setFirst: first];
+        [self setSecond: second];
+    }
+    return self;
+}
 
 @end

@@ -45,7 +45,7 @@ int const EXCLUDE = 1;
 {
     for(PCGRule* rule in [self rules])
     {
-        if([rule equals: newRule])
+        if([rule isEqual: newRule])
         {
             return false;
         }
@@ -57,6 +57,16 @@ int const EXCLUDE = 1;
 @end
 
 @implementation PCGQueue
+
+-(PCGQueue*) initWithIndex: (NSUInteger) index
+{
+    self = (PCGQueue*) [super init];
+    if(self)
+    {
+        [self setIndex:index];
+    }
+    return self;
+}
 
 -(void) enqueue: (id) object
 {
@@ -120,13 +130,33 @@ int const EXCLUDE = 1;
     else return nil;
 }
 
--(int) count
+-(NSInteger) count
 {
     return [[self queue] count];
 }
 
--(bool) addQueue: (PCGQueue*) queue;
+-(void) addQueue: (PCGQueue*) queue
+{
+    [[self queue] addObject:queue];
+}
 
--(id) objectInQueueAtIndex:(NSUInteger) index inColumn: (NSUInteger) column;
+-(void) createAndAddQueue
+{
+    PCGQueue* newQueue = [[PCGQueue alloc] initWithIndex:[self count]];
+    [self addQueue: newQueue];
+}
+
+-(id) objectInQueueAtIndex:(NSUInteger) index inColumn: (NSUInteger) column
+{
+    if(column < [self count])
+    {
+        if(index < [(PCGQueue*) [[self queue] objectAtIndex: column] count])
+        {
+            return [(PCGQueue*) [[self queue] objectAtIndex:column] objectInQueueAtIndex:index];
+        }
+        else return nil;
+    }
+    else return nil;
+}
 
 @end

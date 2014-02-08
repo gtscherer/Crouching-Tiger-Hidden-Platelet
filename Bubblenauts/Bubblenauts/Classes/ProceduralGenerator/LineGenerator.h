@@ -3,6 +3,7 @@
 #include <deque>
 #include <vector>
 #include <map>
+#include <cstdlib>
 
 
 namespace ProceduralGenerator

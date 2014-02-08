@@ -27,6 +27,9 @@
 
 @property (nonatomic, strong) NSMutableArray* queue;
 @property (nonatomic, weak) id head;
+@property (nonatomic) NSUInteger index;
+
+-(PCGQueue*) initWithIndex: (NSUInteger) index;
 
 -(void) enqueue: (id) object;
 
@@ -48,9 +51,11 @@
 
 -(id) dequeue: (int) index;
 
--(bool) addQueue: (PCGQueue*) queue;
+-(void) addQueue: (PCGQueue*) queue;
 
 -(id) objectInQueueAtIndex:(NSUInteger) index inColumn: (NSUInteger) column;
+
+-(void) createAndAddQueue;
 
 -(int) count;
 
