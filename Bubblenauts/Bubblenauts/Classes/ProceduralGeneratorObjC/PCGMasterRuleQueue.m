@@ -10,9 +10,6 @@
 
 @implementation PCGRuleList
 
-int const FORCE = 0;
-int const EXCLUDE = 1;
-
 -(NSArray*) getRuleByType: (int) type
 {
     if([[self rules] count] > 0)

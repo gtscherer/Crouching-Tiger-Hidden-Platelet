@@ -12,12 +12,34 @@
 
 -(bool) isEqual: (PCGRule*) rule
 {
-    if(self.entity == rule.entity
+    if(self.entitySymbol == rule.entitySymbol
        && self.ruleType == rule.ruleType
        && [self.areaAffected isEqual:rule.areaAffected]
        && [self.offset isEqual:rule.offset])
         return YES;
     else return NO;
+}
+
+-(PCGRule*) initWithEntity:(char)entitySymbol andRuleType:(NSInteger)ruleType
+{
+    self = [super init];
+    if(self)
+    {
+        [self setEntitySymbol: entitySymbol];
+        [self setRuleType:ruleType];
+    }
+    return self;
+}
+
+-(PCGRule*) initWithEntity:(char)entitySymbol andRuleType:(NSInteger)ruleType andAreaAffected:(PCGIntegerPair *)areaAffected andOffset:(PCGIntegerPair *)offset
+{
+    self = [self initWithEntity:entitySymbol andRuleType:ruleType];
+    if(self)
+    {
+        [self setAreaAffected:areaAffected];
+        [self setOffset:offset];
+    }
+    return self;
 }
 
 @end

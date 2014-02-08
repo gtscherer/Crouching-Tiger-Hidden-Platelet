@@ -278,7 +278,7 @@
     [self setTestDoublePair: nil];
 }
 
-- (void) testAllPCGPairEquals
+- (void) integrationTestWithAllPairs
 {
     double testDouble1 = 2.45644;
     double testDouble2 = 5.991812;
