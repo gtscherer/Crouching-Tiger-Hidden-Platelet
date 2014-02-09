@@ -33,11 +33,13 @@
 
 -(PCGRule*) initWithEntity:(char)entitySymbol andRuleType:(NSInteger)ruleType andAreaAffected:(PCGIntegerPair *)areaAffected andOffset:(PCGIntegerPair *)offset
 {
-    self = [self initWithEntity:entitySymbol andRuleType:ruleType];
+    self = [super init];
     if(self)
     {
         [self setAreaAffected:areaAffected];
         [self setOffset:offset];
+        [self setEntitySymbol: entitySymbol];
+        [self setRuleType:ruleType];
     }
     return self;
 }

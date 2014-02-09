@@ -53,7 +53,6 @@
 		4000E6691886466600EBEDFA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4000E6411886466500EBEDFA /* Foundation.framework */; };
 		4000E66A1886466600EBEDFA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4000E6451886466500EBEDFA /* UIKit.framework */; };
 		4000E6721886466600EBEDFA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4000E6701886466600EBEDFA /* InfoPlist.strings */; };
-		4000E6741886466600EBEDFA /* BubblenautsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E6731886466600EBEDFA /* BubblenautsTests.m */; };
 		4000E6A318864C3400EBEDFA /* CleanupComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E68218864C3400EBEDFA /* CleanupComponent.m */; };
 		4000E6A518864C3400EBEDFA /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E68418864C3400EBEDFA /* Component.m */; };
 		4000E6A718864C3400EBEDFA /* ForceComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E68618864C3400EBEDFA /* ForceComponent.m */; };
@@ -146,7 +145,6 @@
 		4000E6671886466600EBEDFA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		4000E66F1886466600EBEDFA /* BubblenautsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BubblenautsTests-Info.plist"; sourceTree = "<group>"; };
 		4000E6711886466600EBEDFA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4000E6731886466600EBEDFA /* BubblenautsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BubblenautsTests.m; sourceTree = "<group>"; };
 		4000E68118864C3400EBEDFA /* CleanupComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CleanupComponent.h; sourceTree = "<group>"; };
 		4000E68218864C3400EBEDFA /* CleanupComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CleanupComponent.m; sourceTree = "<group>"; };
 		4000E68318864C3400EBEDFA /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
@@ -347,7 +345,6 @@
 			children = (
 				20ECCE6918A46DC4004D8E3C /* TestPCGRule.m */,
 				2078C54818A6A2D900769A58 /* TestPCGPair.m */,
-				4000E6731886466600EBEDFA /* BubblenautsTests.m */,
 				4000E66E1886466600EBEDFA /* Supporting Files */,
 			);
 			path = BubblenautsTests;
@@ -623,7 +620,6 @@
 				2078C56E18A6AB4E00769A58 /* PCGDistribution.m in Sources */,
 				2078C56F18A6AB4E00769A58 /* PCGComparable.h in Sources */,
 				2078C54918A6A2D900769A58 /* TestPCGPair.m in Sources */,
-				4000E6741886466600EBEDFA /* BubblenautsTests.m in Sources */,
 				20ECCE6A18A46DC4004D8E3C /* TestPCGRule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

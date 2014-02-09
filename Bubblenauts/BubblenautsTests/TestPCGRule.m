@@ -63,12 +63,54 @@
     [given([mockOffset first]) willReturnInt:testOffsetX];
     [given([mockOffset second]) willReturnInt:testOffsetY];
     
-    [self setTestRule: [[self testRule] initWithEntity:'z' andRuleType:EXCLUDE andAreaAffected:mockAreaAffected andOffset:mockOffset]];
+    [self setTestRule: [[PCGRule alloc] initWithEntity:'z' andRuleType:EXCLUDE andAreaAffected:mockAreaAffected andOffset:mockOffset]];
     
     XCTAssertTrue([[self testRule] entitySymbol] == 'z', @"entitySymbol should be 'z' in \"%s\"", __PRETTY_FUNCTION__ );
     
     
     XCTAssertTrue([[self testRule] ruleType] == EXCLUDE, @"ruleType should be exclude in \"%s\"", __PRETTY_FUNCTION__ );
+    
+    XCTAssertEqual([[self testRule] areaAffected], mockAreaAffected, @"Failed to set areaAffected in \"%s\"", __PRETTY_FUNCTION__ );
+    
+    XCTAssertEqual([[self testRule] offset], mockOffset, @"Failed to set offset in \"%s\"", __PRETTY_FUNCTION__);
+    
+}
+
+- (void) testIsEqual
+{
+    
+    //Create mock objects
+    PCGRule* mockRule = mock([PCGRule class]);
+    PCGIntegerPair* mockAreaAffected = mock([PCGIntegerPair class]);
+    PCGIntegerPair* mockOffset = mock([PCGIntegerPair class]);
+    
+    char testEntitySybmol = 'c';
+    NSInteger testRuleType = FORCE;
+    
+    NSInteger testAreaAffectedX = 2112;
+    NSInteger testAreaAffectedY = -5000;
+    
+    NSInteger testOffsetX = -12414;
+    NSInteger testOffsetY = -10139499;
+    
+    //Create Stubs
+    [given([mockAreaAffected first]) willReturnInt: testAreaAffectedX];
+    [given([mockAreaAffected second]) willReturnInt: testAreaAffectedY];
+    
+    [given([mockOffset first]) willReturnInt:testOffsetX];
+    [given([mockOffset second]) willReturnInt:testOffsetY];
+    
+    [given([mockRule areaAffected]) willReturn: mockAreaAffected];
+    [given([mockRule offset]) willReturn: mockOffset];
+    [given([mockRule entitySymbol]) willReturnChar:testEntitySybmol];
+    [given([mockRule ruleType]) willReturnInt: testRuleType];
+    
+    //Create test object with parameters
+    [self setTestRule: [[PCGRule alloc] initWithEntity:testEntitySybmol andRuleType:testRuleType andAreaAffected:mockAreaAffected andOffset:mockOffset]];
+    
+    //Assert that test object and mocked object are equal
+    XCTAssertTrue([[self testRule] isEqual:mockRule], @"Test object does not equal mock object in \"%s\"", __PRETTY_FUNCTION__);
+    
 }
 
 @end
