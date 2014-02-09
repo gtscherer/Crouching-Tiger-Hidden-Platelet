@@ -113,4 +113,26 @@
     
 }
 
+- (void) testIntegratedWithPCGPair
+{
+    char testEntitySymbol = 'a';
+    NSInteger testRuleType = EXCLUDE;
+    
+    NSInteger testAreaAffectedX = (5/4);
+    NSInteger testAreaAffectedY = 50500;
+    
+    NSInteger testOffsetX = 12414;
+    NSInteger testOffsetY = 10139499;
+    
+    PCGIntegerPair* testAreaAffected = [[PCGIntegerPair alloc] initWithIntegers:testAreaAffectedX secondInteger:testAreaAffectedY];
+    PCGIntegerPair* testOffset = [[PCGIntegerPair alloc] initWithIntegers:testOffsetX secondInteger:testOffsetY];
+    
+    [self setTestRule:[[PCGRule alloc] initWithEntity:testEntitySymbol andRuleType:testRuleType andAreaAffected:testAreaAffected andOffset:testOffset]];
+    
+    PCGRule* newRule = [[PCGRule alloc] initWithEntity:testEntitySymbol andRuleType:testRuleType andAreaAffected:testAreaAffected andOffset:testOffset];
+    
+    XCTAssertTrue([[self testRule] isEqual:newRule], @"Test object does not equal other test object in \"%s\"", __PRETTY_FUNCTION__);
+}
+
+
 @end

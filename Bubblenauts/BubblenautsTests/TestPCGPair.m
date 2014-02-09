@@ -278,7 +278,7 @@
     [self setTestDoublePair: nil];
 }
 
-- (void) integrationTestWithAllPairs
+- (void) testIntegratedWithAllPairs
 {
     double testDouble1 = 2.45644;
     double testDouble2 = 5.991812;
