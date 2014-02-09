@@ -116,7 +116,6 @@
 		206223F2189F615A00B22652 /* LineGeneratorEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineGeneratorEntity.h; sourceTree = "<group>"; };
 		206223F3189F615A00B22652 /* Rule.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Rule.mm; sourceTree = "<group>"; };
 		206223F4189F615A00B22652 /* Rule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rule.h; sourceTree = "<group>"; };
-		206223FD18A03EDA00B22652 /* Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Types.h; sourceTree = "<group>"; };
 		2078C54818A6A2D900769A58 /* TestPCGPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPCGPair.m; sourceTree = "<group>"; };
 		2078C54E18A6A5FB00769A58 /* PCGTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PCGTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2078C56218A6A81100769A58 /* PCGComparable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCGComparable.h; path = Bubblenauts/Classes/ProceduralGeneratorObjC/PCGComparable.h; sourceTree = SOURCE_ROOT; };
@@ -262,7 +261,6 @@
 				206223F2189F615A00B22652 /* LineGeneratorEntity.h */,
 				206223F3189F615A00B22652 /* Rule.mm */,
 				206223F4189F615A00B22652 /* Rule.h */,
-				206223FD18A03EDA00B22652 /* Types.h */,
 				206223E7189F5D0600B22652 /* LineGenerator.mm */,
 				206223E8189F5D0600B22652 /* LineGenerator.h */,
 			);
@@ -871,6 +869,7 @@
 				2078C55F18A6A5FB00769A58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4000E6391886466500EBEDFA /* Build configuration list for PBXProject "Bubblenauts" */ = {
 			isa = XCConfigurationList;
