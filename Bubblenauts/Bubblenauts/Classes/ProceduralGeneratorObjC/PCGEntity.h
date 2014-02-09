@@ -23,10 +23,26 @@
 
 -(void) addForceGeneratedObject: (PCGRule*) rule;
 
--(bool) lessThan: (PCGEntity*) rhs;
+-(bool) isLessThan: (PCGEntity*) rhs;
 
--(bool) lessThanOrEqualTo: (PCGEntity*) rhs;
+-(bool) isLessThanOrEqualTo: (PCGEntity*) rhs;
 
 -(bool) isEqual: (PCGEntity*) rhs;
+
+-(PCGEntity*) initWithSymbol: (char) symbol
+                andFrequency: (NSInteger) frequency;
+
+-(PCGEntity*) initWithSymbol: (char)symbol
+                andFrequency: (NSInteger)frequency
+               andDimensions: (PCGIntegerPair*) dimensions
+             andScaleFactors: (PCGDoublePair*) scaleFactors;
+
+-(PCGEntity*) initWithSymbol:(char)symbol
+                andFrequency:(NSInteger)frequency
+               andDimensions: (PCGIntegerPair*) dimensions
+             andScaleFactors: (PCGDoublePair*) scaleFactors
+               andExclusions: (NSMutableSet*) exclusions
+          andForceGeneration: (NSMutableSet*) forceGeneration;
+
 
 @end
