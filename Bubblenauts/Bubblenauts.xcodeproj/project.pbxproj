@@ -64,7 +64,7 @@
 		4000E6B318864C3400EBEDFA /* EntityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E69318864C3400EBEDFA /* EntityManager.m */; };
 		4000E6B518864C3400EBEDFA /* CleanupSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E69618864C3400EBEDFA /* CleanupSystem.m */; };
 		4000E6B718864C3400EBEDFA /* ForceSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E69818864C3400EBEDFA /* ForceSystem.m */; };
-		4000E6BB18864C3400EBEDFA /* RenderSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E69C18864C3400EBEDFA /* RenderSystem.m */; };
+		4000E6BB18864C3400EBEDFA /* VelocitySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E69C18864C3400EBEDFA /* VelocitySystem.m */; };
 		4000E6BD18864C3400EBEDFA /* ScrollSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E69E18864C3400EBEDFA /* ScrollSystem.m */; };
 		4000E6BF18864C3400EBEDFA /* System.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E6A018864C3400EBEDFA /* System.m */; };
 		4000E6C318864C4B00EBEDFA /* EntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E6C218864C4B00EBEDFA /* EntityFactory.m */; };
@@ -74,15 +74,15 @@
 		4000E770188794D200EBEDFA /* CollisionComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E76F188794D200EBEDFA /* CollisionComponent.m */; };
 		4000E774188795D300EBEDFA /* CollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E773188795D300EBEDFA /* CollisionSystem.m */; };
 		401BDE9A18973A6D006D5523 /* MainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 401BDE9918973A6D006D5523 /* MainMenuScene.m */; };
-		405C2D981899EA1200399DCA /* HealthComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 405C2D971899EA1200399DCA /* HealthComponent.m */; };
 		405C2D9B1899F5D300399DCA /* HealthSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 405C2D9A1899F5D300399DCA /* HealthSystem.m */; };
 		406D9BDA18A9B27500C87231 /* ShootComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 406D9BD918A9B27500C87231 /* ShootComponent.m */; };
-		406D9BDD18A9B30300C87231 /* ShootSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 406D9BDC18A9B30300C87231 /* ShootSystem.m */; };
 		409642C81892112A00D0C4C6 /* FreeMoveComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 409642C71892112A00D0C4C6 /* FreeMoveComponent.m */; };
 		409642CB1892124700D0C4C6 /* FreeMoveSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 409642CA1892124700D0C4C6 /* FreeMoveSystem.m */; };
 		40A127231896AF9F008E9E10 /* FollowComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A127221896AF9F008E9E10 /* FollowComponent.m */; };
 		40A127261896B05E008E9E10 /* FollowSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A127251896B05E008E9E10 /* FollowSystem.m */; };
 		40A137C118AAF0E300C41D83 /* nasalization.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40A137C018AAF0E300C41D83 /* nasalization.ttf */; };
+		40A137C418AAF80B00C41D83 /* HealthComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 405C2D971899EA1200399DCA /* HealthComponent.m */; };
+		40A137C518AAF80B00C41D83 /* ShootSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 406D9BDC18A9B30300C87231 /* ShootSystem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -589,6 +589,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40A137C418AAF80B00C41D83 /* HealthComponent.m in Sources */,
+				40A137C518AAF80B00C41D83 /* ShootSystem.m in Sources */,
 				4000E6BD18864C3400EBEDFA /* ScrollSystem.m in Sources */,
 				4000E6AF18864C3400EBEDFA /* VelocityComponent.m in Sources */,
 				4000E65D1886466500EBEDFA /* MyScene.m in Sources */,
@@ -598,7 +600,7 @@
 				40A127231896AF9F008E9E10 /* FollowComponent.m in Sources */,
 				401BDE9A18973A6D006D5523 /* MainMenuScene.m in Sources */,
 				2020FF3E18A5DA3B00B9B0A0 /* PCGPair.m in Sources */,
-				409642CB1892124700D0C4C6 /* MoveSystem.m in Sources */,
+				409642CB1892124700D0C4C6 /* FreeMoveSystem.m in Sources */,
 				4000E6A318864C3400EBEDFA /* CleanupComponent.m in Sources */,
 				4000E6AD18864C3400EBEDFA /* ScrollComponent.m in Sources */,
 				4000E6B318864C3400EBEDFA /* EntityManager.m in Sources */,
@@ -622,7 +624,7 @@
 				206223F5189F615A00B22652 /* LineGeneratorEntity.mm in Sources */,
 				2020FF4418A5E1D900B9B0A0 /* PCGLineGenerator.m in Sources */,
 				40A127261896B05E008E9E10 /* FollowSystem.m in Sources */,
-				409642C81892112A00D0C4C6 /* MoveComponent.m in Sources */,
+				409642C81892112A00D0C4C6 /* FreeMoveComponent.m in Sources */,
 				2020FF4118A5DB9900B9B0A0 /* PCGEntity.m in Sources */,
 				4000E6C318864C4B00EBEDFA /* EntityFactory.m in Sources */,
 				206223F6189F615A00B22652 /* Rule.mm in Sources */,
