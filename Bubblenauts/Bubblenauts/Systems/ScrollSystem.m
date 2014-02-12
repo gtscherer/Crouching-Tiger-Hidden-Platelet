@@ -42,7 +42,11 @@
         if (!scroll || !render) continue;
         
         CGPoint pos = render.node.position;
-        pos.y -= scroll.speed*dt;
+        pos.y -= scroll.vector.y * dt;
+        
+        if (scroll.direction == DirectionLeft) pos.x -= scroll.vector.x * dt;
+        if (scroll.direction == DirectionRight) pos.x += scroll.vector.x * dt;
+
         render.node.position = pos;
     }
 }

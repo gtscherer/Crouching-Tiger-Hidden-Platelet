@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Corvus. All rights reserved.
 //
 
-#import "RenderSystem.h"
+#import "VelocitySystem.h"
 #import "VelocityComponent.h"
 #import "RenderComponent.h"
 
 @import SpriteKit;
 
-@interface RenderSystem () {
+@interface VelocitySystem () {
     Class veloClass;
     Class rendClass;
     
@@ -20,7 +20,7 @@
 }
 @end
 
-@implementation RenderSystem
+@implementation VelocitySystem
 
 - (instancetype)initWithEntityManager:(EntityManager *)entMan
 {
@@ -45,6 +45,8 @@
         
         // Integrate velocity to get pos, and set it
         CGPoint stepVel = ccpMult(velocity.velocity, dt);
+//        if (CGPointEqualToPoint(stepVel, CGPointZero)) continue;
+        
         render.node.position = ccpAdd(render.node.position, stepVel);
         
         if (render.node.position.x >= (scrnSz.width - render.node.size.width)) {

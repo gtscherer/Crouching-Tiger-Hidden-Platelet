@@ -10,12 +10,18 @@
 
 @implementation CleanupComponent
 
--(instancetype)initWithMinY:(float)y
+- (instancetype)initWithMinY:(float)y xThreshold:(CGPoint)xThresh
 {
     self = [super init];
     if (self) {
         _yMin = y;
+        _xThresh = xThresh;
+        
         _causesGameOver = FALSE;
+        _useXThreshold = TRUE;
+        
+        if (CGPointEqualToPoint(xThresh, CGPointZero))
+            _useXThreshold = FALSE;
     }
     return self;
 }

@@ -15,6 +15,7 @@
     self = [super init];
     if (self) {
         _force = force;
+//        _useNow = TRUE;
     }
     return self;
 }
