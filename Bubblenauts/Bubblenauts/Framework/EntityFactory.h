@@ -19,7 +19,9 @@
 //- (Entity*)scrollingBackgroundAtPoint:(CGPoint)pt;
 - (Entity*)scrollingBubbleAtPoint:(CGPoint)pt;
 - (Entity*)scrollingPlanetAtPoint:(CGPoint)pt;
-- (Entity*)scrollingBlockAtPoint:(CGPoint)point;
-- (Entity*)heroEntityAtPoint:(CGPoint)pt;
+- (Entity*)movingForceAtPoint:(CGPoint)pt;
+- (Entity *)scrollingForceShooterAtPoint:(CGPoint)pt;
+//- (Entity*)scrollingBlockAtPoint:(CGPoint)point;
+//- (Entity*)heroEntityAtPoint:(CGPoint)pt;
 
 @end

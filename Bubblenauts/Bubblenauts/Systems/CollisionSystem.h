@@ -12,6 +12,9 @@
 
 @interface CollisionSystem : System
 
+// Always keep a ref to the hero to affect behavior on bubble collisions
+@property (nonatomic, weak) Entity *heroRef;
+
 // This will either be a bubble or the hero creature
 @property (nonatomic, weak) Entity *toCheck;
 

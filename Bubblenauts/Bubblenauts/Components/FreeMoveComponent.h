@@ -8,13 +8,7 @@
 
 #import "Component.h"
 
-typedef NS_ENUM(NSUInteger, Direction)
-{
-    DirectionUp,
-    DirectionDown
-};
-
-@interface MoveComponent : Component
+@interface FreeMoveComponent : Component
 
 @property (assign) Direction direction;
 @property (assign) BOOL goodToScroll;

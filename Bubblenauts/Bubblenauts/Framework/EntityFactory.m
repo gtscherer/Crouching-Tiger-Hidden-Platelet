@@ -13,8 +13,10 @@
 #import "RenderComponent.h"
 #import "CleanupComponent.h"
 #import "ScrollComponent.h"
-#import "MoveComponent.h"
+#import "FreeMoveComponent.h"
 #import "CollisionComponent.h"
+#import "ForceComponent.h"
+#import "ShootComponent.h"
 
 @import SpriteKit;
 
@@ -43,16 +45,16 @@
     
     //create the components here...
     VelocityComponent *vel = [[VelocityComponent alloc] init];   //velocity
-    CleanupComponent *cleanup = [[CleanupComponent alloc] initWithMinY:-10.0f]; //cleanup
+    CleanupComponent *cleanup = [[CleanupComponent alloc] initWithMinY:-40.0f xThreshold:CGPointZero]; //cleanup
     CollisionComponent *coll = [[CollisionComponent alloc] init];
     
     //render
-    SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Enemy1"];
+    SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Monkey"];
     sprite.position = pt;
     [m_ParentNode addChild:sprite];
     RenderComponent *render = [[RenderComponent alloc] initWithRenderNode:sprite];
     
-    MoveComponent *move = [[MoveComponent alloc] init];
+    FreeMoveComponent *move = [[FreeMoveComponent alloc] init];
     move.accelVec = ccp(0.0f, ConstGravity);
     move.stopY = scrnSz.height*0.5;
     move.direction = DirectionDown;
@@ -81,22 +83,58 @@
 //    return entity;
 //}
 
-- (Entity *)scrollingPlanetAtPoint:(CGPoint)pt
+- (Entity *)scrollingForceShooterAtPoint:(CGPoint)pt
 {
-    NSString *planetName;
-    if (arc4random() % 2) planetName = @"RedPlanet";
-    else planetName = @"MoonPlanet";
-    
-    SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:planetName];
+    SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"MoonPlanet"];
     sprite.position = pt;
     [m_ParentNode addChild:sprite];
     
     RenderComponent *render = [[RenderComponent alloc] initWithRenderNode:sprite];
-    CleanupComponent *cleanup = [[CleanupComponent alloc] initWithMinY:-40.0f];
-    ScrollComponent *scroll = [[ScrollComponent alloc] initWithYScrollSpeed:maxFloatSpeed];
-//    scroll.shouldRepeat = NO;
+    CleanupComponent *cleanup = [[CleanupComponent alloc] initWithMinY:-40.0f xThreshold:CGPointZero];
+    CollisionComponent *coll = [[CollisionComponent alloc] init];
+    ShootComponent *shoot = [[ShootComponent alloc] initWithFrequency:1.0f];
+    ScrollComponent *scroll = [[ScrollComponent alloc] initWithScrollVector:ccp(0.0, MaxFloatSpeed)];
+    scroll.direction = DirectionDown;
     
-    Entity *entity = [m_EntityManager createEntityWithComponents:@[render, scroll, cleanup]];
+    Entity *entity = [m_EntityManager createEntityWithComponents:@[render, cleanup, scroll, coll, shoot]];
+    entity.type = EnemyType;
+    return entity;
+}
+
+- (Entity*)movingForceAtPoint:(CGPoint)pt
+{
+    NSLog(@"Fired cannons!");
+    CGSize scrnSz = [[UIScreen mainScreen] bounds].size;
+    
+    SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"MoonPlanet"];
+    sprite.position = pt;
+    [m_ParentNode addChild:sprite];
+    
+    RenderComponent *render = [[RenderComponent alloc] initWithRenderNode:sprite];
+    CleanupComponent *cleanup = [[CleanupComponent alloc] initWithMinY:-40.0f xThreshold:ccp(-40, scrnSz.width+40)];
+    CollisionComponent *coll = [[CollisionComponent alloc] init];
+    ScrollComponent *scroll = [[ScrollComponent alloc] initWithScrollVector:ccp(120.0, MaxFloatSpeed)];
+    scroll.direction = (arc4random()%2) ? DirectionLeft : DirectionRight;
+    
+    Entity *entity = [m_EntityManager createEntityWithComponents:@[render, cleanup, scroll, coll]];
+    entity.type = ForceType;
+    return entity;
+}
+
+- (Entity *)scrollingPlanetAtPoint:(CGPoint)pt
+{
+    SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"RedPlanet"];
+    sprite.position = pt;
+    [m_ParentNode addChild:sprite];
+    
+    RenderComponent *render = [[RenderComponent alloc] initWithRenderNode:sprite];
+    CleanupComponent *cleanup = [[CleanupComponent alloc] initWithMinY:-40.0f xThreshold:CGPointZero];
+    CollisionComponent *coll = [[CollisionComponent alloc] init];
+    ScrollComponent *scroll = [[ScrollComponent alloc] initWithScrollVector:ccp(0.0, MaxFloatSpeed)];
+    scroll.direction = DirectionDown;
+    
+    Entity *entity = [m_EntityManager createEntityWithComponents:@[render, scroll, cleanup, coll]];
+    entity.type = EnemyType;
     return entity;
 }
 
@@ -107,44 +145,28 @@
     [m_ParentNode addChild:sprite];
     
     RenderComponent *render = [[RenderComponent alloc] initWithRenderNode:sprite];
-    CleanupComponent *cleanup = [[CleanupComponent alloc] initWithMinY:-40.0f];
-    ScrollComponent *scroll = [[ScrollComponent alloc] initWithYScrollSpeed:maxFloatSpeed];
+    CleanupComponent *cleanup = [[CleanupComponent alloc] initWithMinY:-40.0f xThreshold:CGPointZero];
     CollisionComponent *coll = [[CollisionComponent alloc] init];
-    //    scroll.shouldRepeat = NO;
+    ScrollComponent *scroll = [[ScrollComponent alloc] initWithScrollVector:ccp(0.0, MaxFloatSpeed)];
+    scroll.direction = DirectionDown;
     
     Entity *entity = [m_EntityManager createEntityWithComponents:@[render, scroll, cleanup, coll]];
     entity.type = BubbleType;
     return entity;
 }
 
-- (Entity *)scrollingBlockAtPoint:(CGPoint)point
-{
-    SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Block"];
-    sprite.position = point;
-    [m_ParentNode addChild:sprite];
-    
-    RenderComponent *render = [[RenderComponent alloc] initWithRenderNode:sprite];
-    CleanupComponent *cleanup = [[CleanupComponent alloc] initWithMinY:-10.0f];
-    ScrollComponent *scroll = [[ScrollComponent alloc] initWithYScrollSpeed:60.0f];
-//    scroll.shouldRepeat = NO;
-    
-    Entity *entity = [m_EntityManager createEntityWithComponents:@[render, scroll, cleanup]];
-    return entity;
-}
-
-// Hero must be rendered (render comp)
-// Hero must collide (collision comp)
-// Hero must have cleanup component (causes game over)
-// 
-- (Entity *)heroEntityAtPoint:(CGPoint)pt
-{
-    SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Enemy2"];
-    sprite.position = pt;
-    [m_ParentNode addChild:sprite];
-    
+//- (Entity *)scrollingBlockAtPoint:(CGPoint)point
+//{
+//    SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Block"];
+//    sprite.position = point;
+//    [m_ParentNode addChild:sprite];
+//    
 //    RenderComponent *render = [[RenderComponent alloc] initWithRenderNode:sprite];
-    
-    return nil;
-}
+//    CleanupComponent *cleanup = [[CleanupComponent alloc] initWithMinY:-10.0f];
+//    ScrollComponent *scroll = [[ScrollComponent alloc] initWithYScrollSpeed:60.0f];
+//    
+//    Entity *entity = [m_EntityManager createEntityWithComponents:@[render, scroll, cleanup]];
+//    return entity;
+//}
 
 @end

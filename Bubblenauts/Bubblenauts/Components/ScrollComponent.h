@@ -10,8 +10,10 @@
 
 @interface ScrollComponent : Component
 
-@property (assign, readonly) float speed;
+@property (assign, readonly) CGPoint vector;
+@property (assign) Direction direction;
 
-- (instancetype)initWithYScrollSpeed:(float)spd;
+- (instancetype)initWithScrollVector:(CGPoint)vec;
+//- (instancetype)initWithYScrollSpeed:(float)spd;
 
 @end

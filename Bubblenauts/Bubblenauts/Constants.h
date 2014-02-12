@@ -12,15 +12,24 @@ typedef NS_ENUM(NSUInteger, ObjectType)
 {
     HeroType,
     BubbleType,
-    SpikeType
+    EnemyType,
+    ForceType
+};
+
+typedef NS_ENUM(NSUInteger, Direction)
+{
+    DirectionUp,
+    DirectionDown,
+    DirectionLeft,
+    DirectionRight
 };
 
 @interface Constants : NSObject
 
 extern CGFloat const ConstGravity;
 extern CGFloat const ConstFloatSpd;
-extern CGFloat const maxFallSpeed;
-extern CGFloat const maxFloatSpeed;
+extern CGFloat const MaxFallSpeed;
+extern CGFloat const MaxFloatSpeed;
 extern NSString * const GameOverCondition;
 
 @end

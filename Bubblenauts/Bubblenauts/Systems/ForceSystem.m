@@ -36,6 +36,7 @@
         VelocityComponent *velocity = (VelocityComponent*)[entity getComponentOfClass:veloClass];
         
         if (!force || !velocity) continue;
+//        if (!force.useNow) continue;
         
         // Add immediate force, and then remove the component
         velocity.velocity = ccpAdd(velocity.velocity, force.force);

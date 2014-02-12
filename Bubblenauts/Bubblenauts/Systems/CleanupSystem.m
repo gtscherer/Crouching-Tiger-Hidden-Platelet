@@ -55,6 +55,16 @@
         
         if (render.node.position.y < cleanup.yMin)
             [toRemove addObject:entity];
+        
+        if (cleanup.useXThreshold) {
+            // x-coord here is the left-side x threshold (neg screen)
+            if (render.node.position.x < cleanup.xThresh.x)
+                [toRemove addObject:entity];
+            
+            // y-coord here is the right-side x threshold (pos past screen)
+            if (render.node.position.x > cleanup.xThresh.y)
+                [toRemove addObject:entity];
+        }
     }
     
     BOOL shouldEndGame = FALSE;
@@ -64,7 +74,8 @@
         CleanupComponent *cleanup = (CleanupComponent*)[entity getComponentOfClass:cleanupClass];
         RenderComponent *render = (RenderComponent*)[entity getComponentOfClass:renderClass];
         
-        if (cleanup.causesGameOver) shouldEndGame = TRUE;
+        if (cleanup.causesGameOver)
+            shouldEndGame = TRUE;
         
         [render.node removeFromParent];
         [m_EntManager removeEntityFromGame:entity];
