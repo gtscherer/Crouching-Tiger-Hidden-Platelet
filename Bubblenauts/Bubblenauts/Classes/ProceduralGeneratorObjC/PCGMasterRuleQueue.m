@@ -10,11 +10,11 @@
 
 @implementation PCGRuleList
 
--(NSArray*) getRuleByType: (int) type
+-(NSSet*) getRulesByType: (int) type
 {
     if([[self rules] count] > 0)
     {
-        NSMutableArray* ruleList = [[NSMutableArray alloc] init];
+        NSMutableSet* ruleList = [[NSMutableSet alloc] init];
         for(PCGRule* rule in [self rules])
         {
             if([rule ruleType] == type)
@@ -28,25 +28,18 @@
     else return nil;
 }
 
--(NSArray*) getExclusions
+-(NSSet*) getExclusions
 {
-    return [self getRuleByType:EXCLUDE];
+    return [self getRulesByType:EXCLUDE];
 }
 
--(NSArray*) getForceGenerate
+-(NSSet*) getForceGenerate
 {
-    return [self getRuleByType:FORCE];
+    return [self getRulesByType:FORCE];
 }
 
 -(bool) addRule: (PCGRule*) newRule
 {
-    for(PCGRule* rule in [self rules])
-    {
-        if([rule isEqual: newRule])
-        {
-            return false;
-        }
-    }
     [[self rules] addObject:newRule];
     return true;
 }
@@ -55,15 +48,6 @@
 
 @implementation PCGQueue
 
--(PCGQueue*) initWithIndex: (NSUInteger) index
-{
-    self = (PCGQueue*) [super init];
-    if(self)
-    {
-        [self setIndex:index];
-    }
-    return self;
-}
 
 -(void) enqueue: (id) object
 {
@@ -86,7 +70,7 @@
 
 }
 
--(id) objectInQueueAtIndex:(NSUInteger)index
+-(id) objectInQueueAtIndex:(NSInteger)index
 {
     if(index < [self count])
     {
@@ -103,24 +87,30 @@
 @end
 
 
-@implementation PCGMasterRuleCircuit
+@implementation PCGRevolver
 
--(void) enqueue: (id) object atIndex: (int) index
+-(void) addObject:(id)object
 {
-    [(PCGQueue*)[[self queue] objectAtIndex:index]
-     enqueue:object];
+    [[self circuit] addObject:object];
 }
 
--(id) dequeue: (int) index
+-(id) next
 {
-    if(index < [self count])
+    return [self popObjectAt: 0];
+}
+
+
+
+-(id) popObjectAt: (NSInteger) index
+{
+    if(index > -1 && index < [self count])
     {
-        PCGQueue* headQueue = [[self queue] objectAtIndex:index];
+        PCGQueue* headQueue = [[self circuit] objectAtIndex:index];
         if(headQueue)
         {
-            [[self queue] removeObjectAtIndex:index];
-            [[self queue] addObject:headQueue];
-            [[self head] setHead:[[self queue] objectAtIndex:0]];
+            [[self circuit] removeObjectAtIndex:index];
+            [[self circuit] addObject:headQueue];
+            [[self head] setHead:[[self circuit] objectAtIndex:0]];
         }
         return headQueue;
     }
@@ -129,31 +119,42 @@
 
 -(NSInteger) count
 {
-    return [[self queue] count];
+    return [[self circuit] count];
 }
 
--(void) addQueue: (PCGQueue*) queue
+@end
+
+@implementation PCGRuleRevolver
+
+-(void) addObject: (id) object toQueueAtIndex: (NSInteger) index
 {
-    [[self queue] addObject:queue];
+    [(PCGQueue*)[[self circuit] objectAtIndex:index]
+     enqueue:object];
 }
 
--(void) createAndAddQueue
+-(void) addObject:(PCGQueue *)queue
 {
-    PCGQueue* newQueue = [[PCGQueue alloc] initWithIndex:[self count]];
-    [self addQueue: newQueue];
+    [super addObject: queue];
 }
 
--(id) objectInQueueAtIndex:(NSUInteger) index inColumn: (NSUInteger) column
+
+-(id) objectInQueueAtIndex:(NSInteger) index inColumn: (NSInteger) column
 {
     if(column < [self count])
     {
-        if(index < [(PCGQueue*) [[self queue] objectAtIndex: column] count])
+        if(index < [(PCGQueue*) [[self circuit] objectAtIndex: column] count])
         {
-            return [(PCGQueue*) [[self queue] objectAtIndex:column] objectInQueueAtIndex:index];
+            return [(PCGQueue*) [[self circuit] objectAtIndex:column] objectInQueueAtIndex:index];
         }
         else return nil;
     }
     else return nil;
+}
+
+-(void) createAndAddQueue
+{
+    PCGQueue* newQueue = [[PCGQueue alloc] init];
+    [self addObject: newQueue];
 }
 
 @end

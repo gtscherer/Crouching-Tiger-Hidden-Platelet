@@ -49,18 +49,18 @@
     return self;
 }
 
--(PCGEntity*) initWithSymbol:(char)symbol andFrequency:(NSInteger)frequency andDimensions:(PCGIntegerPair *)dimensions andScaleFactors:(PCGDoublePair *)scaleFactors
+-(PCGEntity*) initWithSymbol:(char)symbol andFrequency:(NSInteger)frequency andDimensions:(PCGIntegerPair *)dimensions andScaleFactors:(NSArray*)scaleFactors
 {
     self = [self initWithSymbol:symbol andFrequency:frequency];
     if(self)
     {
         [self setDimensions:dimensions];
-        [self setScaleFactors:scaleFactors];
+        [self setScaleFactors:[[NSMutableArray alloc] initWithArray:scaleFactors]];
     }
     return self;
 }
 
--(PCGEntity*) initWithSymbol:(char)symbol andFrequency:(NSInteger)frequency andDimensions:(PCGIntegerPair *)dimensions andScaleFactors:(PCGDoublePair *)scaleFactors andExclusions:(NSMutableSet *)exclusions andForceGeneration:(NSMutableSet *)forceGeneration
+-(PCGEntity*) initWithSymbol:(char)symbol andFrequency:(NSInteger)frequency andDimensions:(PCGIntegerPair *)dimensions andScaleFactors:(NSArray*)scaleFactors andExclusions:(NSMutableSet *)exclusions andForceGeneration:(NSMutableSet *)forceGeneration
 {
     self = [self initWithSymbol:symbol
                    andFrequency:frequency

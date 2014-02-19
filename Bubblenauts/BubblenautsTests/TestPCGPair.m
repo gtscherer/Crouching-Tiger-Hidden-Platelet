@@ -242,6 +242,20 @@
     
     XCTAssertTrue([[self testPair] isEqual: mockObject], @"Should equal mock object in \"%s\"", __PRETTY_FUNCTION__);
     
+    [given([mockObject second]) willReturn: testString1];
+    
+    XCTAssertFalse([[self testPair] isEqual: mockObject], @"Should not equal mock object in \"%s\"", __PRETTY_FUNCTION__);
+    
+    [given([mockObject first]) willReturn: testString2];
+    [given([mockObject second]) willReturn: testString2];
+    
+    XCTAssertFalse([[self testPair] isEqual: mockObject], @"Should not equal mock object in \"%s\"", __PRETTY_FUNCTION__);
+    
+    [given([mockObject second]) willReturn: testString1];
+    
+    XCTAssertFalse([[self testPair] isEqual: mockObject], @"Should not equal mock object in \"%s\"", __PRETTY_FUNCTION__);
+
+    
     [self setTestPair: nil];
 }
 
@@ -250,14 +264,33 @@
     NSInteger testInteger1 = 4567654;
     NSInteger testInteger2 = 9847483;
     
-    [self setTestIntegerPair: [[PCGIntegerPair alloc] initWithIntegers:testInteger1 secondInteger:testInteger2]];
-    
     PCGIntegerPair* mockIntegerPair = mock([PCGIntegerPair class]);
+    
+    XCTAssertFalse([[self testIntegerPair] isEqual: mockIntegerPair], @"Should not equal mock object in \"%s\"", __PRETTY_FUNCTION__);
+
+    [self setTestIntegerPair: [[PCGIntegerPair alloc] initWithIntegers:testInteger1 secondInteger:testInteger2]];
+
+    
+    XCTAssertFalse([[self testIntegerPair] isEqual: mockIntegerPair], @"Should not equal mock object in \"%s\"", __PRETTY_FUNCTION__);
+
     [given([mockIntegerPair first]) willReturnInt:testInteger1];
     [given([mockIntegerPair second]) willReturnInt:testInteger2];
     
     XCTAssertTrue([[self testIntegerPair] isEqual: mockIntegerPair], @"All pairs could not be compared in \"%s\"", __PRETTY_FUNCTION__);
 
+    [given([mockIntegerPair second]) willReturnInt: testInteger1];
+    
+    XCTAssertFalse([[self testIntegerPair] isEqual: mockIntegerPair], @"Should not equal mock object in \"%s\"", __PRETTY_FUNCTION__);
+    
+    [given([mockIntegerPair first]) willReturnInt: testInteger2];
+    [given([mockIntegerPair second]) willReturnInt: testInteger1];
+    
+    XCTAssertFalse([[self testIntegerPair] isEqual: mockIntegerPair], @"Should not equal mock object in \"%s\"", __PRETTY_FUNCTION__);
+    
+    [given([mockIntegerPair second]) willReturnInt: testInteger1];
+    
+    XCTAssertFalse([[self testIntegerPair] isEqual: mockIntegerPair], @"Should not equal mock object in \"%s\"", __PRETTY_FUNCTION__);
+    
     [self setTestIntegerPair: nil];
 }
 
@@ -266,14 +299,33 @@
     double testDouble1 = 1.958569694;
     double testDouble2 = 3.59684884;
     
-    [self setTestDoublePair:[[PCGDoublePair alloc] initWithDoubles:testDouble1 secondDouble:testDouble2]];
-    
     PCGDoublePair* mockDoublePair = mock([PCGDoublePair class]);
     
+    XCTAssertFalse([[self testDoublePair] isEqual: mockDoublePair], @"Should not equal mock object in \"%s\"", __PRETTY_FUNCTION__);
+   
+    [self setTestDoublePair:[[PCGDoublePair alloc] initWithDoubles:testDouble1 secondDouble:testDouble2]];
+
+    XCTAssertFalse([[self testDoublePair] isEqual: mockDoublePair], @"Should not equal mock object in \"%s\"", __PRETTY_FUNCTION__);
+
     [given([mockDoublePair first]) willReturnDouble: testDouble1];
     [given([mockDoublePair second]) willReturnDouble:testDouble2];
    
     XCTAssertTrue([[self testDoublePair] isEqual: mockDoublePair], @"All pairs could not be compared in \"%s\"", __PRETTY_FUNCTION__);
+    
+    
+    [given([mockDoublePair second]) willReturnDouble: testDouble1];
+    
+    XCTAssertFalse([[self testDoublePair] isEqual: mockDoublePair], @"Should not equal mock object in \"%s\"", __PRETTY_FUNCTION__);
+    
+    [given([mockDoublePair first]) willReturnDouble: testDouble2];
+    [given([mockDoublePair second]) willReturnDouble: testDouble1];
+    
+    XCTAssertFalse([[self testDoublePair] isEqual: mockDoublePair], @"Should not equal mock object in \"%s\"", __PRETTY_FUNCTION__);
+    
+    [given([mockDoublePair second]) willReturnDouble: testDouble1];
+    
+    XCTAssertFalse([[self testDoublePair] isEqual: mockDoublePair], @"Should not equal mock object in \"%s\"", __PRETTY_FUNCTION__);
+    
     
     [self setTestDoublePair: nil];
 }

@@ -14,7 +14,7 @@
 
 @property (nonatomic, strong) NSMutableArray* distribution;
 
--(NSMutableArray*) getProbabilityList;
+-(NSArray*) getProbabilityList;
 
 -(void) removeEntity: (PCGEntity*) entity;
 

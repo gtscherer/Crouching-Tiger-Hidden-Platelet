@@ -15,7 +15,7 @@
 @property (nonatomic, strong) NSMutableSet* exclusions;
 @property (nonatomic, strong) NSMutableSet* forceGeneration;
 @property (nonatomic, strong) PCGIntegerPair* dimensions;
-@property (nonatomic, strong) PCGDoublePair* scaleFactors;
+@property (nonatomic, strong) NSMutableArray* scaleFactors;
 @property (nonatomic) NSInteger frequency;
 @property (nonatomic) char symbol;
 
@@ -35,12 +35,12 @@
 -(PCGEntity*) initWithSymbol: (char)symbol
                 andFrequency: (NSInteger)frequency
                andDimensions: (PCGIntegerPair*) dimensions
-             andScaleFactors: (PCGDoublePair*) scaleFactors;
+             andScaleFactors: (NSArray*) scaleFactors;
 
 -(PCGEntity*) initWithSymbol:(char)symbol
                 andFrequency:(NSInteger)frequency
                andDimensions: (PCGIntegerPair*) dimensions
-             andScaleFactors: (PCGDoublePair*) scaleFactors
+             andScaleFactors: (NSArray*) scaleFactors
                andExclusions: (NSMutableSet*) exclusions
           andForceGeneration: (NSMutableSet*) forceGeneration;
 
