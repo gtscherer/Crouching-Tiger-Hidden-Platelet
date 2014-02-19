@@ -11,6 +11,7 @@
 @interface ForceComponent : Component
 
 @property (assign, readonly) CGPoint force;
+//@property (assign) BOOL useNow;
 
 - (instancetype)initWithForce:(CGPoint)force;
 

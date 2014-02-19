@@ -10,17 +10,26 @@
 
 @implementation ScrollComponent
 
-- (instancetype)initWithYScrollSpeed:(float)spd
+- (instancetype)initWithScrollVector:(CGPoint)vec
 {
     self = [super init];
     if (self) {
-        _speed = spd;
-//        _shouldRepeat = NO;
-//        _repeatPoint = 0.0f;
-//        _repeatOffset = 0.0f;
+        _vector = vec;
     }
     return self;
 }
+//
+//- (instancetype)initWithYScrollSpeed:(float)spd
+//{
+//    self = [super init];
+//    if (self) {
+//        _speed = spd;
+//        _shouldRepeat = NO;
+//        _repeatPoint = 0.0f;
+//        _repeatOffset = 0.0f;
+//    }
+//    return self;
+//}
 
 //-(void)adjustScrollSpeedBy:(float)by
 //{

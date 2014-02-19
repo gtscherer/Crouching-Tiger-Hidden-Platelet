@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Corvus. All rights reserved.
 //
 
-#import "MoveComponent.h"
+#import "FreeMoveComponent.h"
 
-@implementation MoveComponent
+@implementation FreeMoveComponent
 
 @end

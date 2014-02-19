@@ -11,8 +11,11 @@
 @interface CleanupComponent : Component
 
 @property (assign, readonly) float yMin;
+@property (assign, readonly) CGPoint xThresh;
+@property (assign, readonly) BOOL useXThreshold;
+
 @property (assign) BOOL causesGameOver;
 
-- (instancetype)initWithMinY:(float)y;
+- (instancetype)initWithMinY:(float)y xThreshold:(CGPoint)xThresh;
 
 @end

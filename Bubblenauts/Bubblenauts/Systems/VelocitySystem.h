@@ -8,6 +8,6 @@
 
 #import "System.h"
 
-@interface RenderSystem : System
+@interface VelocitySystem : System
 
 @end

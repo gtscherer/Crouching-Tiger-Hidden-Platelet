@@ -10,15 +10,20 @@
 #import "Entity.h"
 #import "CollisionComponent.h"
 #import "RenderComponent.h"
-#import "MoveComponent.h"
+#import "FreeMoveComponent.h"
 #import "FollowComponent.h"
 #import "ScrollComponent.h"
+#import "HealthComponent.h"
+#import "ForceComponent.h"
 
 @import SpriteKit;
 
 @interface CollisionSystem () {
     Class collisClass;
     Class renderClass;
+    
+    NSMutableArray *toRemove;
+//    SKSpriteNode *checkNode;
 }
 @end
 
@@ -30,15 +35,24 @@
     if (self) {
         collisClass = [CollisionComponent class];
         renderClass = [RenderComponent class];
+        
+        toRemove = [NSMutableArray array];
     }
     return self;
 }
 
+//- (void)setToCheck:(Entity *)toCheck
+//{
+//    
+//}
+
 -(void)update:(float)dt
 {
     if (self.toCheck.type == HeroType) {
-        // Check collision with naked node - would end up killing the character
         [self checkHeroForCollisions];
+    }
+    else if (self.toCheck.type == BubbleType) {
+        [self checkBubbleForCollisions];
     }
 }
 
@@ -57,7 +71,7 @@
         
         if ([heroRender.node intersectsNode:oRender.node]) {
             if (entity.type == BubbleType) {
-                MoveComponent *move = (MoveComponent*)[self.toCheck getComponentOfClass:[MoveComponent class]];
+                FreeMoveComponent *move = (FreeMoveComponent*)[self.toCheck getComponentOfClass:[FreeMoveComponent class]];
                 move.accelVec = ccp(move.accelVec.x, ConstFloatSpd);
                 move.direction = DirectionUp;
                 
@@ -65,18 +79,100 @@
                 FollowComponent *follow = [[FollowComponent alloc] initWithFollowNode:self.toCheck];
                 [m_EntManager addComponent:follow toEntity:entity];
                 
+                // Add a health component, as the bubble is now linked to the hero!
+                HealthComponent *health = [[HealthComponent alloc] initWithHealth:100.0f];
+                [m_EntManager addComponent:health toEntity:entity];
+                
                 ScrollComponent *scroll = (ScrollComponent*)[entity getComponentOfClass:[ScrollComponent class]];
                 if (scroll) [m_EntManager removeComponent:scroll fromEntity:entity];
                 
                 self.toCheck = entity;
+//                self.toCheck.type = BubbleType;
+            }
+            
+            if (entity.type == ForceType) {
+                // do stuff to move the guy
+                ScrollComponent *scroll = (ScrollComponent*)[entity getComponentOfClass:[ScrollComponent class]];
+                CGFloat x = (scroll.direction == DirectionRight) ? scroll.vector.x : -scroll.vector.x;
+                
+                // Fixed a crash where input would conflict with this (can't add duplicate components)
+                ForceComponent *existing = (ForceComponent*)[self.heroRef getComponentOfClass:[ForceComponent class]];
+                if (existing) [m_EntManager removeComponent:existing fromEntity:self.heroRef];
+                
+                ForceComponent *toApply = [[ForceComponent alloc] initWithForce:ccp(x, 0.0)];
+                [m_EntManager addComponent:toApply toEntity:self.heroRef];
+                [toRemove addObject:entity];
+            }
+            
+            if (entity.type == EnemyType) {
+                //DIE
+                [[NSNotificationCenter defaultCenter] postNotificationName:GameOverCondition object:nil];
             }
         }
     }
 }
 
-- (void)checkBubbleCollisionWithEntities:(NSArray*)entities
+- (void)checkBubbleForCollisions
 {
+    RenderComponent *bubRender = (RenderComponent*)[self.toCheck getComponentOfClass:renderClass];
+    NSArray *entities = [m_EntManager getAllEntitiesWithComponentClass:collisClass];
     
+    for (Entity *entity in entities) {
+        if (entity == self.toCheck) continue;
+        
+        CollisionComponent *coll = (CollisionComponent*)[entity getComponentOfClass:collisClass];
+        RenderComponent *oRender = (RenderComponent*)[entity getComponentOfClass:renderClass];
+        
+        if (!coll || !oRender) continue;
+        
+        if ([bubRender.node intersectsNode:oRender.node]) {
+            // If bubble collides with other bubble, increase the bubble's health/size
+            if (entity.type == BubbleType) {
+                HealthComponent *health = (HealthComponent*)[self.toCheck getComponentOfClass:[HealthComponent class]];
+                health.health += 15;
+                [toRemove addObject:entity];
+            }
+            
+            if (entity.type == ForceType) {
+                ScrollComponent *scroll = (ScrollComponent*)[entity getComponentOfClass:[ScrollComponent class]];
+                CGFloat x = (scroll.direction == DirectionRight) ? scroll.vector.x : -scroll.vector.x;
+                
+                // Fixed a crash where input would conflict with this (can't add duplicate components)
+                ForceComponent *existing = (ForceComponent*)[self.heroRef getComponentOfClass:[ForceComponent class]];
+                if (existing) [m_EntManager removeComponent:existing fromEntity:self.heroRef];
+                
+                ForceComponent *toApply = [[ForceComponent alloc] initWithForce:ccp(x, 0.0)];
+                [m_EntManager addComponent:toApply toEntity:self.heroRef];
+                [toRemove addObject:entity];
+            }
+            
+            // If bubble collides with platform/enemy, pop.
+            if (entity.type == EnemyType) {
+                Entity *bub = self.toCheck;
+                [toRemove addObject:bub];
+                [toRemove addObject:entity];
+                self.toCheck = nil;
+                
+                FreeMoveComponent *move = (FreeMoveComponent*)[self.heroRef getComponentOfClass:[FreeMoveComponent class]];
+                move.accelVec = ccp(move.accelVec.x, ConstGravity);
+                move.direction = DirectionDown;
+                move.goodToScroll = FALSE;
+                
+                self.toCheck = self.heroRef;
+            }
+        }
+    }
+    
+    NSUInteger i, count = [toRemove count];
+    for (i = 0; i < count; i++) {
+        Entity *entity = toRemove[i];
+        RenderComponent *render = (RenderComponent*)[entity getComponentOfClass:renderClass];
+        
+        if (render) [render.node removeFromParent];
+        [m_EntManager removeEntityFromGame:entity];
+    }
+    
+    [toRemove removeAllObjects];
 }
 
 @end

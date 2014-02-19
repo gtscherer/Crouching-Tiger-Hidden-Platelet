@@ -6,27 +6,27 @@
 //  Copyright (c) 2014 Corvus. All rights reserved.
 //
 
-#import "MoveSystem.h"
-#import "MoveComponent.h"
+#import "FreeMoveSystem.h"
+#import "FreeMoveComponent.h"
 #import "RenderComponent.h"
 #import "VelocityComponent.h"
 
 @import SpriteKit;
 
-@interface MoveSystem () {
+@interface FreeMoveSystem () {
     Class moveClass;
     Class renderClass;
     Class veloClass;
 }
 @end
 
-@implementation MoveSystem
+@implementation FreeMoveSystem
 
 - (instancetype)initWithEntityManager:(EntityManager *)entMan
 {
     self = [super initWithEntityManager:entMan];
     if (self) {
-        moveClass = [MoveComponent class];
+        moveClass = [FreeMoveComponent class];
         renderClass = [RenderComponent class];
         veloClass = [VelocityComponent class];
     }
@@ -38,7 +38,7 @@
     NSArray *entities = [m_EntManager getAllEntitiesWithComponentClass:moveClass];
     
     for (Entity *entity in entities) {
-        MoveComponent *move = (MoveComponent*)[entity getComponentOfClass:moveClass];
+        FreeMoveComponent *move = (FreeMoveComponent*)[entity getComponentOfClass:moveClass];
         RenderComponent *rend = (RenderComponent*)[entity getComponentOfClass:renderClass];
         VelocityComponent *velo = (VelocityComponent*)[entity getComponentOfClass:veloClass];
         
@@ -55,11 +55,11 @@
         CGPoint stepVel = ccpMult(move.accelVec, dt);
         velo.velocity = ccpAdd(velo.velocity, stepVel);
         
-        if (velo.velocity.y >= maxFloatSpeed)
-            velo.velocity = ccp(velo.velocity.x, maxFloatSpeed);
+        if (velo.velocity.y >= MaxFloatSpeed)
+            velo.velocity = ccp(velo.velocity.x, MaxFloatSpeed);
         
-        if (velo.velocity.y <= maxFallSpeed)
-            velo.velocity = ccp(velo.velocity.x, maxFallSpeed);
+        if (velo.velocity.y <= MaxFallSpeed)
+            velo.velocity = ccp(velo.velocity.x, MaxFallSpeed);
     }
 }
 @end

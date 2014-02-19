@@ -12,8 +12,8 @@
 
 CGFloat const ConstGravity = -200.0f;
 CGFloat const ConstFloatSpd = 200.0f;
-CGFloat const maxFallSpeed = -100.0f;
-CGFloat const maxFloatSpeed = 100.0f;
+CGFloat const MaxFallSpeed = -175.0f;
+CGFloat const MaxFloatSpeed = 175.0f;
 NSString * const GameOverCondition = @"GameOverCondition";
 
 @end
