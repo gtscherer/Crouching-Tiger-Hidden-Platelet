@@ -22,6 +22,34 @@
 @property (nonatomic, strong) PCGDoublePair* testDoublePair;
 
 @end
+/*
+ The order will reflect the following cases interlaced with each other:
+ 
+ Test for PCGPair Class:
+    *   This class should store two NSObjects of any subclass.
+    *   This class should initialize with two constructors:
+        1.  No Parameters       // [[PCGPair alloc] init]
+        2.  Two Parameters      // [[PCGPair alloc] initWithObjects:(NSObject*) object 
+                                                       secondObject:(NSObject*) object]
+ Test for PCGIntegerPair Class:
+    *   This class should store two NSInteger objects.
+    *   This class should initialize with two constructors:
+        1.  No Parameters       // [[PCGIntegerPair alloc] init]
+        2.  Two Parameters      // [[PCGIntegerPair alloc] initWithIntegers:(NSInteger) number
+                                                              secondInteger:(NSInteger) number]
+ 
+ Test for PCGDoublePair Class:
+    *   This class should store two NSInteger objects.
+    *   This class should initialize with two constructors:
+        1.  No Parameters       // [[PCGDoublePair alloc] init]
+        2.  Two Parameters      // [[PCGDoublePair alloc] initWithDouble:(double) number
+                                                            secondDouble:(double) number]
+
+ 
+ Sorry :(
+ 
+ The first test case, testPCGPairFirst, is really easy to understand, I promise :).
+ */
 
 @implementation TestPCGPair
 
@@ -330,7 +358,7 @@
     [self setTestDoublePair: nil];
 }
 
-- (void) testIntegratedWithAllPairs
+- (void) testIsEqualWithAllPairs
 {
     double testDouble1 = 2.45644;
     double testDouble2 = 5.991812;

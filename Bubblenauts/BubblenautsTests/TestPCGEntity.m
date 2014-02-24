@@ -23,6 +23,17 @@
 
 @end
 
+/*
+    This class is supposed to do the following:
+        *   Initialize with (4) overloaded constructors
+            1. No parameters    // [[PCGEntity alloc] init];
+            2. Two parameters (character & frequency)
+            3. Four parameters (character, frequency, dimensions, scaleFactors)
+            4. Six parameters (character, frequency, dimensions, scaleFactors, exclusions, forceGeneraton)
+        *   Be comparable to another object of the same type (PCGEntity) using isEqual method
+                - Defining attribute -> Symbol
+        *   Have addExclusion and addForceGeneration methods for adding rules of the respective types. // (not complete)
+*/
 @implementation TestPCGEntityConstructors
 
 - (void)setUp
@@ -66,7 +77,7 @@
     
     NSInteger testInteger1 = 13123;
     NSInteger testInteger2 = -53242;
-    NSNumber* testInteger3 = [[NSNumber alloc] initWithInt: 234];
+    NSNumber* testInteger3 = [[NSNumber alloc] initWithInteger: 234];
     double testDouble1 = 987.11;
     double testDouble2 = 0.0;
     
@@ -77,8 +88,8 @@
     [given([testScaleFactor second]) willReturnDouble:testDouble2];
     [given([testScaleFactorTypeMap first]) willReturn:testScaleFactor];
     [given([testScaleFactorTypeMap second]) willReturn: testInteger3];
-    [given([testDimensions first]) willReturnInt:testInteger1];
-    [given([testDimensions second]) willReturnInt:testInteger2];
+    [given([testDimensions first]) willReturnInteger:testInteger1];
+    [given([testDimensions second]) willReturnInteger:testInteger2];
     [given([testScaleFactors objectAtIndex:0]) willReturn:testScaleFactorTypeMap];
     
     
@@ -141,8 +152,8 @@
     [given([testScaleFactor second]) willReturnDouble:testDouble2];
     [given([testScaleFactorTypeMap first]) willReturn:testScaleFactor];
     [given([testScaleFactorTypeMap second]) willReturn: testInteger3];
-    [given([testDimensions first]) willReturnInt:testInteger1];
-    [given([testDimensions second]) willReturnInt:testInteger2];
+    [given([testDimensions first]) willReturnInteger:testInteger1];
+    [given([testDimensions second]) willReturnInteger:testInteger2];
     [given([testScaleFactors objectAtIndex:0]) willReturn:testScaleFactorTypeMap];
     
     [self
@@ -243,8 +254,8 @@
     [[self testScaleFactors] addObject:[self testScaleFactorTypeMap]];
     
     //Create stubs
-    [given([[self testDimensions] first]) willReturnInt:[self testDimensionX]];
-    [given([[self testDimensions] second]) willReturnInt:[self testDimensionY]];
+    [given([[self testDimensions] first]) willReturnInteger:[self testDimensionX]];
+    [given([[self testDimensions] second]) willReturnInteger:[self testDimensionY]];
     [given([[self testScaleFactor] first]) willReturnDouble:[self testScaleFactorX]];
     [given([[self testScaleFactor] second]) willReturnDouble:[self testScaleFactorY]];
     [given([[self testScaleFactorTypeMap] first]) willReturn:[self testScaleFactor]];
@@ -289,10 +300,18 @@
 
 -(void) testIsEqualIntegration
 {
-    PCGEntity* testEntity2 = [[PCGEntity alloc] initWithSymbol:[self testSymbol] andFrequency:[self testFrequency]];
+    PCGEntity* testEntity2 = [[PCGEntity alloc] init];
+    [testEntity2 setSymbol:[self testSymbol]];
     XCTAssertTrue([[self testEntity] isEqual: testEntity2], @"Both entity objects should be equal in \"%s\"", __PRETTY_FUNCTION__);
+    
+    [testEntity2 setScaleFactors:[self testScaleFactors]];
+    [testEntity2 setForceGeneration:[self testForceGeneration]];
+    [testEntity2 setFrequency:[self testFrequency]];
+    [testEntity2 setExclusions:[self testExclusions]];
+    [testEntity2 setDimensions:[self testDimensions]];
+    
+    XCTAssertTrue([[self testEntity] isEqual: testEntity2], @"Both entity objects should still be equal, with additional class properties in \"%s\"", __PRETTY_FUNCTION__);
+    //Baller
 }
-
-
 
 @end
