@@ -57,11 +57,11 @@
     NSInteger testOffsetX = -12414;
     NSInteger testOffsetY = 10139499;
     
-    [given([mockAreaAffected first]) willReturnInt: testAreaAffectedX];
-    [given([mockAreaAffected second]) willReturnInt: testAreaAffectedY];
+    [given([mockAreaAffected first]) willReturnInteger: testAreaAffectedX];
+    [given([mockAreaAffected second]) willReturnInteger: testAreaAffectedY];
     
-    [given([mockOffset first]) willReturnInt:testOffsetX];
-    [given([mockOffset second]) willReturnInt:testOffsetY];
+    [given([mockOffset first]) willReturnInteger:testOffsetX];
+    [given([mockOffset second]) willReturnInteger:testOffsetY];
     
     [self setTestRule: [[PCGRule alloc] initWithEntity:'z' andRuleType:EXCLUDE andAreaAffected:mockAreaAffected andOffset:mockOffset]];
     
@@ -94,16 +94,16 @@
     NSInteger testOffsetY = -10139499;
     
     //Create Stubs
-    [given([mockAreaAffected first]) willReturnInt: testAreaAffectedX];
-    [given([mockAreaAffected second]) willReturnInt: testAreaAffectedY];
+    [given([mockAreaAffected first]) willReturnInteger: testAreaAffectedX];
+    [given([mockAreaAffected second]) willReturnInteger: testAreaAffectedY];
     
-    [given([mockOffset first]) willReturnInt:testOffsetX];
-    [given([mockOffset second]) willReturnInt:testOffsetY];
+    [given([mockOffset first]) willReturnInteger:testOffsetX];
+    [given([mockOffset second]) willReturnInteger:testOffsetY];
     
     [given([mockRule areaAffected]) willReturn: mockAreaAffected];
     [given([mockRule offset]) willReturn: mockOffset];
     [given([mockRule entitySymbol]) willReturnChar:testEntitySybmol];
-    [given([mockRule ruleType]) willReturnInt: testRuleType];
+    [given([mockRule ruleType]) willReturnInteger: testRuleType];
     
     //Create test object with parameters
     [self setTestRule: [[PCGRule alloc] initWithEntity:testEntitySybmol andRuleType:testRuleType andAreaAffected:mockAreaAffected andOffset:mockOffset]];

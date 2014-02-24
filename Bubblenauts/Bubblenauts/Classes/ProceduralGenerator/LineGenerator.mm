@@ -123,6 +123,7 @@ void Distribution::removeEntity(Entity entity)
 
 LineGenerator::LineGenerator()
 {
+    //warnings should be ok
     srand(time(0));
 }
 
