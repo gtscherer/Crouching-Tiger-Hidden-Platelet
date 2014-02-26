@@ -301,7 +301,9 @@
 -(void) testIsEqualIntegration
 {
     PCGEntity* testEntity2 = [[PCGEntity alloc] init];
+    
     [testEntity2 setSymbol:[self testSymbol]];
+   
     XCTAssertTrue([[self testEntity] isEqual: testEntity2], @"Both entity objects should be equal in \"%s\"", __PRETTY_FUNCTION__);
     
     [testEntity2 setScaleFactors:[self testScaleFactors]];
@@ -313,5 +315,18 @@
     XCTAssertTrue([[self testEntity] isEqual: testEntity2], @"Both entity objects should still be equal, with additional class properties in \"%s\"", __PRETTY_FUNCTION__);
     //Baller
 }
+
+-(void) testAddMethods
+{
+    PCGRule* testRule = mock([PCGRule class]);
+    
+    [[self testEntity] addExclusion:testRule];
+    [[self testEntity] addForceGeneratedObject:testRule];
+    
+    XCTAssertTrue([[[(NSSet*)[[self testEntity] exclusions] objectEnumerator] nextObject] isEqual:testRule], @"Check that object was stored in exclusions for \"%s\"", __PRETTY_FUNCTION__);
+}
+
+
+
 
 @end
