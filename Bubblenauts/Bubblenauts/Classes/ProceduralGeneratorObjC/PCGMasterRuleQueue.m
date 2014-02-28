@@ -28,6 +28,11 @@
     else return nil;
 }
 
+-(NSUInteger) count
+{
+    return [[self rules] count];
+}
+
 -(NSSet*) getExclusions
 {
     return [self getRulesByType:EXCLUDE];
@@ -40,8 +45,11 @@
 
 -(bool) addRule: (PCGRule*) newRule
 {
+    if(![self rules]) [self setRules: [[NSMutableArray alloc] init]];
+    NSUInteger size = [[self rules] count];
     [[self rules] addObject:newRule];
-    return true;
+    if([[self rules] count] > size) return true;
+    else return false;
 }
 
 @end

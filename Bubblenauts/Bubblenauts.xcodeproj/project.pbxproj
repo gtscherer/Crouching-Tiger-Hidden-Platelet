@@ -33,6 +33,7 @@
 		2078C56D18A6AB4E00769A58 /* PCGDistribution.h in Sources */ = {isa = PBXBuildFile; fileRef = 2020FF4818A5E20D00B9B0A0 /* PCGDistribution.h */; };
 		2078C56E18A6AB4E00769A58 /* PCGDistribution.m in Sources */ = {isa = PBXBuildFile; fileRef = 2020FF4918A5E20D00B9B0A0 /* PCGDistribution.m */; };
 		2078C57118A7027F00769A58 /* TestPCGEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2078C57018A7027F00769A58 /* TestPCGEntity.m */; };
+		209E6C6F18C0571200937E87 /* TestPCGMasterRuleQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 209E6C6E18C0571200937E87 /* TestPCGMasterRuleQueue.m */; };
 		20E4AF5418BBD3EC001CCB9B /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E4AF5218BBD3EC001CCB9B /* OCHamcrest.framework */; };
 		20E4AF5518BBD3EC001CCB9B /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E4AF5318BBD3EC001CCB9B /* OCHamcrestIOS.framework */; };
 		20ECCE6A18A46DC4004D8E3C /* TestPCGRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 20ECCE6918A46DC4004D8E3C /* TestPCGRule.m */; };
@@ -123,6 +124,7 @@
 		2078C54818A6A2D900769A58 /* TestPCGPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPCGPair.m; sourceTree = "<group>"; };
 		2078C54E18A6A5FB00769A58 /* PCGTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PCGTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2078C57018A7027F00769A58 /* TestPCGEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPCGEntity.m; sourceTree = "<group>"; };
+		209E6C6E18C0571200937E87 /* TestPCGMasterRuleQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPCGMasterRuleQueue.m; sourceTree = "<group>"; };
 		20E4AF5218BBD3EC001CCB9B /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCHamcrest.framework; sourceTree = "<group>"; };
 		20E4AF5318BBD3EC001CCB9B /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCHamcrestIOS.framework; sourceTree = "<group>"; };
 		20ECCE6918A46DC4004D8E3C /* TestPCGRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPCGRule.m; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 				2078C54818A6A2D900769A58 /* TestPCGPair.m */,
 				4000E66E1886466600EBEDFA /* Supporting Files */,
 				2078C57018A7027F00769A58 /* TestPCGEntity.m */,
+				209E6C6E18C0571200937E87 /* TestPCGMasterRuleQueue.m */,
 			);
 			path = BubblenautsTests;
 			sourceTree = "<group>";
@@ -638,6 +641,7 @@
 				2078C56518A6AB4E00769A58 /* PCGPair.m in Sources */,
 				2078C56618A6AB4E00769A58 /* PCGPair.h in Sources */,
 				2078C56718A6AB4E00769A58 /* PCGEntity.h in Sources */,
+				209E6C6F18C0571200937E87 /* TestPCGMasterRuleQueue.m in Sources */,
 				2078C56818A6AB4E00769A58 /* PCGEntity.m in Sources */,
 				2078C56918A6AB4E00769A58 /* PCGLineGenerator.h in Sources */,
 				2078C56A18A6AB4E00769A58 /* PCGLineGenerator.m in Sources */,

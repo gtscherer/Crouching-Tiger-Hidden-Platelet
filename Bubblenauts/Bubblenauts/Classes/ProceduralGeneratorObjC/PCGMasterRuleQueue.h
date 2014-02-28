@@ -21,6 +21,8 @@
 
 -(bool) addRule: (PCGRule*) newRule;
 
+-(NSUInteger) count;
+
 @end
 
 
