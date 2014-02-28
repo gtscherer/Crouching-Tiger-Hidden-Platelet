@@ -58,10 +58,10 @@
     
     XCTAssertTrue([[self testEntity] symbol] == testSymbol, @"Failed to insert entity symbol for testEntity in \"%s\"", __PRETTY_FUNCTION__);
     XCTAssertTrue([[self testEntity] frequency] == testFrequency, @"Failed to insert frequency for testEntity in \"%s\"", __PRETTY_FUNCTION__);
-    XCTAssertNil([[self testEntity] dimensions], @"Dimensions should be nil for testEntity in \"%s\"", __PRETTY_FUNCTION__);
-    XCTAssertNil([[self testEntity] scaleFactors], @"ScaleFactors should be nil for testEntity in \"%s\"", __PRETTY_FUNCTION__);
-    XCTAssertNil([[self testEntity] exclusions], @"Exclusions should be nil for testEntity in \"%s\"", __PRETTY_FUNCTION__);
-    XCTAssertNil([[self testEntity] forceGeneration], @"forceGeneration should be nil for testEntity in \"%s\"", __PRETTY_FUNCTION__);
+    XCTAssertNotNil([[self testEntity] dimensions], @"Dimensions should be initialized for testEntity in \"%s\"", __PRETTY_FUNCTION__);
+    XCTAssertNotNil([[self testEntity] scaleFactors], @"ScaleFactors should be initialized for testEntity in \"%s\"", __PRETTY_FUNCTION__);
+    XCTAssertNotNil([[self testEntity] exclusions], @"Exclusions should be initialized for testEntity in \"%s\"", __PRETTY_FUNCTION__);
+    XCTAssertNotNil([[self testEntity] forceGeneration], @"forceGeneration should be initialized for testEntity in \"%s\"", __PRETTY_FUNCTION__);
 }
 
 - (void)testInitWithSymbolAndFrequencyAndDimensionsAndScaleFactors
@@ -115,9 +115,9 @@
     XCTAssertTrue(([(NSNumber*)[(PCGPair*)[[[self testEntity] scaleFactors] objectAtIndex:0] second] isEqual:testInteger3]), @"Failed to insert scaleFactors for testEntity in \"%s\"",__PRETTY_FUNCTION__);
     
     
-    XCTAssertNil([[self testEntity] exclusions], @"Exclusions should be nil for testEntity in \"%s\"", __PRETTY_FUNCTION__);
+    XCTAssertNotNil([[self testEntity] exclusions], @"Exclusions should be initialized for testEntity in \"%s\"", __PRETTY_FUNCTION__);
     
-    XCTAssertNil([[self testEntity] forceGeneration], @"forceGeneration should be nil for testEntity in \"%s\"", __PRETTY_FUNCTION__);
+    XCTAssertNotNil([[self testEntity] forceGeneration], @"forceGeneration should be initialized for testEntity in \"%s\"", __PRETTY_FUNCTION__);
 }
 
 
@@ -318,15 +318,31 @@
 
 -(void) testAddMethods
 {
-    PCGRule* testRule = mock([PCGRule class]);
+    [self setTestEntity: [[PCGEntity alloc] init]];
+    PCGRule* testRule = [[PCGRule alloc] init];
     
     [[self testEntity] addExclusion:testRule];
     [[self testEntity] addForceGeneratedObject:testRule];
     
-    XCTAssertTrue([[[(NSSet*)[[self testEntity] exclusions] objectEnumerator] nextObject] isEqual:testRule], @"Check that object was stored in exclusions for \"%s\"", __PRETTY_FUNCTION__);
+    
+    XCTAssertNotNil([[self testEntity] exclusions], @"Exclusions should not be nil in \"%s\"", __PRETTY_FUNCTION__);
+    
+    XCTAssertNotNil([[[self testEntity] exclusions] objectEnumerator], @"Object enumerator should be accessible in \"%s\"", __PRETTY_FUNCTION__);
+    
+    PCGRule* testRule2 = [[[[self testEntity] exclusions] objectEnumerator] nextObject];
+    
+    XCTAssertNotNil(testRule2, @"Object should be initialized in \"%s\"", __PRETTY_FUNCTION__);
+    
+    XCTAssertEqualObjects(testRule, testRule2, @"Objects should be the same in \"%s\"", __PRETTY_FUNCTION__);
+    
+    XCTAssertTrue([testRule isEqual:testRule2], @"Check that object was stored in exclusions for \"%s\"", __PRETTY_FUNCTION__);
+    
+    testRule2 = [[[[self testEntity] forceGeneration] objectEnumerator] nextObject];
+    
+    XCTAssertNotNil(testRule2, @"Object should be initialized in \"%s\"", __PRETTY_FUNCTION__);
+    
+    XCTAssertEqualObjects(testRule, testRule2, @"Objects should be the same in \"%s\"", __PRETTY_FUNCTION__);
+    
+    XCTAssertTrue([testRule isEqual:testRule2], @"Check that object was stored in exclusions for \"%s\"", __PRETTY_FUNCTION__);
 }
-
-
-
-
 @end

@@ -292,8 +292,13 @@
     NSInteger testInteger1 = 4567654;
     NSInteger testInteger2 = 9847483;
     
+    
     PCGIntegerPair* mockIntegerPair = mock([PCGIntegerPair class]);
     
+    PCGIntegerPair* testIntegerPair2 = [[PCGIntegerPair alloc] init];
+    
+    XCTAssertTrue([testIntegerPair2 isEqual:testIntegerPair2], @"Object with no properties should equal object with no properties in \"%s\"", __PRETTY_FUNCTION__);
+
     XCTAssertFalse([[self testIntegerPair] isEqual: mockIntegerPair], @"Should not equal mock object in \"%s\"", __PRETTY_FUNCTION__);
 
     [self setTestIntegerPair: [[PCGIntegerPair alloc] initWithIntegers:testInteger1 secondInteger:testInteger2]];

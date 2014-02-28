@@ -38,6 +38,16 @@
     else return false;
 }
 
+-(PCGEntity*) init
+{
+    if((self = [super init]))
+    {
+        [self setExclusions:[[NSMutableSet alloc] init]];
+        [self setForceGeneration:[[NSMutableSet alloc] init]];
+    }
+    return self;
+}
+
 -(PCGEntity*) initWithSymbol:(char)symbol andFrequency:(NSInteger)frequency
 {
     self = [super init];
@@ -45,6 +55,10 @@
     {
         [self setSymbol:symbol];
         [self setFrequency:frequency];
+        [self setDimensions:[[PCGIntegerPair alloc] init]];
+        [self setScaleFactors:[[NSMutableArray alloc] init]];
+        [self setExclusions:[[NSMutableSet alloc] init]];
+        [self setForceGeneration:[[NSMutableSet alloc] init]];
     }
     return self;
 }

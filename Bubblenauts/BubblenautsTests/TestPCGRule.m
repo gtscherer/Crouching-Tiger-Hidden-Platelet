@@ -93,6 +93,10 @@
     NSInteger testOffsetX = -12414;
     NSInteger testOffsetY = -10139499;
     
+    [self setTestRule:[[PCGRule alloc] init]];
+    
+    XCTAssertTrue([[self testRule] isEqual:mockRule], @"Uninitialized properties object should equal mock object in \"%s\"", __PRETTY_FUNCTION__);
+
     //Create Stubs
     [given([mockAreaAffected first]) willReturnInteger: testAreaAffectedX];
     [given([mockAreaAffected second]) willReturnInteger: testAreaAffectedY];
@@ -104,6 +108,8 @@
     [given([mockRule offset]) willReturn: mockOffset];
     [given([mockRule entitySymbol]) willReturnChar:testEntitySybmol];
     [given([mockRule ruleType]) willReturnInteger: testRuleType];
+    
+    XCTAssertFalse([[self testRule] isEqual:mockRule], @"Missing properties object does not equal mock object in \"%s\"", __PRETTY_FUNCTION__);
     
     //Create test object with parameters
     [self setTestRule: [[PCGRule alloc] initWithEntity:testEntitySybmol andRuleType:testRuleType andAreaAffected:mockAreaAffected andOffset:mockOffset]];
@@ -132,6 +138,8 @@
     PCGRule* newRule = [[PCGRule alloc] initWithEntity:testEntitySymbol andRuleType:testRuleType andAreaAffected:testAreaAffected andOffset:testOffset];
     
     XCTAssertTrue([[self testRule] isEqual:newRule], @"Test object does not equal other test object in \"%s\"", __PRETTY_FUNCTION__);
+    
+    XCTAssertTrue([[self testRule] isEqual: [self testRule]]);
 }
 
 

@@ -20,6 +20,53 @@
     else return NO;
 }
 
+-(void) setAreaAffected:(PCGIntegerPair *)areaAffected
+{
+    self->_areaAffected = areaAffected;
+    [self updateHash];
+}
+
+-(void) setEntitySymbol:(char)entitySymbol
+{
+    self->_entitySymbol = entitySymbol;
+    [self updateHash];
+}
+
+-(void) setOffset:(PCGIntegerPair *)offset
+{
+    self->_offset = offset;
+    [self updateHash];
+}
+
+-(void) setRuleType:(NSInteger)ruleType
+{
+    self->_ruleType = ruleType;
+    [self updateHash];
+}
+
+-(void) updateHash
+{
+    NSUInteger output = (((((NSUInteger)[[self offset] first]) + ((NSUInteger) [[self offset] second])) % 1000) * 1000000) + (((((NSUInteger)[[self areaAffected] first]) + ((NSUInteger) [[self areaAffected] second])) % 1000) * 1000) + (((NSUInteger)[self entitySymbol] % 99) * 10) + ([self ruleType] % 2);
+    
+    [self setHashNumber: output];
+}
+
+-(NSUInteger) hash
+{
+    return [self hashNumber];
+}
+
+-(PCGRule*) init
+{
+    if((self = [super init]))
+    {
+        [self setOffset:[[PCGIntegerPair alloc] init]];
+        [self setAreaAffected:[[PCGIntegerPair alloc] init]];
+    }
+    return self;
+}
+
+
 -(PCGRule*) initWithEntity:(char)entitySymbol andRuleType:(NSInteger)ruleType
 {
     self = [super init];

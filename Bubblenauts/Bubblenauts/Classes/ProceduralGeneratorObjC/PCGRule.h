@@ -16,9 +16,12 @@
 
 @property (nonatomic) char entitySymbol;
 @property (nonatomic) NSInteger ruleType;
+@property (nonatomic) NSUInteger hashNumber;
 
 @property (nonatomic, strong) PCGIntegerPair* areaAffected;
 @property (nonatomic, strong) PCGIntegerPair* offset;
+
+-(NSUInteger) hash;
 
 -(bool) isEqual: (PCGRule*) rule;
 

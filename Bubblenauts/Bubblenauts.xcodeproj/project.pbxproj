@@ -515,11 +515,11 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Corvus;
 				TargetAttributes = {
-					2078C54D18A6A5FB00769A58 = {
-						TestTargetID = 4000E63D1886466500EBEDFA;
-					};
 					4000E63D1886466500EBEDFA = {
 						DevelopmentTeam = NLD7SE8NHP;
+					};
+					4000E6651886466600EBEDFA = {
+						TestTargetID = 4000E63D1886466500EBEDFA;
 					};
 				};
 			};
@@ -697,7 +697,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Bubblenauts.app/Bubblenauts";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -711,7 +710,6 @@
 				);
 				INFOPLIST_FILE = "PCGTests/PCGTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -720,7 +718,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Bubblenauts.app/Bubblenauts";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -730,7 +727,6 @@
 				GCC_PREFIX_HEADER = "PCGTests/PCGTests-Prefix.pch";
 				INFOPLIST_FILE = "PCGTests/PCGTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
@@ -847,6 +843,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Bubblenauts.app/Bubblenauts";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -861,6 +858,7 @@
 				);
 				INFOPLIST_FILE = "BubblenautsTests/BubblenautsTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -869,6 +867,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Bubblenauts.app/Bubblenauts";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -879,6 +878,7 @@
 				GCC_PREFIX_HEADER = "Bubblenauts/Bubblenauts-Prefix.pch";
 				INFOPLIST_FILE = "BubblenautsTests/BubblenautsTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
