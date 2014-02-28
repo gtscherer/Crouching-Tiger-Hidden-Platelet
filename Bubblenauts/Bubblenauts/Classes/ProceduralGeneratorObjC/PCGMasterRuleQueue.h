@@ -37,7 +37,7 @@
 
 -(id) objectInQueueAtIndex:(NSInteger)index;
 
--(NSInteger) count;
+-(NSUInteger) count;
 
 @end
 
@@ -54,7 +54,7 @@
 -(id) next;
 
 
--(NSInteger) count;
+-(NSUInteger) count;
 
 @end
 

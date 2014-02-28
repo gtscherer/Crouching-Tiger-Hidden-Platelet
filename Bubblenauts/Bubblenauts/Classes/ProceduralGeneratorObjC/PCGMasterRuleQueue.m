@@ -45,7 +45,7 @@
 
 -(bool) addRule: (PCGRule*) newRule
 {
-    if(![self rules]) [self setRules: [[NSMutableArray alloc] init]];
+    if(![self rules]) [self setRules: [[NSMutableSet alloc] init]];
     NSUInteger size = [[self rules] count];
     [[self rules] addObject:newRule];
     if([[self rules] count] > size) return true;
@@ -56,6 +56,15 @@
 
 @implementation PCGQueue
 
+
+-(PCGQueue*) init
+{
+    if((self = [super init]))
+    {
+        [self setQueue: [[NSMutableArray alloc] init]];
+    }
+    return self;
+}
 
 -(void) enqueue: (id) object
 {
@@ -68,14 +77,18 @@
 
 -(id) dequeue
 {
-    id headObject = [[self queue] objectAtIndex:0];
-    if(headObject)
+    if([[self queue] count] > 0)
     {
+        id headObject = [[self queue] objectAtIndex:0];
+        
         [[self queue] removeObjectAtIndex:0];
-        [self setHead:[[self queue] objectAtIndex:0]];
+        
+        if([[self queue] count] > 0) [self setHead:[[self queue] objectAtIndex:0]];
+        else [self setHead:nil];
+        
+        return headObject;
     }
-    return headObject;
-
+    else return nil;
 }
 
 -(id) objectInQueueAtIndex:(NSInteger)index
@@ -87,7 +100,7 @@
     else return nil;
 }
 
--(NSInteger) count
+-(NSUInteger) count
 {
     return [[self queue] count];
 }
@@ -96,6 +109,15 @@
 
 
 @implementation PCGRevolver
+
+-(PCGRevolver*) init
+{
+    if((self = [super init]))
+    {
+        [self setCircuit:[[NSMutableArray alloc] init]];
+    }
+    return self;
+}
 
 -(void) addObject:(id)object
 {
@@ -125,7 +147,7 @@
     else return nil;
 }
 
--(NSInteger) count
+-(NSUInteger) count
 {
     return [[self circuit] count];
 }
