@@ -122,10 +122,15 @@
 -(void) addObject:(id)object
 {
     [[self circuit] addObject:object];
+    if([self head] == nil)
+    {
+        [self setHead: object];
+    }
 }
 
 -(id) next
 {
+
     return [self popObjectAt: 0];
 }
 
@@ -135,12 +140,12 @@
 {
     if(index > -1 && index < [self count])
     {
-        PCGQueue* headQueue = [[self circuit] objectAtIndex:index];
+        id headQueue = [[self circuit] objectAtIndex:index];
         if(headQueue)
         {
             [[self circuit] removeObjectAtIndex:index];
             [[self circuit] addObject:headQueue];
-            [[self head] setHead:[[self circuit] objectAtIndex:0]];
+            [self setHead:[[self circuit] objectAtIndex:0]];
         }
         return headQueue;
     }
@@ -183,8 +188,7 @@
 
 -(void) createAndAddQueue
 {
-    PCGQueue* newQueue = [[PCGQueue alloc] init];
-    [self addObject: newQueue];
+    [self addObject: [[PCGQueue alloc] init]];
 }
 
 @end
