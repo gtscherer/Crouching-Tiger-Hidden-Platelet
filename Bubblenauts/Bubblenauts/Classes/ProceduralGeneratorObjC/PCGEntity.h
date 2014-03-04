@@ -29,6 +29,8 @@
 
 -(bool) isEqual: (PCGEntity*) rhs;
 
+-(bool) isEntity: (char) rhs;
+
 -(PCGEntity*) initWithSymbol: (char) symbol
                 andFrequency: (NSInteger) frequency;
 

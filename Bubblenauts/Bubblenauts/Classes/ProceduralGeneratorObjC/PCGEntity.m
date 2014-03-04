@@ -38,6 +38,12 @@
     else return false;
 }
 
+-(bool) isEntity:(char)rhs
+{
+    if(self.symbol == rhs) return true;
+    else return false;
+}
+
 -(PCGEntity*) init
 {
     if((self = [super init]))
