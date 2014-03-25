@@ -13,7 +13,10 @@
 @property (assign, readonly) CGPoint vector;
 @property (assign) Direction direction;
 
+@property (assign) BOOL shouldRepeat;
+@property (assign) CGFloat repeatPoint;
+@property (assign) CGFloat repeatOffset;
+
 - (instancetype)initWithScrollVector:(CGPoint)vec;
-//- (instancetype)initWithYScrollSpeed:(float)spd;
 
 @end

@@ -15,13 +15,11 @@
 @interface EntityFactory : NSObject
 
 - (instancetype)initWithEntityManager:(EntityManager*)entityManager nodeParent:(SKNode*)parent;
-- (Entity*)createTestCreatureAtPoint:(CGPoint)pt;
-//- (Entity*)scrollingBackgroundAtPoint:(CGPoint)pt;
+- (Entity*)createHeroAtPoint:(CGPoint)pt;
+- (Entity*)scrollingBackgroundAtPoint:(CGPoint)pt;
 - (Entity*)scrollingBubbleAtPoint:(CGPoint)pt;
-- (Entity*)scrollingPlanetAtPoint:(CGPoint)pt;
+- (Entity*)scrollingAsteroidAtPoint:(CGPoint)pt;
 - (Entity*)movingForceAtPoint:(CGPoint)pt;
 - (Entity *)scrollingForceShooterAtPoint:(CGPoint)pt;
-//- (Entity*)scrollingBlockAtPoint:(CGPoint)point;
-//- (Entity*)heroEntityAtPoint:(CGPoint)pt;
 
 @end

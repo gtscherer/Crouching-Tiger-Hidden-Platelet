@@ -48,6 +48,13 @@
         if (scroll.direction == DirectionRight) pos.x += scroll.vector.x * dt;
 
         render.node.position = pos;
+        
+        if (scroll.shouldRepeat) {
+            if (render.node.position.y <= scroll.repeatPoint) {
+                pos.y += scroll.repeatOffset;
+                render.node.position = pos;
+            }
+        }
     }
 }
 

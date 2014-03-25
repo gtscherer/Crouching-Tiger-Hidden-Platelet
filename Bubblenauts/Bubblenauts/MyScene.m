@@ -8,9 +8,12 @@
 
 // Framework
 #import "MyScene.h"
+#import "IntroScene.h"
 #import "EntityManager.h"
 #import "EntityFactory.h"
 #import "Entity.h"
+#import "AudioPlayer.h"
+#import "GameCenterManager.h"
 
 // Systems
 #import "VelocitySystem.h"
@@ -27,7 +30,7 @@
 #import "FreeMoveComponent.h"
 #import "ForceComponent.h"
 
-#define kGestureThreshold 10.0f
+#define kGestureThreshold 5.0f
 #define kScoreHudName @"ScoreHUD"
 
 @interface MyScene() {
@@ -35,12 +38,13 @@
     NSTimeInterval lastTime;
     CGFloat gestureStart;
     NSUInteger score;
-    int planetTime;
+    NSUInteger spawnTime;
+    BOOL gameStop;
     
     EntityManager *m_EntityManager;
     EntityFactory *m_EntFactory;
     
-    VelocitySystem *m_RenderSys;
+    VelocitySystem *m_VelocitySys;
     CleanupSystem *m_CleanupSys;
     ForceSystem *m_ForceSys;
     ScrollSystem *m_ScrollSys;
@@ -52,12 +56,14 @@
     
     Entity *hero;
 }
+
+@property (strong) UITapGestureRecognizer *tripleTap;
+
 @end
 
 @implementation MyScene
 
--(id)initWithSize:(CGSize)size
-{
+-(id)initWithSize:(CGSize)size {
     self = [super initWithSize:size];
     if (self) {
         scrnSz = [[UIScreen mainScreen] bounds].size;
@@ -65,7 +71,7 @@
         m_EntityManager = [[EntityManager alloc] init];
         m_EntFactory    = [[EntityFactory alloc] initWithEntityManager:m_EntityManager nodeParent:self];
         
-        m_RenderSys     = [[VelocitySystem alloc] initWithEntityManager:m_EntityManager];
+        m_VelocitySys   = [[VelocitySystem alloc] initWithEntityManager:m_EntityManager];
         m_CleanupSys    = [[CleanupSystem alloc] initWithEntityManager:m_EntityManager];
         m_ForceSys      = [[ForceSystem alloc] initWithEntityManager:m_EntityManager];
         m_ScrollSys     = [[ScrollSystem alloc] initWithEntityManager:m_EntityManager];
@@ -75,12 +81,16 @@
         m_HealthSys     = [[HealthSystem alloc] initWithEntityManager:m_EntityManager];
         m_ShootSys      = [[ShootSystem alloc] initWithEntityManager:m_EntityManager];
         
-        SKSpriteNode *bg = [SKSpriteNode spriteNodeWithImageNamed:@"Space"];
-        bg.position = ccp(scrnSz.width/2, scrnSz.height/2);
-        [self addChild:bg];
+//        SKSpriteNode *bg = [SKSpriteNode spriteNodeWithImageNamed:@"Space"];
+//        SKSpriteNode *bg2 = [SKSpriteNode spriteNodeWithImageNamed:@"Space"];
+//        bg.position = ccp(scrnSz.width/2, scrnSz.height/2);
+//        bg2.position = ccp(scrnSz.width/2, scrnSz.height/2 + scrnSz.height);
+//        [self addChild:bg];
+        [m_EntFactory scrollingBackgroundAtPoint:ccp(scrnSz.width/2, scrnSz.height/2)];
+        [m_EntFactory scrollingBackgroundAtPoint:ccp(scrnSz.width/2, scrnSz.height/2 + scrnSz.height)];
         
-        CGPoint start = ccp(scrnSz.width/2, scrnSz.height/2.4);
-        hero = [m_EntFactory createTestCreatureAtPoint:start];
+        CGPoint start = ccp(scrnSz.width/2, scrnSz.height/3);
+        hero = [m_EntFactory createHeroAtPoint:start];
         
         m_CollSys.toCheck = hero;
         m_CollSys.heroRef = hero;
@@ -89,87 +99,104 @@
         start = ccp(scrnSz.width/2, scrnSz.height/8);
         [m_EntFactory scrollingBubbleAtPoint:start];
         
-        planetTime = 0;
+        spawnTime = 0;
         gestureStart = 0.0f;
         score = 0.0f;
+        gameStop = FALSE;
         
         SKLabelNode *scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"NasalizationRg-Regular"];
         scoreLabel.name = kScoreHudName;
         scoreLabel.fontSize = 20.0f;
         scoreLabel.fontColor = [SKColor whiteColor];
-        scoreLabel.text = [NSString stringWithFormat:@"Score: %06d", score];
-        scoreLabel.position = ccp(scrnSz.width - scoreLabel.frame.size.width/2 - 20,
-                                  scrnSz.height - (20 + scoreLabel.frame.size.height/2));
+        scoreLabel.text = [NSString stringWithFormat:@"Score: %lu", (unsigned long)score];
+        scoreLabel.position = ccp(scrnSz.width/2, scrnSz.height-(20+scoreLabel.frame.size.height/2));
+        scoreLabel.zPosition = 999;
         [self addChild:scoreLabel];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameOverOccurred) name:GameOverCondition object:nil];
+        
+        NSURL *backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"Bubblenautsplay" withExtension:@"mp3"];
+        AudioPlayer *player = [AudioPlayer sharedPlayer];
+        [player loadBackgroundMusicAndPlay:backgroundMusicURL];
     }
     return self;
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
+- (void)didMoveToView:(SKView *)view {
+    [self addGestureRecognizer];
+}
+
+- (void)addGestureRecognizer {
+    self.tripleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTripleTap:)];
+    self.tripleTap.numberOfTapsRequired = 3;
+    [self.view addGestureRecognizer:self.tripleTap];
+}
+
+- (void)removeGestureRecognizer {
+    [self.view removeGestureRecognizer:self.tripleTap];
+    self.tripleTap = nil;
+}
+
+- (void)handleTripleTap:(UIGestureRecognizer*)gesture {
+    gameStop = TRUE;
+    [self removeGestureRecognizer];
+    [self addGameStoppedUIWithResume:YES];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     gestureStart = [[touches anyObject] locationInNode:self].x;
 }
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     CGFloat curX = [[touches anyObject] locationInNode:self].x;
     CGFloat dX = curX - gestureStart;
     
     if (fabsf(dX) > kGestureThreshold) {
-        CGPoint force = ccpMult((CGPoint){1, 0}, dX);
+        CGPoint force = ccpMult((CGPoint){2, 0}, dX);
         ForceComponent *forceC = [[ForceComponent alloc] initWithForce:force];
         [m_EntityManager addComponent:forceC toEntity:hero];
         return;
     }
-    
-//    MoveComponent *move = (MoveComponent*)[hero getComponentOfClass:[MoveComponent class]];
-//    if (move.direction == DirectionUp) {
-//        move.accelVec = ccp(move.accelVec.x, ConstGravity);
-//        move.direction = DirectionDown;
-//        move.goodToScroll = FALSE;
-//    }
-//    else {
-//        move.accelVec = ccp(move.accelVec.x, ConstFloatSpd);
-//        move.direction = DirectionUp;
-//    }
 }
 
-- (void)createTempItemAtPoint:(CGFloat)y
-{
+- (void)createTempItemAtPoint:(CGFloat)y {
     CGFloat randX = arc4random() % 320;
     CGPoint pt = ccp(randX, y);
+    NSUInteger prob = arc4random()%7;
     
     Entity *ent;
-    if (arc4random() % 4 != 0) {
+    if (prob == 0 || prob == 1 || prob == 2 || prob == 3) {
         ent = [m_EntFactory scrollingBubbleAtPoint:pt];
     }
-    else {
+    else if (prob == 4 || prob == 5) {
         ent = [m_EntFactory scrollingForceShooterAtPoint:pt];
+    }
+    else {
+        ent = [m_EntFactory scrollingAsteroidAtPoint:pt];
     }
 }
 
--(void)update:(CFTimeInterval)currentTime
-{
+-(void)update:(CFTimeInterval)currentTime {
+    if (gameStop) return;
+    
     // Handle time delta.
     CFTimeInterval dt = currentTime - lastTime;
     if (dt > 1) dt = 1.0 / 60.0;
     lastTime = currentTime;
-    
-    planetTime++;
+    spawnTime++;
 
     FreeMoveComponent *move = (FreeMoveComponent*)[hero getComponentOfClass:[FreeMoveComponent class]];
     m_ScrollSys.active = move.goodToScroll;
     m_ShootSys.active = move.goodToScroll;
     
     if (m_ScrollSys.active) {
-        score += 4;
-        
+        score += 3;
         SKLabelNode *scoreLabel = (SKLabelNode*)[self childNodeWithName:kScoreHudName];
-        scoreLabel.text = [NSString stringWithFormat:@"Score: %06d", score];
+        scoreLabel.text = [NSString stringWithFormat:@"Score: %lu", (unsigned long)score];
         
-        if (planetTime >= 30) {
+        if (spawnTime >= 30) {
             [self createTempItemAtPoint:scrnSz.height+50];
-            planetTime = 0;
+            spawnTime = 0;
         }
     }
     
@@ -180,8 +207,99 @@
     [m_ShootSys update:dt];
     [m_CollSys update:dt];
     [m_HealthSys update:dt];
-    [m_RenderSys update:dt];
+    [m_VelocitySys update:dt];
     [m_CleanupSys update:dt];
+}
+
+- (void)gameOverOccurred {
+    gameStop = TRUE;
+    
+    [self removeGestureRecognizer];
+    NSString *lID = @"BubblenautsHighScores";
+    [[GameCenterManager sharedManager] saveAndReportScore:(int)score leaderboard:lID sortOrder:GameCenterSortOrderHighToLow];
+    [self addGameStoppedUIWithResume:NO];
+}
+
+- (void)addGameStoppedUIWithResume:(BOOL)addResume {
+    UIView *flashView = [[UIView alloc] initWithFrame:self.view.frame];
+    flashView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.15];
+    flashView.alpha = 0.0;
+    flashView.tag = 100;
+    [self.view addSubview:flashView];
+    
+    CGPoint center = flashView.center;
+    
+    if (addResume) {
+        UIButton *resumeBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+        [resumeBtn setFrame:(CGRect){0, 0, 100, 50}];
+        [resumeBtn setCenter:center];
+        [resumeBtn setTitle:@"Resume" forState:UIControlStateNormal];
+        [[resumeBtn titleLabel] setFont:[UIFont fontWithName:@"NasalizationRg-Regular" size:20.0f]];
+        [resumeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [resumeBtn addTarget:self action:@selector(resumeGame) forControlEvents:UIControlEventTouchUpInside];
+        [flashView addSubview:resumeBtn];
+        center.y += 50;
+    }
+    
+    UIButton *restartBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+    [restartBtn setFrame:(CGRect){0, 0, 100, 50}];
+    [restartBtn setCenter:center];
+    [restartBtn setTitle:@"Restart" forState:UIControlStateNormal];
+    [[restartBtn titleLabel] setFont:[UIFont fontWithName:@"NasalizationRg-Regular" size:20.0f]];
+    [restartBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [restartBtn addTarget:self action:@selector(restartGame) forControlEvents:UIControlEventTouchUpInside];
+    [flashView addSubview:restartBtn];
+    center.y += 50;
+    
+    UIButton *quitButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [quitButton setFrame:(CGRect){0, 0, 100, 50}];
+    [quitButton setCenter:center];
+    [quitButton setTitle:@"Quit" forState:UIControlStateNormal];
+    [[quitButton titleLabel] setFont:[UIFont fontWithName:@"NasalizationRg-Regular" size:20.0f]];
+    [quitButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [quitButton addTarget:self action:@selector(quitGame) forControlEvents:UIControlEventTouchUpInside];
+    [flashView addSubview:quitButton];
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        flashView.alpha = 1.0;
+    }];
+}
+
+- (void)resumeGame {
+    [UIView animateWithDuration:1.0 animations:^{
+        [[self.view viewWithTag:100] setAlpha:0.0];
+    } completion:^(BOOL finished) {
+        [[self.view viewWithTag:100] removeFromSuperview];
+        gameStop = FALSE;
+    }];
+}
+
+- (void)restartGame {
+    [UIView animateWithDuration:0.25 animations:^{
+        [[self.view viewWithTag:100] setAlpha:0.0];
+    } completion:^(BOOL finished) {
+        [[self.view viewWithTag:100] removeFromSuperview];
+        
+        SKTransition *restart = [SKTransition fadeWithDuration:0.5];
+        MyScene *newScene = [[MyScene alloc] initWithSize:self.size];
+        [self.view presentScene:newScene transition:restart];
+    }];
+}
+
+- (void)quitGame {
+    [UIView animateWithDuration:0.25 animations:^{
+        [[self.view viewWithTag:100] setAlpha:0.0];
+    } completion:^(BOOL finished) {
+        [[self.view viewWithTag:100] removeFromSuperview];
+        
+        SKTransition *quit = [SKTransition fadeWithDuration:1.0];
+        IntroScene *introScene = [[IntroScene alloc] initWithSize:self.size];
+        [self.view presentScene:introScene transition:quit];
+    }];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

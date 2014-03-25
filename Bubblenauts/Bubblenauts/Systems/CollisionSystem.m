@@ -23,7 +23,6 @@
     Class renderClass;
     
     NSMutableArray *toRemove;
-//    SKSpriteNode *checkNode;
 }
 @end
 
@@ -41,13 +40,10 @@
     return self;
 }
 
-//- (void)setToCheck:(Entity *)toCheck
-//{
-//    
-//}
-
 -(void)update:(float)dt
 {
+    if (!self.active) return;
+    
     if (self.toCheck.type == HeroType) {
         [self checkHeroForCollisions];
     }
@@ -87,25 +83,25 @@
                 if (scroll) [m_EntManager removeComponent:scroll fromEntity:entity];
                 
                 self.toCheck = entity;
-//                self.toCheck.type = BubbleType;
             }
             
-            if (entity.type == ForceType) {
-                // do stuff to move the guy
-                ScrollComponent *scroll = (ScrollComponent*)[entity getComponentOfClass:[ScrollComponent class]];
-                CGFloat x = (scroll.direction == DirectionRight) ? scroll.vector.x : -scroll.vector.x;
-                
-                // Fixed a crash where input would conflict with this (can't add duplicate components)
-                ForceComponent *existing = (ForceComponent*)[self.heroRef getComponentOfClass:[ForceComponent class]];
-                if (existing) [m_EntManager removeComponent:existing fromEntity:self.heroRef];
-                
-                ForceComponent *toApply = [[ForceComponent alloc] initWithForce:ccp(x, 0.0)];
-                [m_EntManager addComponent:toApply toEntity:self.heroRef];
-                [toRemove addObject:entity];
-            }
+//            if (entity.type == ForceType) {
+//                // do stuff to move the guy
+//                ScrollComponent *scroll = (ScrollComponent*)[entity getComponentOfClass:[ScrollComponent class]];
+//                CGFloat x = (scroll.direction == DirectionRight) ? scroll.vector.x : -scroll.vector.x;
+//                
+//                // Fixed a crash where input would conflict with this (can't add duplicate components)
+//                ForceComponent *existing = (ForceComponent*)[self.heroRef getComponentOfClass:[ForceComponent class]];
+//                if (existing) [m_EntManager removeComponent:existing fromEntity:self.heroRef];
+//                
+//                ForceComponent *toApply = [[ForceComponent alloc] initWithForce:ccp(x, 0.0)];
+//                [m_EntManager addComponent:toApply toEntity:self.heroRef];
+//                [toRemove addObject:entity];
+//            }
             
             if (entity.type == EnemyType) {
                 //DIE
+                self.active = FALSE;
                 [[NSNotificationCenter defaultCenter] postNotificationName:GameOverCondition object:nil];
             }
         }
@@ -130,6 +126,7 @@
             if (entity.type == BubbleType) {
                 HealthComponent *health = (HealthComponent*)[self.toCheck getComponentOfClass:[HealthComponent class]];
                 health.health += 15;
+                if (health.health >= 175) health.health = 175;
                 [toRemove addObject:entity];
             }
             

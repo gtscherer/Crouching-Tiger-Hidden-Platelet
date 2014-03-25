@@ -26,21 +26,6 @@
     return self;
 }
 
-// Easy method to create a new entity. This allows us to just give components
-// directly on instantiation, since entities now track their own components.
-// Simply, we create an entity, add all the components, register it, and then
-// return the entity.
-- (Entity*)createEntityWithComponents:(NSArray *)comps
-{
-    Entity *entity = [Entity entity];
-    for (Component *component in comps) {
-        [entity addComponent:component];
-    }
-    [self registerEntityToGame:entity];
-    
-    return entity;
-}
-
 // The m_EntitiesByClass dictionary contains arrays as objects, which contains
 // entities. The key to access this array is a string created from the class
 // of the component. So, a component type is mapped to all the entities that
@@ -51,9 +36,24 @@
     if (entities) {
         return entities;
     }
-    else {
-        return [NSArray array];
+    
+    return nil;
+}
+
+// Easy method to create a new entity. This allows us to just give components
+// directly on instantiation, since entities now track their own components.
+// Simply, we create an entity, add all the components, register it, and then
+// return the entity.
+- (Entity*)createEntityWithComponents:(NSArray *)comps
+{
+    Entity *entity = [Entity entity];
+    for (Component *component in comps) {
+        [entity addComponent:component];
     }
+    
+    [self registerEntityToGame:entity];
+    
+    return entity;
 }
 
 // In order to register this entity for use in the game, we need to make sure
@@ -80,9 +80,9 @@
 - (void)removeEntityFromGame:(Entity *)entity
 {
     for (Component *component in [entity allComponents]) {
+        // Get the array of entities that have this component. THIS SHOULD EXIST.
         NSMutableArray *entities = m_EntitiesByClass[NSStringFromClass([component class])];
-        
-        if (!entities) continue;
+        [entity removeComponent:component];
         [entities removeObject:entity];
     }
 }
@@ -90,17 +90,18 @@
 //
 -(void)addComponent:(Component *)comp toEntity:(Entity *)entity
 {
-    [entity addComponent:comp];
-    
     NSMutableArray *entities = m_EntitiesByClass[NSStringFromClass([comp class])];
     if (!entities) {
         entities = [NSMutableArray array];
         m_EntitiesByClass[NSStringFromClass([comp class])] = entities;
     }
     
-    if ([entities containsObject:entity])
-        [NSException raise:NSInternalInconsistencyException format:@"Entity can't have duplicate components!"];
+    if ([entities containsObject:entity]) {
+        NSLog(@"Tried to add a duplicate component.");
+        [entities removeObject:entity];
+    }
     
+    [entity addComponent:comp];
     [entities addObject:entity];
 }
 
@@ -110,6 +111,7 @@
     NSMutableArray *entities = m_EntitiesByClass[NSStringFromClass([comp class])];
     if (!entities) return;
     
+    [entity removeComponent:comp];
     [entities removeObject:entity];
 }
 

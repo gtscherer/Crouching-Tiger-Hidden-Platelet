@@ -42,15 +42,14 @@
         if (!health || !render) continue;
         
         if (entity.type == BubbleType) {
-            health.health -= (5*dt);
-            
-//            NSLog(@"Health is %f", health.health);
+            health.health -= (4*dt);
             
             CGFloat h = health.health*.01;
             render.node.xScale = h;
             render.node.yScale = h;
             
-//            NSLog(@"Scale is %f, %f", render.node.xScale, render.node.yScale);
+//            render.node.color = [UIColor redColor];
+//            render.node.colorBlendFactor = 1/health.health*30;
         }
     }
 }

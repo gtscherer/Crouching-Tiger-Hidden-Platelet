@@ -1,58 +1,63 @@
 //
 //  ViewController.m
-//  Bubblenauts
+//  buublenautsmenu
 //
-//  Created by Breton Goers on 1/14/14.
-//  Copyright (c) 2014 Corvus. All rights reserved.
+//  Created by kahayes3 on 1/28/14.
+//  Copyright (c) 2014 kahayes3. All rights reserved.
 //
 
 #import "ViewController.h"
-#import "MyScene.h"
-#import "MainMenuScene.h"
+#import "IntroScene.h"
+#import "GameCenterManager.h"
+
+@interface ViewController () <GameCenterManagerDelegate>
+@end
 
 @implementation ViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-}
-
-- (void)viewWillLayoutSubviews
-{
-    [super viewWillLayoutSubviews];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showScoreboard) name:@"SHOW_SCOREBOARD" object:nil];
+    [[GameCenterManager sharedManager] setDelegate:self];
+
     // Configure the view.
     SKView * skView = (SKView *)self.view;
-    if (!skView.scene) {
-        skView.showsFPS = YES;
-        skView.showsNodeCount = YES;
-        
-        // Create and configure the scene.
-//        SKScene *scene = [MainMenuScene sceneWithSize:skView.bounds.size];
-//        scene.scaleMode = SKSceneScaleModeAspectFill;
-        
-        SKScene * scene = [MyScene sceneWithSize:skView.bounds.size];
-        scene.scaleMode = SKSceneScaleModeAspectFill;
-        
-        // Present the scene.
-        [skView presentScene:scene];
-    }
+    skView.showsFPS = NO;
+    skView.showsNodeCount = NO;
+    
+    // Create and configure the scene.
+    SKScene * scene = [IntroScene sceneWithSize:skView.bounds.size];
+    scene.scaleMode = SKSceneScaleModeAspectFill;
+    
+    // Present the scene.
+    [skView presentScene:scene];
 }
 
-- (BOOL)shouldAutorotate
-{
-    return NO;
+- (void)showScoreboard {
+    [[GameCenterManager sharedManager] presentLeaderboardsOnViewController:self];
 }
 
-- (NSUInteger)supportedInterfaceOrientations
+- (void)gameCenterManager:(GameCenterManager *)manager authenticateUser:(UIViewController *)gameCenterLoginController {
+    [self presentViewController:gameCenterLoginController animated:YES completion:^{
+        NSLog(@"Finished Presenting Authentication Controller");
+    }];
+}
+
+- (BOOL)prefersStatusBarHidden
 {
-    return UIInterfaceOrientationMaskPortrait;
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
