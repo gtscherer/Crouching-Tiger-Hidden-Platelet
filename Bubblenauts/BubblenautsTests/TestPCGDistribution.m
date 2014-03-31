@@ -115,6 +115,9 @@
     
     XCTAssertEqual((double)[(NSNumber*)[(PCGPair*)[[testDistribution normalizedDistribution] objectAtIndex:0] second] doubleValue] , (double) 0.22727272727273, @"Normalized distribution calculation error in \"%s\"", __PRETTY_FUNCTION__);
     
+    XCTAssertEqual((double)[(NSNumber*)[(PCGPair*)[[testDistribution normalizedDistribution] objectAtIndex:1] second] doubleValue] , (double) 0.27272727272727, @"Normalized distribution calculation error in \"%s\"", __PRETTY_FUNCTION__);
+
+    
 }
 
 @end
