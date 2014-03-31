@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "PCGPair.h"
 #import "PCGEntity.h"
-#import "PCGMasterRuleQueue.h"
 
 @interface PCGDistribution : NSObject
 
@@ -21,8 +20,6 @@
 -(void) removeEntity: (PCGEntity*) entity;
 
 -(void) addEntity: (PCGEntity*) entity;
-
--(NSArray*) createDistributionFromExclusions: (PCGRuleList*) exclusions;
 
 -(NSUInteger) count;
 

@@ -8,20 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "PCGPair.h"
-#import "PCGRule.h"
 
 @interface PCGEntity : NSObject
 
-@property (nonatomic, strong) NSMutableSet* exclusions;
-@property (nonatomic, strong) NSMutableSet* forceGeneration;
 @property (nonatomic, strong) PCGIntegerPair* dimensions;
 @property (nonatomic, strong) NSMutableArray* scaleFactors;
 @property (nonatomic) NSInteger frequency;
 @property (nonatomic) char symbol;
 
--(void) addExclusion: (PCGRule*) rule;
-
--(void) addForceGeneratedObject: (PCGRule*) rule;
 
 -(bool) isLessThan: (PCGEntity*) rhs;
 
@@ -39,12 +33,6 @@
                andDimensions: (PCGIntegerPair*) dimensions
              andScaleFactors: (NSArray*) scaleFactors;
 
--(PCGEntity*) initWithSymbol:(char)symbol
-                andFrequency:(NSInteger)frequency
-               andDimensions: (PCGIntegerPair*) dimensions
-             andScaleFactors: (NSArray*) scaleFactors
-               andExclusions: (NSMutableSet*) exclusions
-          andForceGeneration: (NSMutableSet*) forceGeneration;
 
 
 @end

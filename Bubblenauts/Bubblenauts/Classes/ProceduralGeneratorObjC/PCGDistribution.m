@@ -42,20 +42,6 @@
     else return 0;
 }
 
--(NSInteger) findRuleInDistribution: (PCGRule*) rule
-{
-    NSInteger i = 0;
-    for(PCGPair* entityMapping in [self distribution])
-    {
-        if([(PCGEntity*)[entityMapping first] isEntity:[rule entitySymbol]])
-        {
-            return i;
-        }
-        else ++i;
-    }
-    return -1;
-}
-
 -(NSUInteger) count
 {
     return [[self distribution] count];
@@ -83,43 +69,13 @@
 
 -(void) removeEntity: (PCGEntity*) entity
 {
-    [[self distribution] removeObject:[[PCGPair alloc] initWithObjects:entity secondObject:[[NSNumber alloc] initWithDouble:[entity frequency]]]];
+    [[self distribution] removeObject:[[PCGPair alloc] initWithObjects:entity secondObject:[[NSNumber alloc] initWithInteger:[entity frequency]]]];
 }
 
 -(void) addEntity: (PCGEntity*) entity
 {
-    [[self distribution] addObject:[[PCGPair alloc] initWithObjects:entity secondObject:[[NSNumber alloc] initWithDouble:[entity frequency]]]];
+    [[self distribution] addObject:[[PCGPair alloc] initWithObjects:entity secondObject:[[NSNumber alloc] initWithInteger:[entity frequency]]]];
 }
 
-
--(PCGDistribution*) createDistributionFromExclusions: (NSArray*) exclusions
-{
-    // If any mappings exist...
-    if([self count] > 0)
-    {
-        // If there are any rules...
-        if([exclusions count] > 0)
-        {
-            // Create new distribution and remove relevant entity mappings
-            NSMutableArray* newDistributionArray = [[NSMutableArray alloc] initWithArray: [self distribution]];
-            for(PCGRule* rule in exclusions)
-            {
-                NSInteger index = [self findRuleInDistribution:rule];
-                if(index > -1)
-                {
-                    [newDistributionArray removeObject:[newDistributionArray objectAtIndex:index]];
-                }
-            }
-            PCGDistribution* newDistribution = [[PCGDistribution alloc] initWithDistribution:newDistributionArray];
-            return newDistribution;
-        }
-        else // Just clone distribution
-        {
-            return [[PCGDistribution alloc] initWithDistribution:[self distribution]];
-        }
-
-    }
-    else return nil;
-}
 
 @end

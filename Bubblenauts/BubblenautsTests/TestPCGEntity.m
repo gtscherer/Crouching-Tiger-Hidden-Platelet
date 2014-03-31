@@ -60,8 +60,7 @@
     XCTAssertTrue([[self testEntity] frequency] == testFrequency, @"Failed to insert frequency for testEntity in \"%s\"", __PRETTY_FUNCTION__);
     XCTAssertNotNil([[self testEntity] dimensions], @"Dimensions should be initialized for testEntity in \"%s\"", __PRETTY_FUNCTION__);
     XCTAssertNotNil([[self testEntity] scaleFactors], @"ScaleFactors should be initialized for testEntity in \"%s\"", __PRETTY_FUNCTION__);
-    XCTAssertNotNil([[self testEntity] exclusions], @"Exclusions should be initialized for testEntity in \"%s\"", __PRETTY_FUNCTION__);
-    XCTAssertNotNil([[self testEntity] forceGeneration], @"forceGeneration should be initialized for testEntity in \"%s\"", __PRETTY_FUNCTION__);
+
 }
 
 - (void)testInitWithSymbolAndFrequencyAndDimensionsAndScaleFactors
@@ -114,10 +113,6 @@
     
     XCTAssertTrue(([(NSNumber*)[(PCGPair*)[[[self testEntity] scaleFactors] objectAtIndex:0] second] isEqual:testInteger3]), @"Failed to insert scaleFactors for testEntity in \"%s\"",__PRETTY_FUNCTION__);
     
-    
-    XCTAssertNotNil([[self testEntity] exclusions], @"Exclusions should be initialized for testEntity in \"%s\"", __PRETTY_FUNCTION__);
-    
-    XCTAssertNotNil([[self testEntity] forceGeneration], @"forceGeneration should be initialized for testEntity in \"%s\"", __PRETTY_FUNCTION__);
 }
 
 
@@ -161,9 +156,7 @@
      [[PCGEntity alloc] initWithSymbol:testSymbol
                           andFrequency:testFrequency
                          andDimensions:testDimensions
-                       andScaleFactors:testScaleFactors
-                         andExclusions:testSet1
-                    andForceGeneration:testSet2]];
+                       andScaleFactors:testScaleFactors]];
     
     XCTAssertTrue([[self testEntity] symbol] == testSymbol, @"Failed to insert entity symbol for testEntity in \"%s\"", __PRETTY_FUNCTION__);
     
@@ -184,11 +177,6 @@
                   __PRETTY_FUNCTION__);
     
     XCTAssertTrue(([(NSNumber*)[(PCGPair*)[[[self testEntity] scaleFactors] objectAtIndex:0] second] isEqual:testInteger3]), @"Failed to insert scaleFactors for testEntity in \"%s\"",__PRETTY_FUNCTION__);
-    
-    
-    XCTAssertTrue([[[self testEntity] exclusions] isEqual: testSet1], @"Exclusions should be a set for testEntity in \"%s\"", __PRETTY_FUNCTION__);
-    
-    XCTAssertTrue([[[self testEntity] forceGeneration] isEqual:testSet2], @"ForceGeneration should be a set for testEntity in \"%s\"", __PRETTY_FUNCTION__);
 }
 
 @end
@@ -246,11 +234,6 @@
     [self setTestSetMember3:[[NSNumber alloc] initWithInteger: 3544323]];
     [self setTestSetMember4:[[NSNumber alloc] initWithInteger: -343]];
     
-    [[self testExclusions] addObject:[self testSetMember1]];
-    [[self testExclusions] addObject:[self testSetMember2]];
-    [[self testForceGeneration] addObject:[self testSetMember3]];
-    [[self testForceGeneration] addObject:[self testSetMember4]];
-    
     [[self testScaleFactors] addObject:[self testScaleFactorTypeMap]];
     
     //Create stubs
@@ -267,9 +250,7 @@
      [[PCGEntity alloc] initWithSymbol:[self testSymbol]
                           andFrequency:[self testFrequency]
                          andDimensions:[self testDimensions]
-                       andScaleFactors:[self testScaleFactors]
-                         andExclusions:[self testExclusions]
-                    andForceGeneration:[self testForceGeneration]]];
+                       andScaleFactors:[self testScaleFactors]]];
 }
 
 - (void)tearDown
@@ -292,8 +273,6 @@
     [given([mockEntity frequency]) willReturnInteger: [self testFrequency]];
     [given([mockEntity dimensions]) willReturn: [self testDimensions]];
     [given([mockEntity scaleFactors]) willReturn: [self testScaleFactors]];
-    [given([mockEntity exclusions]) willReturn: [self testExclusions]];
-    [given([mockEntity forceGeneration]) willReturn: [self testForceGeneration]];
     
     XCTAssertTrue([[self testEntity] isEqual: mockEntity], @"Fully initialized mock entity should equal test entity in \"%s\"", __PRETTY_FUNCTION__);
 }
@@ -307,42 +286,12 @@
     XCTAssertTrue([[self testEntity] isEqual: testEntity2], @"Both entity objects should be equal in \"%s\"", __PRETTY_FUNCTION__);
     
     [testEntity2 setScaleFactors:[self testScaleFactors]];
-    [testEntity2 setForceGeneration:[self testForceGeneration]];
     [testEntity2 setFrequency:[self testFrequency]];
-    [testEntity2 setExclusions:[self testExclusions]];
     [testEntity2 setDimensions:[self testDimensions]];
     
     XCTAssertTrue([[self testEntity] isEqual: testEntity2], @"Both entity objects should still be equal, with additional class properties in \"%s\"", __PRETTY_FUNCTION__);
     //Baller
 }
 
--(void) testAddMethods
-{
-    [self setTestEntity: [[PCGEntity alloc] init]];
-    PCGRule* testRule = [[PCGRule alloc] init];
-    
-    [[self testEntity] addExclusion:testRule];
-    [[self testEntity] addForceGeneratedObject:testRule];
-    
-    
-    XCTAssertNotNil([[self testEntity] exclusions], @"Exclusions should not be nil in \"%s\"", __PRETTY_FUNCTION__);
-    
-    XCTAssertNotNil([[[self testEntity] exclusions] objectEnumerator], @"Object enumerator should be accessible in \"%s\"", __PRETTY_FUNCTION__);
-    
-    PCGRule* testRule2 = [[[[self testEntity] exclusions] objectEnumerator] nextObject];
-    
-    XCTAssertNotNil(testRule2, @"Object should be initialized in \"%s\"", __PRETTY_FUNCTION__);
-    
-    XCTAssertEqualObjects(testRule, testRule2, @"Objects should be the same in \"%s\"", __PRETTY_FUNCTION__);
-    
-    XCTAssertTrue([testRule isEqual:testRule2], @"Check that object was stored in exclusions for \"%s\"", __PRETTY_FUNCTION__);
-    
-    testRule2 = [[[[self testEntity] forceGeneration] objectEnumerator] nextObject];
-    
-    XCTAssertNotNil(testRule2, @"Object should be initialized in \"%s\"", __PRETTY_FUNCTION__);
-    
-    XCTAssertEqualObjects(testRule, testRule2, @"Objects should be the same in \"%s\"", __PRETTY_FUNCTION__);
-    
-    XCTAssertTrue([testRule isEqual:testRule2], @"Check that object was stored in exclusions for \"%s\"", __PRETTY_FUNCTION__);
-}
+
 @end

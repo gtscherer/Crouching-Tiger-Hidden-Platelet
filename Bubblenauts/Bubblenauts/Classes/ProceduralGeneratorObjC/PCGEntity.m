@@ -10,16 +10,6 @@
 
 @implementation PCGEntity
 
--(void) addExclusion: (PCGRule*) rule
-{
-    [[self exclusions] addObject: rule];
-}
-
--(void) addForceGeneratedObject: (PCGRule*) rule
-{
-    [[self forceGeneration] addObject: rule];
-}
-
 -(bool) isLessThan: (PCGEntity*) rhs
 {
     if(self.symbol < rhs.symbol) return true;
@@ -48,8 +38,7 @@
 {
     if((self = [super init]))
     {
-        [self setExclusions:[[NSMutableSet alloc] init]];
-        [self setForceGeneration:[[NSMutableSet alloc] init]];
+        
     }
     return self;
 }
@@ -63,8 +52,6 @@
         [self setFrequency:frequency];
         [self setDimensions:[[PCGIntegerPair alloc] init]];
         [self setScaleFactors:[[NSMutableArray alloc] init]];
-        [self setExclusions:[[NSMutableSet alloc] init]];
-        [self setForceGeneration:[[NSMutableSet alloc] init]];
     }
     return self;
 }
@@ -80,18 +67,4 @@
     return self;
 }
 
--(PCGEntity*) initWithSymbol:(char)symbol andFrequency:(NSInteger)frequency andDimensions:(PCGIntegerPair *)dimensions andScaleFactors:(NSArray*)scaleFactors andExclusions:(NSMutableSet *)exclusions andForceGeneration:(NSMutableSet *)forceGeneration
-{
-    self = [self initWithSymbol:symbol
-                   andFrequency:frequency
-                  andDimensions:dimensions
-                andScaleFactors:scaleFactors];
-    if(self)
-    {
-        [self setExclusions:exclusions];
-        [self setForceGeneration:forceGeneration];
-    }
-    return self;
-    
-}
 @end
