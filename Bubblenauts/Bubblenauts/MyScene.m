@@ -194,7 +194,7 @@
         SKLabelNode *scoreLabel = (SKLabelNode*)[self childNodeWithName:kScoreHudName];
         scoreLabel.text = [NSString stringWithFormat:@"Score: %lu", (unsigned long)score];
         
-        if (spawnTime >= 30) {
+        if (spawnTime >= 27) {
             [self createTempItemAtPoint:scrnSz.height+50];
             spawnTime = 0;
         }

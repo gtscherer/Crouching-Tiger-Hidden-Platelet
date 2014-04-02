@@ -41,8 +41,12 @@
 
 - (void)gameCenterManager:(GameCenterManager *)manager authenticateUser:(UIViewController *)gameCenterLoginController {
     [self presentViewController:gameCenterLoginController animated:YES completion:^{
-        NSLog(@"Finished Presenting Authentication Controller");
+//        NSLog(@"Finished Presenting Authentication Controller");
     }];
+}
+
+- (void)gameCenterManager:(GameCenterManager *)manager reportedScore:(GKScore *)score withError:(NSError *)error {
+//    NSLog(@"Reported score of %@", score);
 }
 
 - (BOOL)prefersStatusBarHidden

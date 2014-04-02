@@ -15,5 +15,6 @@ CGFloat const ConstFloatSpd = 200.0f;
 CGFloat const MaxFallSpeed = -175.0f;
 CGFloat const MaxFloatSpeed = 175.0f;
 NSString * const GameOverCondition = @"GameOverCondition";
+NSString * const BubblePoppedHealth = @"BubblePoppedHealth";
 
 @end

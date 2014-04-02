@@ -31,5 +31,6 @@ extern CGFloat const ConstFloatSpd;
 extern CGFloat const MaxFallSpeed;
 extern CGFloat const MaxFloatSpeed;
 extern NSString * const GameOverCondition;
+extern NSString * const BubblePoppedHealth;
 
 @end

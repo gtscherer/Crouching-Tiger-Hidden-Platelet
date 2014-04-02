@@ -36,8 +36,21 @@
         renderClass = [RenderComponent class];
         
         toRemove = [NSMutableArray array];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(bubblePopped:) name:BubblePoppedHealth object:nil];
     }
     return self;
+}
+
+- (void)bubblePopped:(NSNotification*)aNotif {
+    self.toCheck = nil;
+    
+    FreeMoveComponent *move = (FreeMoveComponent*)[self.heroRef getComponentOfClass:[FreeMoveComponent class]];
+    move.accelVec = ccp(move.accelVec.x, ConstGravity);
+    move.direction = DirectionDown;
+    move.goodToScroll = FALSE;
+    
+    self.toCheck = self.heroRef;
 }
 
 -(void)update:(float)dt
@@ -76,7 +89,8 @@
                 [m_EntManager addComponent:follow toEntity:entity];
                 
                 // Add a health component, as the bubble is now linked to the hero!
-                HealthComponent *health = [[HealthComponent alloc] initWithHealth:100.0f];
+                HealthComponent *health = [[HealthComponent alloc] initWithHealth:125.0f];
+                health.popThreshold = 70.0f;
                 [m_EntManager addComponent:health toEntity:entity];
                 
                 ScrollComponent *scroll = (ScrollComponent*)[entity getComponentOfClass:[ScrollComponent class]];
@@ -100,9 +114,9 @@
 //            }
             
             if (entity.type == EnemyType) {
-                //DIE
                 self.active = FALSE;
                 [[NSNotificationCenter defaultCenter] postNotificationName:GameOverCondition object:nil];
+                return; // We need to exit ASAP 
             }
         }
     }
