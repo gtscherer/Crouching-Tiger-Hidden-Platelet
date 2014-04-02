@@ -8,10 +8,18 @@
 
 #import <Foundation/Foundation.h>
 #import "PCGDistribution.h"
+#import "PCGEntity.h"
 
 @interface PCGLineGenerator : NSObject
 
+@property (nonatomic, strong) PCGEntity* blank;
 @property (nonatomic, strong) PCGDistribution* globalDistribution;
 @property (nonatomic) NSInteger width;
+
+-(NSInteger) getLineSize;
+
+-(PCGEntity*) generateEntity;
+
+-(NSArray*) generateLine;
 
 @end

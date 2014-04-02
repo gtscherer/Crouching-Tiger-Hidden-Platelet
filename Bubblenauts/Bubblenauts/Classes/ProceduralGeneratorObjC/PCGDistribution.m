@@ -51,14 +51,20 @@
 {
    if([self count] > 0)
    {
-       NSMutableArray* normalizedDistribution = [[NSMutableArray alloc] initWithArray:[self distribution]];
+       __block NSMutableArray* normalizedDistribution = [[NSMutableArray alloc] initWithArray:[self distribution]];
        double sum = [self getFrequencySum];
+       double prevNum = 0;
        for(PCGPair* entityMapping in [self distribution])
        {
-           [entityMapping setSecond:[[NSNumber alloc] initWithDouble: (double)([(NSNumber*)[entityMapping second] doubleValue] / sum)]];
+           double num = (double)([(NSNumber*)[entityMapping second] doubleValue] / sum);
+           [entityMapping setSecond:[[NSNumber alloc] initWithDouble: num  + prevNum]];
+           prevNum = num + prevNum;
        }
-       [self setNormalizedDistribution: normalizedDistribution];
-       return normalizedDistribution;
+       NSArray *sortedDistribution = [normalizedDistribution sortedArrayUsingComparator: ^(PCGPair *a1, PCGPair *a2) {
+           return [(NSNumber*) [a1 second] compare:(NSNumber*)[a2 second]];
+       }];
+       [self setNormalizedDistribution: sortedDistribution];
+       return sortedDistribution;
    }
    else
    {

@@ -113,10 +113,11 @@
     
     // 5 + 6 + 11 = 22
     
-    XCTAssertEqual((double)[(NSNumber*)[(PCGPair*)[[testDistribution normalizedDistribution] objectAtIndex:0] second] doubleValue] , (double) 0.22727272727273, @"Normalized distribution calculation error in \"%s\"", __PRETTY_FUNCTION__);
+    XCTAssertEqual((float)[(NSNumber*)[(PCGPair*)[[testDistribution normalizedDistribution] objectAtIndex:0] second] doubleValue], (float) 0.22727272727273, @"Normalized distribution calculation error in \"%s\"", __PRETTY_FUNCTION__);
     
-    XCTAssertEqual((double)[(NSNumber*)[(PCGPair*)[[testDistribution normalizedDistribution] objectAtIndex:1] second] doubleValue] , (double) 0.27272727272727, @"Normalized distribution calculation error in \"%s\"", __PRETTY_FUNCTION__);
-
+    XCTAssertEqual((float)[(NSNumber*)[(PCGPair*)[[testDistribution normalizedDistribution] objectAtIndex:1] second] doubleValue] , (float)(0.22727272727273 + 0.27272727272727), @"Normalized distribution calculation error in \"%s\"", __PRETTY_FUNCTION__);
+    
+    XCTAssertEqual((float)[(NSNumber*)[(PCGPair*)[[testDistribution normalizedDistribution] objectAtIndex:2] second] doubleValue] , (float)1.0, @"Normalized distribution calculation error in \"%s\"", __PRETTY_FUNCTION__);
     
 }
 

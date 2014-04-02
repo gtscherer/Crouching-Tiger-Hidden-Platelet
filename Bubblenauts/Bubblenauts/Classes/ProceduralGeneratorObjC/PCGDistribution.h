@@ -13,7 +13,7 @@
 @interface PCGDistribution : NSObject
 
 @property (nonatomic, strong) NSMutableArray* distribution;
-@property (nonatomic, strong) NSMutableArray* normalizedDistribution;
+@property (nonatomic, strong) NSArray* normalizedDistribution;
 
 -(NSArray*) normalize;
 
