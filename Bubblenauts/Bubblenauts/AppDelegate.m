@@ -7,12 +7,22 @@
 //
 
 #import "AppDelegate.h"
+#import "GameCenterManager.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    if (![def boolForKey:@"FIRST_RUN"]) {
+        [def setBool:YES forKey:@"FIRST_RUN"];
+        [def setBool:NO forKey:@"MUTED"];
+        [def synchronize];
+    }
+    
+    [[GameCenterManager sharedManager] setupManagerAndSetShouldCryptWithKey:@"BuBbL3n4uTs"];
+    
     return YES;
 }
 							

@@ -21,9 +21,7 @@
 
 -(NSInteger) getLineSize
 {
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat screenWidth = screenRect.size.width;
-    return screenWidth / [self width];
+    return [self screenWidth] / [self width];
 }
 
 -(PCGEntity*) generateEntity
@@ -32,14 +30,18 @@
     NSArray* normalizedDistribution = [[self globalDistribution] normalize];
     
     PCGEntity* entity;
-    for(PCGPair* probabilityMapping in normalizedDistribution)
+    for(NSInteger i = [normalizedDistribution count] - 1; i > -1; --i)
     {
+        PCGPair* probabilityMapping = [normalizedDistribution objectAtIndex:i];
         if(val < [(NSNumber*)[probabilityMapping second] doubleValue])
         {
             entity = (PCGEntity*) [probabilityMapping first];
         }
     }
-    return entity;
+    if(entity)
+        return entity;
+    else
+        return (PCGEntity*)[(PCGPair*)[normalizedDistribution objectAtIndex:0] first];
 }
 
 -(NSArray*) generateLine

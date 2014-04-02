@@ -15,6 +15,7 @@
 @property (nonatomic, strong) PCGEntity* blank;
 @property (nonatomic, strong) PCGDistribution* globalDistribution;
 @property (nonatomic) NSInteger width;
+@property (nonatomic) NSInteger screenWidth;
 
 -(NSInteger) getLineSize;
 

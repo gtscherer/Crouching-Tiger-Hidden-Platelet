@@ -42,6 +42,20 @@
     else return 0;
 }
 
+-(NSMutableArray*) copyDistribution
+{
+    NSMutableArray* newDistribution = [[NSMutableArray alloc] init];
+    for(PCGPair* mapping in [self distribution])
+    {
+        [newDistribution addObject:
+            [[PCGPair alloc] initWithObjects:[mapping first]
+                                secondObject:[[NSNumber alloc]
+                                              initWithDouble:(double)[(NSNumber*)[mapping second] integerValue]]]];
+    }
+    return newDistribution;
+    
+}
+
 -(NSUInteger) count
 {
     return [[self distribution] count];
@@ -51,10 +65,10 @@
 {
    if([self count] > 0)
    {
-       __block NSMutableArray* normalizedDistribution = [[NSMutableArray alloc] initWithArray:[self distribution]];
+       NSMutableArray* normalizedDistribution = [self copyDistribution];
        double sum = [self getFrequencySum];
        double prevNum = 0;
-       for(PCGPair* entityMapping in [self distribution])
+       for(PCGPair* entityMapping in  normalizedDistribution)
        {
            double num = (double)([(NSNumber*)[entityMapping second] doubleValue] / sum);
            [entityMapping setSecond:[[NSNumber alloc] initWithDouble: num  + prevNum]];

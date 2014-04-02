@@ -11,6 +11,7 @@
 @interface HealthComponent : Component
 
 @property (assign) CGFloat health;
+@property (assign) CGFloat popThreshold;
 
 - (instancetype)initWithHealth:(CGFloat)health;
 

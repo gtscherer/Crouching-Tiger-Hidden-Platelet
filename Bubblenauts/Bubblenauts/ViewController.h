@@ -1,9 +1,9 @@
 //
 //  ViewController.h
-//  Bubblenauts
+//  buublenautsmenu
 //
 
-//  Copyright (c) 2014 Corvus. All rights reserved.
+//  Copyright (c) 2014 kahayes3. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

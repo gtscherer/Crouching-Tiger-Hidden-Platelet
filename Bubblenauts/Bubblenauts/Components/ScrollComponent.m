@@ -15,6 +15,9 @@
     self = [super init];
     if (self) {
         _vector = vec;
+        _shouldRepeat = NO;
+        _repeatPoint = 0.0f;
+        _repeatOffset = 0.0f;
     }
     return self;
 }

@@ -23,7 +23,6 @@
     Class renderClass;
     
     NSMutableArray *toRemove;
-//    SKSpriteNode *checkNode;
 }
 @end
 
@@ -37,17 +36,27 @@
         renderClass = [RenderComponent class];
         
         toRemove = [NSMutableArray array];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(bubblePopped:) name:BubblePoppedHealth object:nil];
     }
     return self;
 }
 
-//- (void)setToCheck:(Entity *)toCheck
-//{
-//    
-//}
+- (void)bubblePopped:(NSNotification*)aNotif {
+    self.toCheck = nil;
+    
+    FreeMoveComponent *move = (FreeMoveComponent*)[self.heroRef getComponentOfClass:[FreeMoveComponent class]];
+    move.accelVec = ccp(move.accelVec.x, ConstGravity);
+    move.direction = DirectionDown;
+    move.goodToScroll = FALSE;
+    
+    self.toCheck = self.heroRef;
+}
 
 -(void)update:(float)dt
 {
+    if (!self.active) return;
+    
     if (self.toCheck.type == HeroType) {
         [self checkHeroForCollisions];
     }
@@ -80,33 +89,34 @@
                 [m_EntManager addComponent:follow toEntity:entity];
                 
                 // Add a health component, as the bubble is now linked to the hero!
-                HealthComponent *health = [[HealthComponent alloc] initWithHealth:100.0f];
+                HealthComponent *health = [[HealthComponent alloc] initWithHealth:125.0f];
+                health.popThreshold = 70.0f;
                 [m_EntManager addComponent:health toEntity:entity];
                 
                 ScrollComponent *scroll = (ScrollComponent*)[entity getComponentOfClass:[ScrollComponent class]];
                 if (scroll) [m_EntManager removeComponent:scroll fromEntity:entity];
                 
                 self.toCheck = entity;
-//                self.toCheck.type = BubbleType;
             }
             
-            if (entity.type == ForceType) {
-                // do stuff to move the guy
-                ScrollComponent *scroll = (ScrollComponent*)[entity getComponentOfClass:[ScrollComponent class]];
-                CGFloat x = (scroll.direction == DirectionRight) ? scroll.vector.x : -scroll.vector.x;
-                
-                // Fixed a crash where input would conflict with this (can't add duplicate components)
-                ForceComponent *existing = (ForceComponent*)[self.heroRef getComponentOfClass:[ForceComponent class]];
-                if (existing) [m_EntManager removeComponent:existing fromEntity:self.heroRef];
-                
-                ForceComponent *toApply = [[ForceComponent alloc] initWithForce:ccp(x, 0.0)];
-                [m_EntManager addComponent:toApply toEntity:self.heroRef];
-                [toRemove addObject:entity];
-            }
+//            if (entity.type == ForceType) {
+//                // do stuff to move the guy
+//                ScrollComponent *scroll = (ScrollComponent*)[entity getComponentOfClass:[ScrollComponent class]];
+//                CGFloat x = (scroll.direction == DirectionRight) ? scroll.vector.x : -scroll.vector.x;
+//                
+//                // Fixed a crash where input would conflict with this (can't add duplicate components)
+//                ForceComponent *existing = (ForceComponent*)[self.heroRef getComponentOfClass:[ForceComponent class]];
+//                if (existing) [m_EntManager removeComponent:existing fromEntity:self.heroRef];
+//                
+//                ForceComponent *toApply = [[ForceComponent alloc] initWithForce:ccp(x, 0.0)];
+//                [m_EntManager addComponent:toApply toEntity:self.heroRef];
+//                [toRemove addObject:entity];
+//            }
             
             if (entity.type == EnemyType) {
-                //DIE
+                self.active = FALSE;
                 [[NSNotificationCenter defaultCenter] postNotificationName:GameOverCondition object:nil];
+                return; // We need to exit ASAP 
             }
         }
     }
@@ -130,6 +140,7 @@
             if (entity.type == BubbleType) {
                 HealthComponent *health = (HealthComponent*)[self.toCheck getComponentOfClass:[HealthComponent class]];
                 health.health += 15;
+                if (health.health >= 175) health.health = 175;
                 [toRemove addObject:entity];
             }
             

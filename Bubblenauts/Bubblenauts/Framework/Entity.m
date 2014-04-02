@@ -49,6 +49,16 @@
     m_ComponentsByClass[NSStringFromClass([component class])] = component;
 }
 
+// Remove a component from the store. Each entity tracks their own components
+// in order to extract functionality away from the manager. So what we have
+// to do is get a string from the component's class, and use it as a key
+// into the dictionary. We then remove the component as the object for
+// this key
+- (void)removeComponent:(Component *)component
+{
+    [m_ComponentsByClass removeObjectForKey:NSStringFromClass([component class])];
+}
+
 // Similar to the addComponent: method, but the exact opposite. We just
 // get a string as the key using the component class, and then grab the
 // object corresponding to that key (which is the component!)
