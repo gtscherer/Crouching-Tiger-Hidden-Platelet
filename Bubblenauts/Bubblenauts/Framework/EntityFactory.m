@@ -18,6 +18,8 @@
 #import "ForceComponent.h"
 #import "ShootComponent.h"
 
+#define ARC4RANDOM_MAX 0x100000000
+
 @import SpriteKit;
 
 @interface EntityFactory() {
@@ -131,6 +133,29 @@
     NSString *spriteName = (arc4random()%2) ? @"Asteroid-Big" : @"Asteroid-Small";
     SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:spriteName];
     sprite.position = pt;
+    [m_ParentNode addChild:sprite];
+    
+    RenderComponent *render = [[RenderComponent alloc] initWithRenderNode:sprite];
+    CleanupComponent *cleanup = [[CleanupComponent alloc] initWithMinY:-40.0f xThreshold:CGPointZero];
+    CollisionComponent *coll = [[CollisionComponent alloc] init];
+    ScrollComponent *scroll = [[ScrollComponent alloc] initWithScrollVector:ccp(0.0, MaxFloatSpeed)];
+    scroll.direction = DirectionDown;
+    
+    Entity *entity = [m_EntityManager createEntityWithComponents:@[render, scroll, cleanup, coll]];
+    entity.type = EnemyType;
+    return entity;
+}
+
+- (Entity*)scrollingPlatformAtPoint:(CGPoint)pt
+{
+    float scale = ((float)arc4random() / ARC4RANDOM_MAX) + 0.5;
+    if (scale > 1.0) scale = 1.0;
+    
+    NSString *spriteName = (arc4random()%2) ? @"PlatformLeft" : @"PlatformRight";
+    SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:spriteName];
+    sprite.position = pt;
+    sprite.xScale = scale;
+    sprite.yScale = scale;
     [m_ParentNode addChild:sprite];
     
     RenderComponent *render = [[RenderComponent alloc] initWithRenderNode:sprite];

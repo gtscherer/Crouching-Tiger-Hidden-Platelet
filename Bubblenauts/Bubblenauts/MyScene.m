@@ -81,11 +81,6 @@
         m_HealthSys     = [[HealthSystem alloc] initWithEntityManager:m_EntityManager];
         m_ShootSys      = [[ShootSystem alloc] initWithEntityManager:m_EntityManager];
         
-//        SKSpriteNode *bg = [SKSpriteNode spriteNodeWithImageNamed:@"Space"];
-//        SKSpriteNode *bg2 = [SKSpriteNode spriteNodeWithImageNamed:@"Space"];
-//        bg.position = ccp(scrnSz.width/2, scrnSz.height/2);
-//        bg2.position = ccp(scrnSz.width/2, scrnSz.height/2 + scrnSz.height);
-//        [self addChild:bg];
         [m_EntFactory scrollingBackgroundAtPoint:ccp(scrnSz.width/2, scrnSz.height/2)];
         [m_EntFactory scrollingBackgroundAtPoint:ccp(scrnSz.width/2, scrnSz.height/2 + scrnSz.height)];
         
@@ -168,7 +163,10 @@
     if (prob == 0 || prob == 1 || prob == 2 || prob == 3) {
         ent = [m_EntFactory scrollingBubbleAtPoint:pt];
     }
-    else if (prob == 4 || prob == 5) {
+    else if (prob == 4) {
+        ent = [m_EntFactory scrollingPlatformAtPoint:pt];
+    }
+    else if (prob == 5) {
         ent = [m_EntFactory scrollingForceShooterAtPoint:pt];
     }
     else {
@@ -270,6 +268,7 @@
         [[self.view viewWithTag:100] setAlpha:0.0];
     } completion:^(BOOL finished) {
         [[self.view viewWithTag:100] removeFromSuperview];
+        [self addGestureRecognizer];
         gameStop = FALSE;
     }];
 }

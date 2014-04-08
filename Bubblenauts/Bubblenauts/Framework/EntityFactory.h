@@ -20,6 +20,7 @@
 - (Entity*)scrollingBubbleAtPoint:(CGPoint)pt;
 - (Entity*)scrollingAsteroidAtPoint:(CGPoint)pt;
 - (Entity*)movingForceAtPoint:(CGPoint)pt;
-- (Entity *)scrollingForceShooterAtPoint:(CGPoint)pt;
+- (Entity*)scrollingForceShooterAtPoint:(CGPoint)pt;
+- (Entity*)scrollingPlatformAtPoint:(CGPoint)pt;
 
 @end

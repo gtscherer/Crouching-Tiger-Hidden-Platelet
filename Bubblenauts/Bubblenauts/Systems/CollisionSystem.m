@@ -97,26 +97,13 @@
                 if (scroll) [m_EntManager removeComponent:scroll fromEntity:entity];
                 
                 self.toCheck = entity;
+                return; // Only one collision at a time
             }
-            
-//            if (entity.type == ForceType) {
-//                // do stuff to move the guy
-//                ScrollComponent *scroll = (ScrollComponent*)[entity getComponentOfClass:[ScrollComponent class]];
-//                CGFloat x = (scroll.direction == DirectionRight) ? scroll.vector.x : -scroll.vector.x;
-//                
-//                // Fixed a crash where input would conflict with this (can't add duplicate components)
-//                ForceComponent *existing = (ForceComponent*)[self.heroRef getComponentOfClass:[ForceComponent class]];
-//                if (existing) [m_EntManager removeComponent:existing fromEntity:self.heroRef];
-//                
-//                ForceComponent *toApply = [[ForceComponent alloc] initWithForce:ccp(x, 0.0)];
-//                [m_EntManager addComponent:toApply toEntity:self.heroRef];
-//                [toRemove addObject:entity];
-//            }
             
             if (entity.type == EnemyType) {
                 self.active = FALSE;
                 [[NSNotificationCenter defaultCenter] postNotificationName:GameOverCondition object:nil];
-                return; // We need to exit ASAP 
+                return; // We need to exit ASAP, only one collision at a time
             }
         }
     }
@@ -142,6 +129,7 @@
                 health.health += 15;
                 if (health.health >= 175) health.health = 175;
                 [toRemove addObject:entity];
+                break;
             }
             
             if (entity.type == ForceType) {
@@ -149,12 +137,13 @@
                 CGFloat x = (scroll.direction == DirectionRight) ? scroll.vector.x : -scroll.vector.x;
                 
                 // Fixed a crash where input would conflict with this (can't add duplicate components)
-                ForceComponent *existing = (ForceComponent*)[self.heroRef getComponentOfClass:[ForceComponent class]];
-                if (existing) [m_EntManager removeComponent:existing fromEntity:self.heroRef];
+//                ForceComponent *existing = (ForceComponent*)[self.heroRef getComponentOfClass:[ForceComponent class]];
+//                if (existing) [m_EntManager removeComponent:existing fromEntity:self.heroRef];
                 
                 ForceComponent *toApply = [[ForceComponent alloc] initWithForce:ccp(x, 0.0)];
                 [m_EntManager addComponent:toApply toEntity:self.heroRef];
                 [toRemove addObject:entity];
+                break;
             }
             
             // If bubble collides with platform/enemy, pop.
@@ -170,6 +159,7 @@
                 move.goodToScroll = FALSE;
                 
                 self.toCheck = self.heroRef;
+                break;
             }
         }
     }

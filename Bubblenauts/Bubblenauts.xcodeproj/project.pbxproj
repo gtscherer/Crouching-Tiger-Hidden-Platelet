@@ -71,6 +71,7 @@
 		4000E770188794D200EBEDFA /* CollisionComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E76F188794D200EBEDFA /* CollisionComponent.m */; };
 		4000E774188795D300EBEDFA /* CollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4000E773188795D300EBEDFA /* CollisionSystem.m */; };
 		405C2D9B1899F5D300399DCA /* HealthSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 405C2D9A1899F5D300399DCA /* HealthSystem.m */; };
+		406B7A7418EBDBAD00DC25BF /* CreditsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 406B7A7318EBDBAD00DC25BF /* CreditsScene.m */; };
 		406D9BDA18A9B27500C87231 /* ShootComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 406D9BD918A9B27500C87231 /* ShootComponent.m */; };
 		409642C81892112A00D0C4C6 /* FreeMoveComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 409642C71892112A00D0C4C6 /* FreeMoveComponent.m */; };
 		409642CB1892124700D0C4C6 /* FreeMoveSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 409642CA1892124700D0C4C6 /* FreeMoveSystem.m */; };
@@ -79,7 +80,6 @@
 		40A137C118AAF0E300C41D83 /* nasalization.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40A137C018AAF0E300C41D83 /* nasalization.ttf */; };
 		40A137C418AAF80B00C41D83 /* HealthComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 405C2D971899EA1200399DCA /* HealthComponent.m */; };
 		40A137C518AAF80B00C41D83 /* ShootSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 406D9BDC18A9B30300C87231 /* ShootSystem.m */; };
-		40E170CD18C6D87D001133B2 /* CreditsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E170C218C6D87D001133B2 /* CreditsScene.m */; };
 		40E170CE18C6D87D001133B2 /* HighScoreScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E170C418C6D87D001133B2 /* HighScoreScene.m */; };
 		40E170D018C6D87D001133B2 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E170C818C6D87D001133B2 /* IntroScene.m */; };
 		40E170D118C6D87D001133B2 /* OptionsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E170CA18C6D87D001133B2 /* OptionsScene.m */; };
@@ -199,6 +199,7 @@
 		405C2D971899EA1200399DCA /* HealthComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthComponent.m; sourceTree = "<group>"; };
 		405C2D991899F5D300399DCA /* HealthSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthSystem.h; sourceTree = "<group>"; };
 		405C2D9A1899F5D300399DCA /* HealthSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthSystem.m; sourceTree = "<group>"; };
+		406B7A7318EBDBAD00DC25BF /* CreditsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsScene.m; sourceTree = "<group>"; };
 		406D9BD818A9B27500C87231 /* ShootComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShootComponent.h; sourceTree = "<group>"; };
 		406D9BD918A9B27500C87231 /* ShootComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShootComponent.m; sourceTree = "<group>"; };
 		406D9BDB18A9B30300C87231 /* ShootSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShootSystem.h; sourceTree = "<group>"; };
@@ -213,7 +214,6 @@
 		40A127251896B05E008E9E10 /* FollowSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowSystem.m; sourceTree = "<group>"; };
 		40A137C018AAF0E300C41D83 /* nasalization.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = nasalization.ttf; sourceTree = "<group>"; };
 		40E170C118C6D87D001133B2 /* CreditsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsScene.h; sourceTree = "<group>"; };
-		40E170C218C6D87D001133B2 /* CreditsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsScene.m; sourceTree = "<group>"; };
 		40E170C318C6D87D001133B2 /* HighScoreScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreScene.h; sourceTree = "<group>"; };
 		40E170C418C6D87D001133B2 /* HighScoreScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreScene.m; sourceTree = "<group>"; };
 		40E170C718C6D87D001133B2 /* IntroScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroScene.h; sourceTree = "<group>"; };
@@ -382,7 +382,7 @@
 				40E170C318C6D87D001133B2 /* HighScoreScene.h */,
 				40E170C418C6D87D001133B2 /* HighScoreScene.m */,
 				40E170C118C6D87D001133B2 /* CreditsScene.h */,
-				40E170C218C6D87D001133B2 /* CreditsScene.m */,
+				406B7A7318EBDBAD00DC25BF /* CreditsScene.m */,
 				40E170D318C6DCC0001133B2 /* InformationScene.h */,
 				40E170D418C6DCC0001133B2 /* InformationScene.m */,
 				4000E68F18864C3400EBEDFA /* Framework */,
@@ -648,6 +648,7 @@
 				40E170D518C6DCC0001133B2 /* InformationScene.m in Sources */,
 				4000E6BD18864C3400EBEDFA /* ScrollSystem.m in Sources */,
 				40E170D118C6D87D001133B2 /* OptionsScene.m in Sources */,
+				406B7A7418EBDBAD00DC25BF /* CreditsScene.m in Sources */,
 				4000E6AF18864C3400EBEDFA /* VelocityComponent.m in Sources */,
 				4000E65D1886466500EBEDFA /* MyScene.m in Sources */,
 				4000E6BF18864C3400EBEDFA /* System.m in Sources */,
@@ -668,7 +669,6 @@
 				2020FF4718A5E1F800B9B0A0 /* PCGMasterRuleQueue.m in Sources */,
 				40ED697D18E0030200BCC8F2 /* NSDataAES256.m in Sources */,
 				4000E774188795D300EBEDFA /* CollisionSystem.m in Sources */,
-				40E170CD18C6D87D001133B2 /* CreditsScene.m in Sources */,
 				40E170CE18C6D87D001133B2 /* HighScoreScene.m in Sources */,
 				40E170D018C6D87D001133B2 /* IntroScene.m in Sources */,
 				4000E6A518864C3400EBEDFA /* Component.m in Sources */,
@@ -815,8 +815,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Breton Goers (3L6W9RK26V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Breton Goers (3L6W9RK26V)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -834,7 +834,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "08ACE21D-8B72-4816-A6D3-798ED5C844CC";
+				PROVISIONING_PROFILE = "5B0C552B-C97C-4836-B2F8-7EF5FB26382E";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -855,8 +855,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Breton Goers (NLD7SE8NHP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Breton Goers (NLD7SE8NHP)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -867,7 +867,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PROVISIONING_PROFILE = "08ACE21D-8B72-4816-A6D3-798ED5C844CC";
+				PROVISIONING_PROFILE = "EAFED433-0277-4AF3-872E-73B59862B869";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -878,14 +878,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Breton Goers (3L6W9RK26V)";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bubblenauts/Bubblenauts-Prefix.pch";
 				INFOPLIST_FILE = "Bubblenauts/Bubblenauts-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "08ACE21D-8B72-4816-A6D3-798ED5C844CC";
+				PROVISIONING_PROFILE = "5B0C552B-C97C-4836-B2F8-7EF5FB26382E";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -897,14 +897,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Breton Goers (NLD7SE8NHP)";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bubblenauts/Bubblenauts-Prefix.pch";
 				INFOPLIST_FILE = "Bubblenauts/Bubblenauts-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "08ACE21D-8B72-4816-A6D3-798ED5C844CC";
+				PROVISIONING_PROFILE = "EAFED433-0277-4AF3-872E-73B59862B869";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

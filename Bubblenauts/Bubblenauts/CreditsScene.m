@@ -94,14 +94,30 @@
     SKLabelNode *g = [SKLabelNode labelNodeWithFontNamed:@"NasalizationRg-Regular"];
     g.fontSize = 16;
     g.fontColor = [SKColor yellowColor];
+    SKLabelNode *h = [SKLabelNode labelNodeWithFontNamed:@"NasalizationRg-Regular"];
+    h.fontSize = 20;
+    h.fontColor = [SKColor yellowColor];
+    SKLabelNode *i = [SKLabelNode labelNodeWithFontNamed:@"NasalizationRg-Regular"];
+    i.fontSize = 16;
+    i.fontColor = [SKColor yellowColor];
+    SKLabelNode *j = [SKLabelNode labelNodeWithFontNamed:@"NasalizationRg-Regular"];
+    j.fontSize = 20;
+    j.fontColor = [SKColor yellowColor];
+    SKLabelNode *k = [SKLabelNode labelNodeWithFontNamed:@"NasalizationRg-Regular"];
+    k.fontSize = 16;
+    k.fontColor = [SKColor yellowColor];
     
     NSString *st1 = @"Created by:";
-    NSString *st2 = @"Alonso Leon";
-    NSString *st3 = @"Allen Hsia";
+    NSString *st2 = @"Breton Goers";
+    NSString *st3 = @"Alonso Durazo Leon";
     NSString *st4 = @"Jeff Morgan";
     NSString *st5 = @"Katie Hayes";
     NSString *st6 = @"Greggory Scherer";
-    NSString *st7 = @"Breton Goers";
+    NSString *st7 = @"Allen Hsia";
+    NSString *st8 = @"Music By:";
+    NSString *st9 = @"Sergio TL";
+    NSString *st10 = @"Special Thanks:";
+    NSString *st11 = @"Elissa Thomas";
     
     b.position = CGPointMake(b.position.x, b.position.y - 20);
     c.position = CGPointMake(c.position.x, b.position.y - 20);
@@ -109,6 +125,10 @@
     e.position = CGPointMake(e.position.x, d.position.y - 20);
     f.position = CGPointMake(f.position.x, e.position.y - 20);
     g.position = CGPointMake(g.position.x, f.position.y - 20);
+    h.position = CGPointMake(h.position.x, g.position.y - 50);
+    i.position = CGPointMake(i.position.x, h.position.y - 20);
+    j.position = CGPointMake(j.position.x, i.position.y - 50);
+    k.position = CGPointMake(k.position.x, j.position.y - 20);
     
     a.text = st1;
     b.text = st2;
@@ -117,6 +137,10 @@
     e.text = st5;
     f.text = st6;
     g.text = st7;
+    h.text = st8;
+    i.text = st9;
+    j.text = st10;
+    k.text = st11;
     
     [textNode addChild:a];
     [textNode addChild:b];
@@ -125,6 +149,10 @@
     [textNode addChild:e];
     [textNode addChild:f];
     [textNode addChild:g];
+    [textNode addChild:h];
+    [textNode addChild:i];
+    [textNode addChild:j];
+    [textNode addChild:k];
     
     textNode.position = CGPointMake(CGRectGetMidX(self.frame), a.position.y);
     return textNode;
@@ -138,7 +166,7 @@
     lastTime = currentTime;
     
     SKNode *textNode = [self childNodeWithName:@"textNode"];
-    if (textNode.position.y >= self.frame.size.height/2) return;
+    if (textNode.position.y >= (self.frame.size.height/2)+70) return;
     
     CGPoint pos = textNode.position;
     CGFloat perSec = (self.frame.size.height/2) / 10.0f;
